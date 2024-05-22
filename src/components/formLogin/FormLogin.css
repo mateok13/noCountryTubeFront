@@ -1,24 +1,24 @@
 .containerLogin {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100%;
 }
 
 .formLogin {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 20px;
+    width: 50vh;
+    gap: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 50vh;
-    padding: 50px;
+    padding: 30px;
 }
 
 .inputLogin {
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -35,4 +35,10 @@
 
 .buttonLogin:hover {
     background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+    .formLogin{
+        width: 40vh;
+    }
 }
