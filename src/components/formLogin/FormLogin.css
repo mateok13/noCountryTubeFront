@@ -10,17 +10,19 @@
 .formLogin {
     display: flex;
     flex-direction: column;
-    width: 50vh;
-    gap: 20px;
+    width: 70vh;
+    gap: 30px;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 30px;
+    position: relative;
 }
 
 .inputLogin {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    position: relative;
 }
 
 .buttonLogin {
@@ -35,6 +37,21 @@
 
 .buttonLogin:hover {
     background-color: #0056b3;
+}
+
+.alertLogin {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.alertUserNameLogin{
+    top: 85px;
+}
+
+.alertPasswordLogin{
+    top: 166px;
 }
 
 @media screen and (max-width: 768px) {
