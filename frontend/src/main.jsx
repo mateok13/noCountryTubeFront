@@ -5,11 +5,17 @@ import Login from './pages/login/Login.jsx'
 import Register from './pages/register/Register.jsx'
 import App from './App.jsx'
 import './index.css'
+import UploadVideo from './pages/uploadVideo/UploadVideo.jsx';
+import Home from './pages/home/Home.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+  },
+  {
+    path: '/home',
+    element: <Home />,
   },
   {
     path: '/login',
@@ -18,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register />,
+  },
+  {
+    path: '/upload-video',
+    element: <UploadVideo />,
   },
 ]);
 

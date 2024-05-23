@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "title": "Proyecto con React: To-Do List App",
+        "description": "Aprende a desarrollar una aplicación de lista de tareas usando React.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example22",
+        "tags": "react, proyecto, to-do list",
+        "category": "Educación",
+        "comments": "on"
+    },
+    {
+        "id": 2,
+        "title": "Desarrollando un Blog con React y Firebase",
+        "description": "Tutorial paso a paso para crear un blog utilizando React y Firebase.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example23",
+        "tags": "react, firebase, blog",
+        "category": "Tecnología",
+        "comments": "on"
+    },
+    {
+        "id": 3,
+        "title": "Proyecto Python: Sistema de Gestión de Biblioteca",
+        "description": "Construye un sistema de gestión de biblioteca utilizando Python y SQLite.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example24",
+        "tags": "python, proyecto, biblioteca",
+        "category": "Programación",
+        "comments": "on"
+    },
+    {
+        "id": 4,
+        "title": "Desarrollando un Chatbot con Python",
+        "description": "Crea un chatbot interactivo usando Python y la biblioteca ChatterBot.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example25",
+        "tags": "python, proyecto, chatbot",
+        "category": "Educación",
+        "comments": "on"
+    },
+    {
+        "id": 5,
+        "title": "Proyecto Django: Aplicación de Blog",
+        "description": "Aprende a desarrollar una aplicación de blog completa usando Django.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example26",
+        "tags": "django, python, blog",
+        "category": "Tecnología",
+        "comments": "on"
+    },
+    {
+        "id": 6,
+        "title": "Java: Sistema de Gestión de Estudiantes",
+        "description": "Desarrolla un sistema de gestión de estudiantes utilizando Java y MySQL.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example27",
+        "tags": "java, proyecto, estudiantes",
+        "category": "Programación",
+        "comments": "on"
+    },
+    {
+        "id": 7,
+        "title": "Proyecto Java: Aplicación de Notas",
+        "description": "Crea una aplicación de notas utilizando Java y JavaFX.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example28",
+        "tags": "java, proyecto, notas",
+        "category": "Educación",
+        "comments": "on"
+    },
+    {
+        "id": 8,
+        "title": "Proyecto React: Aplicación de Clima",
+        "description": "Desarrolla una aplicación del clima en tiempo real utilizando React y API de OpenWeather.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example29",
+        "tags": "react, proyecto, clima",
+        "category": "Tecnología",
+        "comments": "on"
+    },
+    {
+        "id": 9,
+        "title": "Desarrollando un E-commerce con React y Node.js",
+        "description": "Crea una tienda en línea completa utilizando React para el frontend y Node.js para el backend.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example30",
+        "tags": "react, node.js, e-commerce",
+        "category": "Programación",
+        "comments": "on"
+    },
+    {
+        "id": 10,
+        "title": "Proyecto Python: Sistema de Inventario",
+        "description": "Desarrolla un sistema de inventario utilizando Python y la biblioteca Tkinter.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example31",
+        "tags": "python, proyecto, inventario",
+        "category": "Educación",
+        "comments": "on"
+    },
+    {
+        "id": 11,
+        "title": "Automatización Web con Python y Selenium",
+        "description": "Aprende a automatizar tareas web utilizando Python y Selenium.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example32",
+        "tags": "python, selenium, automatización",
+        "category": "Tecnología",
+        "comments": "on"
+    },
+    {
+        "id": 12,
+        "title": "Java: Proyecto de Aplicación Bancaria",
+        "description": "Construye una aplicación bancaria con funcionalidades básicas utilizando Java.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example33",
+        "tags": "java, proyecto, banco",
+        "category": "Programación",
+        "comments": "on"
+    },
+    {
+        "id": 13,
+        "title": "Proyecto Django: Sistema de Reservas",
+        "description": "Desarrolla un sistema de reservas utilizando Django y PostgreSQL.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example34",
+        "tags": "django, python, reservas",
+        "category": "Educación",
+        "comments": "on"
+    },
+    {
+        "id": 14,
+        "title": "React y Firebase: Aplicación de Chat en Tiempo Real",
+        "description": "Crea una aplicación de chat en tiempo real utilizando React y Firebase.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example35",
+        "tags": "react, firebase, chat",
+        "category": "Tecnología",
+        "comments": "on"
+    },
+    {
+        "id": 15,
+        "title": "Proyecto Python: Análisis de Datos con Pandas",
+        "description": "Realiza un análisis de datos exploratorio utilizando Python y la biblioteca Pandas.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example36",
+        "tags": "python, pandas, análisis de datos",
+        "category": "Programación",
+        "comments": "on"
+    },
+    {
+        "id": 16,
+        "title": "Java: Desarrollo de un Juego de Ajedrez",
+        "description": "Aprende a desarrollar un juego de ajedrez utilizando Java y JavaFX.",
+        "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+        "video": "https://www.youtube.com/watch?v=example37",
+        "tags": "java, proyecto, juego de ajedrez",
+        "category": "Educación",
+        "comments": "on"
+    }
+]

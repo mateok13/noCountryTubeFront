@@ -1,0 +1,10 @@
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-width{
+    max-width:400px;
+    width: 90%;
+}
