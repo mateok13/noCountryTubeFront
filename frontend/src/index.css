@@ -4,9 +4,6 @@
     font-family: 'Oswald', sans-serif;
 }
 
-.logo{
-    font-size: 34px;
-    font-weight: bold;
-    margin: 0;
-    padding: 20px;
+.logoNoCountry{
+    margin: 20px;
 }

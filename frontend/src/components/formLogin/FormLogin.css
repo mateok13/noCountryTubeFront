@@ -11,31 +11,52 @@
     flex-direction: column;
     width: 70vh;
     gap: 30px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
     padding: 30px;
     position: relative;
 }
 
 .inputLogin {
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
     position: relative;
+    background-color: #0e386a;
+    color: #fff;
+}
+
+.inputLogin:hover{
+    border: 2px solid #09fca7;
+    border-radius: 5px;
 }
 
 .buttonLogin {
     padding: 10px;
-    border: none;
+    border: 2px solid #09fca7;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #06071b;
     color: #fff;
     cursor: pointer;
     text-transform: uppercase;
 }
 
 .buttonLogin:hover {
-    background-color: #0056b3;
+    background-color: #09fca7;
+    color: #000000;
+    font-weight: bold;
+}
+
+.hyperLinkContainer{
+    display: flex;
+    gap: 10px;
+    color: #fff;
+}
+
+.hyperLink{
+    color: #fff;
+}
+
+.hyperLink:hover{
+    color: #09fca7;
 }
 
 .alertLogin {
@@ -46,11 +67,11 @@
 }
 
 .alertUserNameLogin{
-    top: 85px;
+    top: 92px;
 }
 
 .alertPasswordLogin{
-    top: 166px;
+    top: 180px;
 }
 
 @media screen and (max-width: 768px) {

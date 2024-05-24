@@ -1,9 +1,10 @@
 import { useState, forwardRef } from 'react';
 import DatePicker from "react-datepicker";
 import InputMask from 'react-input-mask';
+import useFormRegister from '../../hooks/useFormRegister';
+import images from '../../assets/image/image'
 import "react-datepicker/dist/react-datepicker.css";
 import './FormRegister.css';
-import useFormRegister from '../../hooks/useFormRegister';
 
 function FormRegister() {
     const [dateDatePicker, setDateDatePicker] = useState(null);
@@ -29,7 +30,7 @@ function FormRegister() {
 
     return (
         <div className='containerRegister'>
-            <p className='logo'>No Country Tube</p>
+            <img className='logoNoCountry' src={images.LogoNoCountryTube} />
             <form className='formRegister' onSubmit={handleSubmit}>
                 <input className='inputRegister' type="text" placeholder='First name' id='firstName' name='firstName' />
                 {mistakes.firstName && <span className='alertRegister alertFirstNameRegister'>{mistakes.firstName}</span>}

@@ -1,13 +1,20 @@
-import { Link } from 'react-router-dom';
 import useFormLogin from '../../hooks/useFormLogin';
-import './FormLogin.css'
+import images from '../../assets/image/image'
+import './FormLogin.css';
 
-function FormLogin() {
+// eslint-disable-next-line react/prop-types
+function FormLogin({ closeModalLogin, openRegisterModal }) {
     const { mistakes, handleSubmit } = useFormLogin();
+
+    const openModalRegister = () => {
+        console.log('Opening modal register');
+        closeModalLogin();
+        openRegisterModal();
+    };
 
     return (
         <div className='containerLogin'>
-            <p className='logo'>No Country Tube</p>
+            <img className='logoNoCountry' src={images.LogoNoCountryTube} />
             <form className='formLogin' onSubmit={handleSubmit}>
                 <input className='inputLogin' type="text" placeholder='User name' id='userName' name='userName' />
                 {mistakes.userName && <span className='alertLogin alertUserNameLogin'>{mistakes.userName}</span>}
@@ -15,12 +22,15 @@ function FormLogin() {
                 {mistakes.password && <span className='alertLogin alertPasswordLogin'>{mistakes.password}</span>}
 
                 <button className='buttonLogin' type='submit'>Iniciar sesión</button>
-                <div>
-                    <Link to="/register">No tienes cuenta? Regístrate aquí</Link>
+                <div className='hyperLinkContainer'>
+                    <p>No tienes cuenta? </p>
+                    <a className='hyperLink' href="#" onClick={openModalRegister}>
+                        Regístrate aquí
+                    </a>
                 </div>
             </form>
         </div>
-    )
+    );
 }
 
-export default FormLogin
+export default FormLogin;

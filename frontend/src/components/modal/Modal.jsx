@@ -1,14 +1,16 @@
 import './Modal.css';
 
+// eslint-disable-next-line react/prop-types
 const Modal = ({ children, isOpen, closeModal }) => {
+  console.log('Modal render', { isOpen });
   if (!isOpen) return null;
 
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="modalContainer">
+      <div className="modalContent">
         {children}
       </div>
-      <div className="modal-overlay" onClick={closeModal}></div>
+      <div className="modalOverlay" onClick={closeModal}></div>
     </div>
   );
 };
