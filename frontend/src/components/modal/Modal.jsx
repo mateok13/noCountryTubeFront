@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import './Modal.css';
 
-// eslint-disable-next-line react/prop-types
 const Modal = ({ children, isOpen, closeModal }) => {
   console.log('Modal render', { isOpen });
   if (!isOpen) return null;
@@ -13,6 +13,12 @@ const Modal = ({ children, isOpen, closeModal }) => {
       <div className="modalOverlay" onClick={closeModal}></div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  children: PropTypes.node,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
 
 export default Modal;

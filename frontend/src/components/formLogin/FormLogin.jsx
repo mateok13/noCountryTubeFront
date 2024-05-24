@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types'
 import useFormLogin from '../../hooks/useFormLogin';
 import images from '../../assets/image/image'
 import './FormLogin.css';
 
-// eslint-disable-next-line react/prop-types
 function FormLogin({ closeModalLogin, openRegisterModal }) {
     const { mistakes, handleSubmit } = useFormLogin();
 
@@ -32,5 +32,10 @@ function FormLogin({ closeModalLogin, openRegisterModal }) {
         </div>
     );
 }
+
+FormLogin.propTypes = {
+    closeModalLogin: PropTypes.func.isRequired,
+    openRegisterModal: PropTypes.func.isRequired,
+};
 
 export default FormLogin;
