@@ -1,8 +1,8 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 import './VideoCard.css'
 
 const VideoCard = ({ item }) => {
-    const { title, description, thumbnail, video } = item
+    const { title, description, thumbnail } = item
     return (
         <div className='card card-width'>
             <img src={thumbnail} className="card-img-top" alt="Imagen de ejemplo" />
@@ -13,5 +13,13 @@ const VideoCard = ({ item }) => {
         </div>
     )
 }
+
+VideoCard.propTypes = {
+    item: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        thumbnail: PropTypes.string.isRequired
+    }).isRequired,
+};
 
 export default VideoCard

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
 import VideoCard from './VideoCard'
 import ejemploListadoVideos from './ejemploListadoVideos.json'
 
 const ListVideos = () => {
-    const [listVideos, setListVideos] = useState(ejemploListadoVideos)
+    // const [listVideos, setListVideos] = useState(ejemploListadoVideos)
+    const listVideos = ejemploListadoVideos
+
     return (
         <>
             <h4 className='text-center my-4'>List Videos</h4>
