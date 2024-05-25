@@ -1,22 +1,20 @@
-import VideoCard from './VideoCard'
-import ejemploListadoVideos from './ejemploListadoVideos.json'
+import VideoCard from "./VideoCard";
+import ejemploListadoVideos from "./ejemploListadoVideos.json";
 
 const ListVideos = () => {
-    // const [listVideos, setListVideos] = useState(ejemploListadoVideos)
-    const listVideos = ejemploListadoVideos
+  // const [listVideos, setListVideos] = useState(ejemploListadoVideos)
+  const listVideos = ejemploListadoVideos;
 
-    return (
-        <>
-            <h4 className='text-center my-4'>List Videos</h4>
-            <div className='container d-flex justify-content-center align-items-start flex-wrap gap-4 min-vh-100'>
-                {
-                    listVideos.map(item => (
-                        <VideoCard key={item.id} item={item} />
-                    ))
-                }
-            </div>
-        </>
-    )
-}
+  return (
+    <>
+      <h4 className="text-center my-4">List Videos</h4>
+      <div className="container d-flex justify-content-center align-items-start flex-wrap gap-4 min-vh-100">
+        {listVideos.map((item) => (
+          <VideoCard key={item.id} item={item} />
+        ))}
+      </div>
+    </>
+  );
+};
 
-export default ListVideos
+export default ListVideos;
