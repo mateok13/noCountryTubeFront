@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .formRegister {
@@ -57,8 +56,9 @@
     margin-left: 10px;
     font-size: 32px;
     cursor: pointer;
-    background: none;
-    border: none;
+    border: 2px solid #09fca7;
+    border-radius: 5px;
+    background-color: #06071b;
 }
 
 .buttonPicker:hover{

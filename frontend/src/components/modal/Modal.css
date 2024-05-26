@@ -18,6 +18,9 @@
   border-radius: 10px;
   width: 500px;
   max-width: 80%;
+  max-height: 80%; 
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 1001;
 }
 
@@ -29,4 +32,23 @@
   height: 100%;
   cursor: pointer;
   z-index: 1000;
+}
+
+.modalContent::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: #2c2f3f;
+  border-radius: 10px;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: #09fca7;
+  border-radius: 10px;
+  border: 3px solid #2c2f3f;
+}
+
+.modalContent::-webkit-scrollbar-thumb:hover {
+  background: #06c5a1;
 }
