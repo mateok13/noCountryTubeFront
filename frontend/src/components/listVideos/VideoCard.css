@@ -8,3 +8,10 @@
     max-width:350px;
     width: 90%;
 }
+
+.span-duration{
+    font-size: 13.5px;
+    background-color: #000000a9;
+    min-width: 50px;
+    box-shadow: 0 0 5px #ffffffb0;
+}
