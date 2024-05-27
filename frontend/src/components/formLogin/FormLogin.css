@@ -19,7 +19,7 @@
     border: 2px solid #ccc;
     border-radius: 5px;
     position: relative;
-    background-color: #0e386a;
+    background: radial-gradient(circle, #072746 29%, #06071B 100%);
     color: #fff;
 }
 

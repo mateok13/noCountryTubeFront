@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useState, forwardRef } from 'react';
 import DatePicker from "react-datepicker";
 import InputMask from 'react-input-mask';
@@ -11,7 +12,6 @@ function FormRegister() {
     const [date, setDate] = useState('');
     const { mistakes, handleSubmit } = useFormRegister();
 
-    // eslint-disable-next-line react/prop-types
     const ButtonDate = forwardRef(function CustomInput({ onClick }, ref) {
         return (
             <button className='buttonPicker' type="button" onClick={onClick} ref={ref}>📅</button>
@@ -38,8 +38,9 @@ function FormRegister() {
                 {mistakes.email && <span className='alertRegister alertEmailRegister'>{mistakes.email}</span>}
                 <input className='inputRegister' type="text" placeholder='User name' id='userName' name='userName' />
                 {mistakes.userName && <span className='alertRegister alertUsernameRegister'>{mistakes.userName}</span>}
-
-                <div className='tooltipPasswordContainer'>
+                <input className='inputRegister' type="password" placeholder='Password' id='password' name='password' />
+                {mistakes.password && <span className='alertRegister alertPasswordRegister'>{mistakes.password}</span>}
+                {/* <div className='tooltipPasswordContainer'>
                     <input className='inputRegister' type="password" placeholder='Password' id='password' name='password' />
                     {mistakes.password && <span className='alertRegister alertPasswordRegister'>{mistakes.password}</span>}
                     <span className="tooltipPassword">
@@ -51,7 +52,7 @@ function FormRegister() {
                             <li>Una longitud mínima de 8 caracteres.</li>
                         </ul>
                     </span>
-                </div>
+                </div> */}
 
                 <input className='inputRegister' type="password" placeholder='Confirm password' id='confirmPassword' name='confirmPassword' />
                 {mistakes.confirmPassword && <span className='alertRegister alertConfirmPasswordRegister'>{mistakes.confirmPassword}</span>}
@@ -68,6 +69,8 @@ function FormRegister() {
                         selected={dateDatePicker}
                         onChange={handleDateChange}
                         customInput={<ButtonDate />}
+                        popperPlacement="bottom-start"
+                        popperClassName="customDatePickerPopper"
                     />
                 </div>
                 {mistakes.birthDate && <span className='alertRegister alertBirthDateRegister'>{mistakes.birthDate}</span>}
@@ -77,5 +80,9 @@ function FormRegister() {
         </div>
     );
 }
+
+FormRegister.propTypes = {
+    onClick: PropTypes.func.isRequired,
+};
 
 export default FormRegister;

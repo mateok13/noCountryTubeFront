@@ -6,7 +6,7 @@ const useFormRegister = () => {
     const regexTextOnly = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+(\s[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+)*$/;
     const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
     const regexUserName = /^[A-Za-z0-9]+$/;
-    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     const regexFecha = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 
     const validateFields = (form) => {
@@ -32,8 +32,8 @@ const useFormRegister = () => {
 
         if (!form.password.trim()) {
             mistakes.password = 'The password field must not be empty, enter your password';
-        } else if (!regexPassword.test(form.password)) {
-            mistakes.password = 'The password has an invalid format';
+        } else if (!regexUserName.test(form.password)) {
+            mistakes.password = 'The password can only contain letters and numbers';
         }
 
         if (!form.confirmPassword.trim()) {
@@ -65,7 +65,7 @@ const useFormRegister = () => {
         const mistake = validateFields(formData);
         setMistakes(mistake);
 
-        return formData; // Devuelve los datos del formulario
+        return formData;
     };
 
     return {
