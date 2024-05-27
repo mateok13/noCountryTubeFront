@@ -4,7 +4,7 @@ import VideoThumbnail from "react-video-thumbnail";
 import "./FormVideo.css";
 
 const formValues = {
-  author: 'username',
+  username: 'username',
   title: '',
   description: '',
   thumbnail: '',

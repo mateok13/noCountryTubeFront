@@ -1,4 +1,5 @@
-import VideoCard from "./VideoCard";
+
+import VideoCard from "../videoCard/VideoCard";
 import ejemploListadoVideos from "./ejemploListadoVideos.json";
 
 const ListVideos = () => {

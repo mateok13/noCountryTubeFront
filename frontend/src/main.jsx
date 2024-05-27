@@ -5,6 +5,8 @@ import App from './App.jsx'
 import './index.css'
 import UploadVideo from './pages/uploadVideo/UploadVideo.jsx';
 import Home from './pages/home/Home.jsx';
+import ListVideosByUser from './pages/listVideosByUser/ListVideosByUser.jsx';
+import NotFound from './pages/notFoundPage/NotFoundPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
   {
     path: '/upload-video',
     element: <UploadVideo />,
+  },
+  {
+    path: '/list-videos/:username',
+    element: <ListVideosByUser />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 

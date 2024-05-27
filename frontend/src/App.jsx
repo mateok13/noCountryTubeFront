@@ -41,7 +41,7 @@ function App() {
 
       <button onClick={openModalLogin}>Login</button>
       <Modal isOpen={isModalLoginOpen} closeModal={closeModalLogin}>
-        <LoginForm closeModalLogin={closeModalLogin} openRegisterModal={openModalRegister}/>
+        <LoginForm closeModalLogin={closeModalLogin} openRegisterModal={openModalRegister} />
       </Modal>
       <Modal isOpen={isModalRegisterOpen} closeModal={closeModalRegister}>
         <RegisterForm />
