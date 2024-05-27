@@ -3,6 +3,9 @@ import { useState } from 'react';
 const useFormRegister = () => {
     const [mistakes, setMistakes] = useState({});
 
+    const [dateDatePicker, setDateDatePicker] = useState(null);
+    const [date, setDate] = useState('');
+
     const regexTextOnly = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+(\s[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+)*$/;
     const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
     const regexUserName = /^[A-Za-z0-9]+$/;
@@ -52,6 +55,16 @@ const useFormRegister = () => {
         return mistakes;
     };
 
+    const handleDateChange = (date) => {
+        setDateDatePicker(date);
+        if (date) {
+            const formatted = `${('0' + date.getDate()).slice(-2)}/${('0' + (date.getMonth() + 1)).slice(-2)}/${date.getFullYear()}`;
+            setDate(formatted);
+        } else {
+            setDate('');
+        }
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -70,7 +83,11 @@ const useFormRegister = () => {
 
     return {
         mistakes,
-        handleSubmit
+        handleSubmit,
+        handleDateChange,
+        dateDatePicker,
+        date,
+        setDate 
     };
 };
 

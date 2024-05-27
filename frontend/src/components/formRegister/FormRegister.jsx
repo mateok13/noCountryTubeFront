@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useState, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import DatePicker from "react-datepicker";
 import InputMask from 'react-input-mask';
 import useFormRegister from '../../hooks/useFormRegister';
@@ -8,25 +8,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import './FormRegister.css';
 
 function FormRegister() {
-    const [dateDatePicker, setDateDatePicker] = useState(null);
-    const [date, setDate] = useState('');
-    const { mistakes, handleSubmit } = useFormRegister();
+    const { mistakes, handleSubmit, handleDateChange, dateDatePicker, date, setDate } = useFormRegister();
 
     const ButtonDate = forwardRef(function CustomInput({ onClick }, ref) {
         return (
             <button className='buttonPicker' type="button" onClick={onClick} ref={ref}>📅</button>
         );
     });
-
-    const handleDateChange = (date) => {
-        setDateDatePicker(date);
-        if (date) {
-            const formatted = `${('0' + date.getDate()).slice(-2)}/${('0' + (date.getMonth() + 1)).slice(-2)}/${date.getFullYear()}`;
-            setDate(formatted);
-        } else {
-            setDate('');
-        }
-    };
 
     return (
         <div className='containerRegister'>

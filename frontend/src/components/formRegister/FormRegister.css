@@ -143,4 +143,16 @@
     .customDatePickerPopper {
         margin-left: 20px;
     }
+
+    .buttonRegister {
+        background-color: #09fca7;
+        color: #000000;
+        font-weight: bold;
+    }
+
+    .buttonPicker {
+        background-color: #09fca7;
+    }
+
+    
 }
