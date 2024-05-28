@@ -7,6 +7,7 @@ import UploadVideo from './pages/uploadVideo/UploadVideo.jsx';
 import Home from './pages/home/Home.jsx';
 import ListVideosByUser from './pages/listVideosByUser/ListVideosByUser.jsx';
 import NotFound from './pages/notFoundPage/NotFoundPage.jsx';
+import WatchVideo from './pages/watchVideo/WatchVideo.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/list-videos/:username',
     element: <ListVideosByUser />,
+  },
+  {
+    path: '/watch-video/:videoId',
+    element: <WatchVideo />,
   },
   {
     path: '*',

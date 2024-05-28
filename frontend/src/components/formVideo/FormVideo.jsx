@@ -8,13 +8,13 @@ const formValues = {
   title: '',
   description: '',
   thumbnail: '',
-  video: '',
+  video: '', // archivo
   duration: '',
-  comments: 'on',
+  comments: true,
   views: 0,
   likes: 0,
   dislikes: 0,
-};
+}
 
 const FormVideo = () => {
   const [formData, setFormData] = useState(formValues)
@@ -43,7 +43,7 @@ const FormVideo = () => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value,
+      [name]: name === "comments" ? value === "true" : value,
     }));
   };
 
@@ -64,21 +64,11 @@ const FormVideo = () => {
   }, [formData.video]);
 
   const formatVideoDuration = (duration) => {
-    let formattedDuration;
-    if (duration > 3599) {
-      const hours = Math.floor(duration / 3600); // horas:minutos:segundos
-      const minutes = Math.floor((duration % 3600) / 60);
-      const seconds = Math.round(duration % 60);
-      formattedDuration = `${hours}:${minutes}:${seconds}`;
-    } else if (duration > 59) {
-      const minutes = Math.floor(duration / 60); // minutos:segundos
-      const seconds = Math.round(duration % 60);
-      formattedDuration = `${minutes}:${seconds}`;
-    } else {
-      formattedDuration = '0:' + Math.round(duration); // 0:segundos
-    }
-    return formattedDuration;
-  };
+    const hours = Math.floor(duration / 3600);
+    const minutes = Math.floor((duration % 3600) / 60);
+    const seconds = Math.round(duration % 60);
+    return duration > 3599 ? `${hours}:${minutes}:${seconds}` : duration > 59 ? `${minutes}:${seconds}` : `0:${seconds}`;
+  }
 
   const handleImageFileChange = (e) => {
     const file = e.target.files[0]
@@ -110,7 +100,7 @@ const FormVideo = () => {
   };
 
   return (
-    <form className="form-control shadow p-4" onSubmit={handleSubmit}>
+    <form className="form form-control shadow p-4" onSubmit={handleSubmit}>
       <div>
         <h4>Información General</h4>
         <input className="form-control" type="text" placeholder="Título" id="title" name="title" onChange={handleChange} value={formData.title} required autoFocus />
@@ -125,12 +115,19 @@ const FormVideo = () => {
         <div className="d-flex justify-content-between mt-2 overflow-hidden flex-wrap">
           {/* INPUT FILE SUBIR MINIATURA */}
           <div className="mb-1">
-            <label htmlFor="file" className="label-file text-center text-white px-4 py-2 rounded cursor-pointer">Subir Miniatura</label>
+            <label htmlFor="file" className="label-file text-center px-4 py-2 rounded cursor-pointer">Subir Miniatura</label>
             <input type="file" id="file" className="input-file" accept="image/*" onChange={handleImageFileChange} />
           </div>
           {thumbnails.map((item, index) => (
-            <div key={index} className="cursor-pointer">
+            <div key={index} className="cursor-pointer rounded thumbnail-border">
+
+
+
+              {/* BORRAR EL WIDTH AQUI, CORREGIR EL HEIGHT POR SI SE SUBE UN VIDEO SHORT, COLOCAR OBJECT-FIT */}
               <img className="rounded" width={130} height={74} src={item} alt={`Thumbnail ${index + 1}`} onClick={() => handleSelectThumbnail(item)} />
+
+
+
             </div>
           ))}
         </div>
@@ -138,7 +135,7 @@ const FormVideo = () => {
         {selectedThumbnail && (
           <div className="mt-2">
             <p className="mb-1">Miniatura seleccionada</p>
-            <img className="object-fit rounded border shadow bg-dark" width={150} height={84} src={selectedThumbnail} alt="Selected Thumbnail" />
+            <img className="object-fit rounded bg-dark thumbnail-border" width={150} height={84} src={selectedThumbnail} alt="Selected Thumbnail" />
           </div>
         )}
       </div>
@@ -149,11 +146,11 @@ const FormVideo = () => {
           <label>Comentarios</label>
           <div className="d-flex gap-3">
             <div>
-              <input id="comments-on" type="radio" name="comments" value="on" onChange={handleChange} checked={formData.comments === "on"} />
+              <input className="me-1 cursor-pointer" id="comments-on" type="radio" name="comments" value="true" onChange={handleChange} checked={formData.comments === true} />
               <label htmlFor="comments-on">On</label>
             </div>
             <div>
-              <input id="comments-off" type="radio" name="comments" value="off" onChange={handleChange} checked={formData.comments === "off"} />
+              <input className="me-1 cursor-pointer" id="comments-off" type="radio" name="comments" value="false" onChange={handleChange} checked={formData.comments === false} />
               <label htmlFor="comments-off">Off</label>
             </div>
           </div>

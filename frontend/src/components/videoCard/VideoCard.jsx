@@ -1,20 +1,22 @@
 import PropTypes from "prop-types";
 import "./VideoCard.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const VideoCard = ({ item }) => {
-  const { title, username, thumbnail, views, duration } = item;
+  const { id, title, username, thumbnail, views, duration } = item;
+  const navigate = useNavigate()
 
   return (
     <div className="card card-width card-border">
-      <div className="position-relative">
+      <div className="position-relative cursor-pointer" onClick={() => navigate(`/watch-video/${id}`)}>
+        {/* <video src=""></video> */}
         <img src={thumbnail} className="card-img-top" alt="Imagen de ejemplo" />
         <span className="position-absolute end-0 bottom-0 z-3 text-white text-center rounded-1 px-1 m-2 span-duration">{duration}</span>
       </div>
       <div className="card-body pb-0">
         <h5 className="card-title text-ellipsis">{title}</h5>
         <div className="d-flex justify-content-between">
-          <Link className="card-text text-ellipsis text-decoration-none" to={`/list-videos/${username}`}>{username}</Link>
+          <p className="card-text text-ellipsis text-primary cursor-pointer" onClick={() => navigate(`/list-videos/${username}`)}>{username}</p>
           <p>{views} Visualizaciones</p>
         </div>
       </div>
