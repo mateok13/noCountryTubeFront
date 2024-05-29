@@ -2,7 +2,7 @@
 import VideoCard from "../videoCard/VideoCard";
 import ejemploListadoVideos from "./ejemploListadoVideos.json";
 
-const ListVideos = () => {
+const ListAllVideos = () => {
   // const [listVideos, setListVideos] = useState(ejemploListadoVideos)
   const listVideos = ejemploListadoVideos;
 
@@ -18,4 +18,4 @@ const ListVideos = () => {
   );
 };
 
-export default ListVideos;
+export default ListAllVideos;

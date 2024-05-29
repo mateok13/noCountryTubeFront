@@ -1,4 +1,4 @@
-import ListVideos from "../../components/listVideos/ListVideos";
+import ListVideos from "../../components/listAllVideos/ListAllVideos";
 
 function Home() {
 

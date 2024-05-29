@@ -9,18 +9,20 @@
 /* input,
 textarea {
   border: 2px solid #09fca7 !important;
-}
+} */
 
 .thumbnail-border {
-  box-shadow: 0 0 8px #09fca7;
+  /* box-shadow: 0 0 8px #09fca7; */
   width: 130px;
   height: 74px;
-  border: 2px solid #09fca7;
+  /* border: 2px solid #09fca7; */
+  object-fit: cover;
+  object-position: top;
 }
 
-.thumbnail-border img{
+.thumbnail-border img {
   width: 100%;
-} */
+}
 
 /* INPUT FILE SUBIR MINIATURA */
 .input-file {
