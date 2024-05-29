@@ -14,6 +14,12 @@
     position: relative;
 }
 
+.inputContentLogin{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
 .inputLogin {
     padding: 15px;
     border: 2px solid #ccc;
@@ -63,14 +69,7 @@
     font-size: 12px;
     position: absolute;
     white-space: nowrap;
-}
-
-.alertUserNameLogin{
-    top: 92px;
-}
-
-.alertPasswordLogin{
-    top: 180px;
+    top: 60px;
 }
 
 @media screen and (max-width: 768px) {
