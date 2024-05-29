@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { environment } from '../hooks/environment'
 
 const useFormRegister = () => {
     const [mistakes, setMistakes] = useState({});
@@ -32,6 +33,22 @@ const useFormRegister = () => {
 
         const mistake = validateFields(formData);
         setMistakes(mistake);
+
+        if (Object.keys(mistakes).length === 0) {
+            const url = environment.url;
+
+            fetch(url, {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                })
+        }
     }
 
     return {

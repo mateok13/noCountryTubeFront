@@ -14,6 +14,12 @@
     position: relative;
 }
 
+.inputContentRegister{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
 .inputRegister {
     padding: 15px;
     border: 2px solid #ccc;
@@ -103,30 +109,7 @@
     font-size: 12px;
     position: absolute;
     white-space: nowrap;
-}
-
-.alertFirstNameRegister {
-    top: 90px;
-}
-
-.alertEmailRegister {
-    top: 180px;
-}
-
-.alertUsernameRegister {
-    top: 270px;
-}
-
-.alertPasswordRegister {
-    top: 355px;
-}
-
-.alertConfirmPasswordRegister {
-    top: 445px;
-}
-
-.alertBirthDateRegister{
-    top: 530px;
+    top: 60px;
 }
 
 @media screen and (max-width: 768px) {
