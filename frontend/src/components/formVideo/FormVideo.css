@@ -1,36 +1,55 @@
 .resize-none {
-    resize: none;
+  resize: none;
 }
 
-.cursor-pointer{
-    cursor: pointer;
+.cursor-pointer {
+  cursor: pointer;
 }
 
-/* INPUT FILE PERSONALIZADO */
+/* input,
+textarea {
+  border: 2px solid #09fca7 !important;
+} */
+
+.thumbnail-border {
+  /* box-shadow: 0 0 8px #09fca7; */
+  width: 130px;
+  height: 74px;
+  /* border: 2px solid #09fca7; */
+  object-fit: cover;
+  object-position: top;
+}
+
+.thumbnail-border img {
+  width: 100%;
+}
+
+/* INPUT FILE SUBIR MINIATURA */
 .input-file {
-    opacity: 0;
-    width: 0.1px;
-    height: 0.1px;
-    position: absolute;
-    z-index: -1;
-  }
-  
-  .label-file {
-    width: 130px;
-    height: 74px;
-    font-size: .9rem;
-    background-color: #4ba7a7f6;
-    display: flex;
-    align-items: center;
-    transition: all 300ms ease;
-  }
-  
-  .label-file:hover {
-    background-color: #3f8787;
-    text-shadow: 0 0 7px #fff;
-  }
-  
-  .object-fit{
-    object-fit: cover;
-    object-position: top;
-  }
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+  z-index: -1;
+}
+
+.label-file {
+  width: 130px;
+  height: 74px;
+  font-size: .9rem;
+  color: #06071b;
+  /* text-shadow: 0 0 5px #000, 0 0 2px #000, 0 0 1px #fff; */
+  background-color: #09fca7;
+  display: flex;
+  align-items: center;
+  transition: all 300ms ease;
+}
+
+.label-file:hover {
+  background-color: #00ca83;
+}
+
+.object-fit {
+  object-fit: cover;
+  object-position: top;
+}

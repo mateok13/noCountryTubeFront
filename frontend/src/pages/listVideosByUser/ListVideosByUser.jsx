@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom"
+import UserVideos from "../../components/userVideos/UserVideos"
 
 const ListVideosByUser = () => {
     const { username } = useParams()
 
     return (
-        <div>Pagina ListVideosByUser - Usuario: {username}</div>
+        <UserVideos username={username} />
     )
 }
 
