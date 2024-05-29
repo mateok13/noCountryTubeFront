@@ -15,7 +15,7 @@ const SideBar = () => {
       <ul>
         {recommendations.map((item, index) => (
           <li key={index}>
-            <img src={item.imgSrc} alt={item.name} />
+            <img className="imgChannels" src={item.imgSrc} alt={item.name} />
             {item.name}
           </li>
         ))}
