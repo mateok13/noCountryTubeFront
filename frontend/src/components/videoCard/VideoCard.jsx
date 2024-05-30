@@ -17,7 +17,7 @@ const VideoCard = ({ item }) => {
         <h5 className="card-title text-ellipsis">{title}</h5>
         <div className="d-flex justify-content-between">
           <p className="card-text text-ellipsis text-primary cursor-pointer" onClick={() => navigate(`/list-videos/${username}`)}>{username}</p>
-          <p>{views} Visualizaciones</p>
+          <p><i className="bi bi-eye text-primary"></i> {views}</p>
         </div>
       </div>
     </div>
