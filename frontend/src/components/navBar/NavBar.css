@@ -4,12 +4,15 @@
   justify-content: space-between;
   padding: 10px 20px;
   background-color: #06071b;
- 
+  position: fixed !important;
+  width: 100%;
+  z-index: 10;
+  top: 0;
 }
 
 .navbarLogo img {
   margin-left: 35px;
-  height: 70px;
+  height: 50px;
 }
 
 .navbarBuscar {

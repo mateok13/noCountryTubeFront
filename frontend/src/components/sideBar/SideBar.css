@@ -1,16 +1,16 @@
 .estiloSideBar {
   background-color: #06071b;
-  top: 60px;
-  width: 208px;
-  min-height: 100vh; 
+  top: 41px;
+  width: 238px;
+  min-height: calc(100vh - 86px); 
   left: 0;
   padding: 20px; 
   color: white;
   font-size: 18px;
   margin-bottom: 25px;
   overflow-y: auto; 
-  position: absolute;
-  margin-top: 2.5em; 
+  position: fixed;
+  margin-top: 2.5em;
 }
 
 .estiloSideBar h2{
@@ -73,4 +73,10 @@
   color: white;
   font-size: 14px;
   margin-top: 10px;
+}
+
+@media screen and (max-width:720px) {
+  .estiloSideBar{
+    display: none;
+  }
 }

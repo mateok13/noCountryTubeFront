@@ -13,6 +13,7 @@ const formValues = {
     views: 0,
     likes: 0,
     dislikes: 0,
+    isPublic: true
 }
 
 const snapshotList = [3, 6, 30] // Toma capturas en el segundo 3, 6, 30
@@ -48,6 +49,20 @@ const useFormVideo = () => {
         const isValid = validateInputs();
         if (!isValid) return;
 
+        // Crear objeto FormData para enviar archivos
+        // const data = new FormData();
+        // data.append('title', formData.title);
+        // data.append('description', formData.description);
+        // data.append('thumbnail', formData.thumbnail);
+        // data.append('video', formData.video);
+        // data.append('duration', formData.duration);
+        // data.append('comments', formData.comments);
+        // data.append('views', formData.views);
+        // data.append('likes', formData.likes);
+        // data.append('dislikes', formData.dislikes);
+        // data.append('isPublic', formData.isPublic);
+
+
         console.log(formData);
         setThumbnails([])
         setSelectedThumbnail(null)
@@ -64,7 +79,7 @@ const useFormVideo = () => {
         const { name, value } = e.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
-            [name]: name === "comments" ? value === "true" : value,
+            [name]: name === "comments" || name === "isPublic" ? value === "true" : value,
         }));
     };
 

@@ -37,17 +37,9 @@ const FormVideo = () => {
             <input type="file" id="file" className="input-file" accept="image/*" onChange={handleImageFileChange} />
           </div>
 
-
           {thumbnails.map((item, index) => (
             <div key={index} className="cursor-pointer rounded thumbnail-border">
-
-
-
-              {/* BORRAR EL WIDTH AQUI, CORREGIR EL HEIGHT POR SI SE SUBE UN VIDEO SHORT, COLOCAR OBJECT-FIT */}
               <img className="rounded thumbnail-border " src={item} alt={`Thumbnail ${index + 1}`} onClick={() => handleSelectThumbnail(item)} />
-
-
-
             </div>
           ))}
           {errors.thumbnail ? <p className="text-danger mx-auto mb-0">{errors.thumbnail}</p> : null}
@@ -65,16 +57,28 @@ const FormVideo = () => {
 
       <div className="my-3">
         <h4>Detalles</h4>
-        <div>
-          <label>Comentarios</label>
+        <div className="">
           <div className="d-flex gap-3">
+            <label>Comentarios</label>
             <div>
               <input className="me-1 cursor-pointer" id="comments-on" type="radio" name="comments" value="true" onChange={handleChange} checked={formData.comments === true} />
-              <label htmlFor="comments-on">On</label>
+              <label htmlFor="comments-on">Permitidos</label>
             </div>
             <div>
               <input className="me-1 cursor-pointer" id="comments-off" type="radio" name="comments" value="false" onChange={handleChange} checked={formData.comments === false} />
-              <label htmlFor="comments-off">Off</label>
+              <label htmlFor="comments-off">Bloqueados</label>
+            </div>
+          </div>
+          <hr className="py-0 my-2" />
+          <div className="d-flex gap-3">
+            <label className="me-12">Visibilidad</label>
+            <div>
+              <input className="me-1 cursor-pointer" id="isPublic-on" type="radio" name="isPublic" value="true" onChange={handleChange} checked={formData.isPublic === true} />
+              <label htmlFor="isPublic-on">Público</label>
+            </div>
+            <div>
+              <input className="ms-6 me-1 cursor-pointer" id="isPublic-off" type="radio" name="isPublic" value="false" onChange={handleChange} checked={formData.isPublic === false} />
+              <label htmlFor="isPublic-off">Privado</label>
             </div>
           </div>
         </div>
