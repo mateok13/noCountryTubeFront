@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { environment } from '../hooks/environment'
 
-const useFormRegister = () => {
+const useFormLogin = (onSuccess) => {
     const [mistakes, setMistakes] = useState({});
+    const [sendData, setSendData] = useState(false);
 
     const validateFields = (form) => {
         let mistakes = {};
@@ -34,10 +35,10 @@ const useFormRegister = () => {
         const mistake = validateFields(formData);
         setMistakes(mistake);
 
-        if (Object.keys(mistakes).length === 0) {
+        if (Object.keys(mistake).length === 0) {
             const url = environment.url;
-
-            fetch(url+'endpointRegister', {
+            setSendData(true);
+            fetch(url + 'endpointLogin', {
                 method: "POST",
                 body: JSON.stringify(formData),
                 headers: {
@@ -47,14 +48,24 @@ const useFormRegister = () => {
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
+                    setSendData(false);
+                    if (onSuccess) {
+                        onSuccess();
+                    }
                 })
+                .catch(error => {
+                    console.log(error);
+                    setSendData(false);
+                    alert("No se pudo iniciar la sesión");
+                });
         }
     };
 
     return {
         mistakes,
-        handleSubmit
+        handleSubmit,
+        sendData
     };
 };
 
-export default useFormRegister;
+export default useFormLogin;

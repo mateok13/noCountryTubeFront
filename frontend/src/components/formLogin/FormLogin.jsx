@@ -3,8 +3,11 @@ import useFormLogin from '../../hooks/useFormLogin';
 import images from '../../assets/image/image'
 import './FormLogin.css';
 
-function FormLogin({ closeModalLogin, openRegisterModal }) {
-    const { mistakes, handleSubmit } = useFormLogin();
+function FormLogin({ closeModalLogin, openRegisterModal, openSuccessModal }) {
+    const { mistakes, handleSubmit, sendData } = useFormLogin(()=>{
+        closeModalLogin();
+        openSuccessModal();
+    });
 
     const openModalRegister = () => {
         console.log('Opening modal register');
@@ -24,7 +27,7 @@ function FormLogin({ closeModalLogin, openRegisterModal }) {
                     <input className='inputLogin' type="password" placeholder='Password' id='password' name='password' />
                     {mistakes.password && <span className='alertLogin alertPasswordLogin'>{mistakes.password}</span>}
                 </div>
-                <button className='buttonLogin' type='submit'>Iniciar sesión</button>
+                <button className='buttonLogin' type='submit' disabled={sendData}>{sendData ? "Iniciando sesión" : "Iniciar sesión"}</button>
                 <div className='hyperLinkContainer'>
                     <p>No tienes cuenta? </p>
                     <a className='hyperLink' href="#" onClick={openModalRegister}>
@@ -39,6 +42,7 @@ function FormLogin({ closeModalLogin, openRegisterModal }) {
 FormLogin.propTypes = {
     closeModalLogin: PropTypes.func.isRequired,
     openRegisterModal: PropTypes.func.isRequired,
+    openSuccessModal: PropTypes.func.isRequired,
 };
 
 export default FormLogin;

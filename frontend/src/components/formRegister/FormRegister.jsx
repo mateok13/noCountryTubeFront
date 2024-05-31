@@ -7,8 +7,11 @@ import images from '../../assets/image/image'
 import "react-datepicker/dist/react-datepicker.css";
 import './FormRegister.css';
 
-function FormRegister() {
-    const { mistakes, handleSubmit, handleDateChange, dateDatePicker, date, setDate } = useFormRegister();
+function FormRegister({openSuccessModal, closeModalRegister}) {
+    const { mistakes, handleSubmit, handleDateChange, dateDatePicker, date, setDate, sendData } = useFormRegister(()=>{
+        closeModalRegister();
+        openSuccessModal();
+    });
 
     const ButtonDate = forwardRef(function CustomInput({ onClick }, ref) {
         return (
@@ -75,7 +78,7 @@ function FormRegister() {
                     {mistakes.birthDate && <span className='alertRegister alertBirthDateRegister'>{mistakes.birthDate}</span>}
                 </div>
 
-                <button className='buttonRegister' type='submit'>Regístrate</button>
+                <button className='buttonRegister' type='submit' disabled={sendData}>{sendData ? "Registrandote" : "Regístrate"}</button>
             </form>
         </div>
     );
@@ -83,6 +86,8 @@ function FormRegister() {
 
 FormRegister.propTypes = {
     onClick: PropTypes.func.isRequired,
+    closeModalRegister: PropTypes.func.isRequired,
+    openSuccessModal: PropTypes.func.isRequired,
 };
 
 export default FormRegister;

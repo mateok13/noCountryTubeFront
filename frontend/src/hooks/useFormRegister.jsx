@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { environment } from '../hooks/environment'
 
-const useFormRegister = () => {
+const useFormRegister = (onSuccess) => {
     const [mistakes, setMistakes] = useState({});
+    const [sendData, setSendData] = useState(false);
 
     const [dateDatePicker, setDateDatePicker] = useState(null);
     const [date, setDate] = useState('');
@@ -79,10 +80,10 @@ const useFormRegister = () => {
         const mistake = validateFields(formData);
         setMistakes(mistake);
 
-        if (Object.keys(mistakes).length === 0) {
-            const url = environment.url;
-
-            fetch(url+'endpointRegister', {
+        if (Object.keys(mistake).length === 0) {
+            const url = environment.url + 'endpointRegister';
+            setSendData(true);
+            fetch(url, {
                 method: "POST",
                 body: JSON.stringify(formData),
                 headers: {
@@ -92,7 +93,16 @@ const useFormRegister = () => {
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
+                    setSendData(false);
+                    if (onSuccess) {
+                        onSuccess();
+                    }
                 })
+                .catch(error => {
+                    console.log(error);
+                    setSendData(false);
+                    alert("No se pudo realizar el registro");
+                });
         }
     };
 
@@ -102,7 +112,8 @@ const useFormRegister = () => {
         handleDateChange,
         dateDatePicker,
         date,
-        setDate 
+        setDate,
+        sendData
     };
 };
 
