@@ -4,6 +4,10 @@
     font-family: 'Oswald', sans-serif;
 }
 
+body{
+    background: radial-gradient(circle, #072746 29%, #06071B 100%);
+}
+
 *::-webkit-scrollbar {
     width: 12px;
 }

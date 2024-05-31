@@ -1,1 +1,1 @@
-export const environment = {url:""}
+export const environment = {url:"url del servidor"}

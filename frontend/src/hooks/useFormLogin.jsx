@@ -19,7 +19,7 @@ const useFormRegister = () => {
         }
 
         return mistakes;
-    }
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -37,7 +37,7 @@ const useFormRegister = () => {
         if (Object.keys(mistakes).length === 0) {
             const url = environment.url;
 
-            fetch(url, {
+            fetch(url+'endpointRegister', {
                 method: "POST",
                 body: JSON.stringify(formData),
                 headers: {
@@ -49,7 +49,7 @@ const useFormRegister = () => {
                     console.log(data);
                 })
         }
-    }
+    };
 
     return {
         mistakes,
