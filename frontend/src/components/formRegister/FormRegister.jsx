@@ -7,8 +7,8 @@ import images from '../../assets/image/image'
 import "react-datepicker/dist/react-datepicker.css";
 import './FormRegister.css';
 
-function FormRegister({openSuccessModal, closeModalRegister}) {
-    const { mistakes, handleSubmit, handleDateChange, dateDatePicker, date, setDate, sendData } = useFormRegister(()=>{
+function FormRegister({ openSuccessModal, closeModalRegister }) {
+    const { mistakes, handleSubmit, handleDateChange, dateDatePicker, date, setDate, sendData } = useFormRegister(() => {
         closeModalRegister();
         openSuccessModal();
     });
@@ -85,7 +85,7 @@ function FormRegister({openSuccessModal, closeModalRegister}) {
 }
 
 FormRegister.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     closeModalRegister: PropTypes.func.isRequired,
     openSuccessModal: PropTypes.func.isRequired,
 };
