@@ -71,7 +71,7 @@ const FormVideo = () => {
           </div>
           <hr className="py-0 my-2" />
           <div className="d-flex gap-3">
-            <label className="me-12 cursor-pointer">Visibilidad</label>
+            <label className="me-12">Visibilidad</label>
             <div>
               <input className="me-1 cursor-pointer" id="isPublic-on" type="radio" name="isPublic" value="true" onChange={handleChange} checked={formData.isPublic === true} />
               <label htmlFor="isPublic-on cursor-pointer">Público</label>
