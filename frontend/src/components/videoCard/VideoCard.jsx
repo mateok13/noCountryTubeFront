@@ -10,11 +10,11 @@ const VideoCard = ({ item }) => {
     <div className="card card-width card-border">
       <div className="position-relative cursor-pointer" onClick={() => navigate(`/watch-video/${id}`)}>
         {/* <video src=""></video> */}
-        <img src={thumbnail} className="card-img-top" alt="Imagen de ejemplo" />
+        <img src={thumbnail} className="card-img-top" alt={`Imagen ${item.title}`} />
         <span className="position-absolute end-0 bottom-0 z-3 text-white text-center rounded-1 px-1 m-2 span-duration">{duration}</span>
       </div>
-      <div className="card-body pb-0">
-        <h5 className="card-title text-ellipsis">{title}</h5>
+      <div className="card-body pb-0 pt-2">
+        <h6 className="card-title text-ellipsis" title={title}>{title}</h6>
         <div className="d-flex justify-content-between">
           <p className="card-text text-ellipsis text-primary cursor-pointer" onClick={() => navigate(`/list-videos/${username}`)}>{username}</p>
           <p><i className="bi bi-eye text-primary"></i> {views}</p>

@@ -2,12 +2,12 @@ import { Link } from "react-router-dom"
 
 const NotFoundPage = () => {
     return (
-        <>
-            <h1 className="text-center">404 - Not Found</h1>
+        <div className="container min-vh-100 d-flex flex-column justify-content-center gap-4">
+            <h1 className="text-center text-white">404 - Not Found</h1>
             <div className="text-center">
-                <Link className="btn btn-outline-primary" to={'/'}>Volver a Home</Link>
+                <Link className="btn-nocountry text-decoration-none" to={'/'}>Volver a NoCountryTube</Link>
             </div>
-        </>
+        </div>
     )
 }
 

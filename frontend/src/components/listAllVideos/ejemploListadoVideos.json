@@ -206,5 +206,31 @@
     "likes": 0,
     "dislikes": 0,
     "duration": "11:30"
+  },
+  {
+    "id": 17,
+    "username": "username",
+    "title": "C#: Desarrollo de Listado de Tareas",
+    "description": "Aprende a desarrollar un listado de tareas.",
+    "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+    "video": "https://www.youtube.com/watch?v=example37",
+    "comments": true,
+    "views": 0,
+    "likes": 0,
+    "dislikes": 0,
+    "duration": "11:30"
+  },
+  {
+    "id": 18,
+    "username": "username",
+    "title": "Javascript: Desarrollo de un Gestor de Contraseñas",
+    "description": "Aprende a desarrollar un gestor de contraseñas.",
+    "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+    "video": "https://www.youtube.com/watch?v=example37",
+    "comments": true,
+    "views": 0,
+    "likes": 0,
+    "dislikes": 0,
+    "duration": "11:30"
   }
 ]

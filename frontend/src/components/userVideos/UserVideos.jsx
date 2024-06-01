@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const UserVideos = ({ username }) => {
     return (
-        <div>Aqui listar los videos de {username}</div>
+        <div className='text-center text-white'>Aqui listar los videos de {username}</div>
     )
 }
 

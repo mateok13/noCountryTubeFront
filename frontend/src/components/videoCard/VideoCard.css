@@ -10,9 +10,13 @@
 }
 
 /* .card-border{
-    border: 2px solid #09fca7;
+    border: 1px solid #09fca7 !important;
     box-shadow: 0 0 5px #09fca7;
 } */
+
+.card-border{
+    border: none !important;
+}
 
 .span-duration{
     font-size: 13.5px;

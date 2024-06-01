@@ -4,7 +4,7 @@ const WatchVideo = () => {
     const { videoId } = useParams()
     return (
         <div>
-            <h1 className="text-center">WatchVideo id: {videoId}</h1>
+            <h1 className="">WatchVideo id: {videoId}</h1>
         </div>
     )
 }
