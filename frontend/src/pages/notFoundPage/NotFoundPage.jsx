@@ -5,7 +5,7 @@ const NotFoundPage = () => {
         <div className="container min-vh-100 d-flex flex-column justify-content-center gap-4">
             <h1 className="text-center text-white">404 - Not Found</h1>
             <div className="text-center">
-                <Link className="btn-nocountry text-decoration-none" to={'/'}>Volver a NoCountryTube</Link>
+                <Link className="buttonNoCountry text-decoration-none" to={'/'}>Volver a NoCountryTube</Link>
             </div>
         </div>
     )

@@ -20,14 +20,14 @@ function FormLogin({ closeModalLogin, openRegisterModal, openSuccessModal }) {
             <img className='logoNoCountry' src={images.LogoNoCountryTube} />
             <form className='formLogin' onSubmit={handleSubmit}>
                 <div className='inputContentLogin'>
-                    <input className='inputLogin' type="text" placeholder='User name' id='userName' name='userName' />
+                    <input className='inputNoCountry' type="text" placeholder='User name' id='userName' name='userName' />
                     {mistakes.userName && <span className='alertLogin alertUserNameLogin'>{mistakes.userName}</span>}
                 </div>
                 <div className='inputContentLogin'>
-                    <input className='inputLogin' type="password" placeholder='Password' id='password' name='password' />
+                    <input className='inputNoCountry' type="password" placeholder='Password' id='password' name='password' />
                     {mistakes.password && <span className='alertLogin alertPasswordLogin'>{mistakes.password}</span>}
                 </div>
-                <button className='buttonLogin' type='submit' disabled={sendData}>{sendData ? "Iniciando sesión" : "Iniciar sesión"}</button>
+                <button className='buttonNoCountry' type='submit' disabled={sendData}>{sendData ? "Iniciando sesión" : "Iniciar sesión"}</button>
                 <div className='hyperLinkContainer'>
                     <p>No tienes cuenta? </p>
                     <a className='hyperLink' href="#" onClick={openModalRegister}>

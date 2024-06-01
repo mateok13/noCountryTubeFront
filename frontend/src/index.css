@@ -31,7 +31,7 @@ body {
     margin: 10px;
 }
 
-.btn-nocountry {
+.buttonNoCountry {
     padding: 10px;
     border: 2px solid #09fca7;
     border-radius: 5px;
@@ -43,7 +43,7 @@ body {
     transition: all 300ms ease;
 }
 
-.btn-nocountry:hover {
+.buttonNoCountry:hover {
     background-color: #09fca7;
     color: #000000;
 }
@@ -52,6 +52,20 @@ body {
     background-color: #06071b;
     border: 2px solid #09fca7;
     /* AGREGAR PADDING, MARGIN, BORDER, ETC */
+}
+
+.inputNoCountry{
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    background: radial-gradient(circle, #072746 29%, #06071B 100%);
+    color: #fff;
+}
+
+.inputNoCountry:hover{
+    border: 2px solid #09fca7;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 768px) {

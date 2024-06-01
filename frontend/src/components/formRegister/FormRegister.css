@@ -20,22 +20,6 @@
     position: relative;
 }
 
-.inputRegister {
-    padding: 15px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    background: radial-gradient(circle, #072746 29%, #06071B 100%);
-    color: #fff;
-}
-
-.inputRegister:hover{
-    border: 2px solid #09fca7;
-    border-radius: 5px;
-}
-
 .buttonRegister {
     padding: 10px;
     border: 2px solid #09fca7;

@@ -20,36 +20,6 @@
     position: relative;
 }
 
-.inputLogin {
-    padding: 15px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    position: relative;
-    background: radial-gradient(circle, #072746 29%, #06071B 100%);
-    color: #fff;
-}
-
-.inputLogin:hover{
-    border: 2px solid #09fca7;
-    border-radius: 5px;
-}
-
-.buttonLogin {
-    padding: 10px;
-    border: 2px solid #09fca7;
-    border-radius: 5px;
-    background-color: #06071b;
-    color: #fff;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-.buttonLogin:hover {
-    background-color: #09fca7;
-    color: #000000;
-    font-weight: bold;
-}
-
 .hyperLinkContainer{
     display: flex;
     gap: 10px;
