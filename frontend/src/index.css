@@ -4,7 +4,7 @@
     font-family: 'Oswald', sans-serif;
 }
 
-body{
+body {
     background: radial-gradient(circle, #072746 29%, #06071B 100%);
 }
 
@@ -46,6 +46,12 @@ body{
 .btn-nocountry:hover {
     background-color: #09fca7;
     color: #000000;
+}
+
+.form-nocountry {
+    background-color: #06071b;
+    border: 2px solid #09fca7;
+    /* AGREGAR PADDING, MARGIN, BORDER, ETC */
 }
 
 @media screen and (max-width: 768px) {

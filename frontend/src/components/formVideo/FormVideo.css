@@ -6,16 +6,15 @@
   cursor: pointer;
 }
 
-/* input,
-textarea {
+.input-border {
   border: 2px solid #09fca7 !important;
-} */
+}
 
 .thumbnail-border {
-  /* box-shadow: 0 0 8px #09fca7; */
+  box-shadow: 0 0 5px #09fca7;
   width: 130px;
   height: 74px;
-  /* border: 2px solid #09fca7; */
+  border: 1px solid #09fca7;
   object-fit: cover;
   object-position: top;
 }
@@ -38,15 +37,21 @@ textarea {
   height: 74px;
   font-size: .9rem;
   color: #06071b;
-  /* text-shadow: 0 0 5px #000, 0 0 2px #000, 0 0 1px #fff; */
   background-color: #09fca7;
-  display: flex;
-  align-items: center;
+  padding-top: 13px;
+  padding-bottom: 0;
+  position: relative;
   transition: all 300ms ease;
 }
 
 .label-file:hover {
   background-color: #00ca83;
+}
+
+.cloud{
+  position: absolute;
+  top: 25px;
+  left: 52px;
 }
 
 .object-fit {
