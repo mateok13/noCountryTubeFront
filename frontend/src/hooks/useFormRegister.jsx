@@ -1,12 +1,17 @@
 import { useState } from 'react';
+import { environment } from '../hooks/environment'
 
-const useFormRegister = () => {
+const useFormRegister = (onSuccess) => {
     const [mistakes, setMistakes] = useState({});
+    const [sendData, setSendData] = useState(false);
+
+    const [dateDatePicker, setDateDatePicker] = useState(null);
+    const [date, setDate] = useState('');
 
     const regexTextOnly = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+(\s[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+)*$/;
     const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
     const regexUserName = /^[A-Za-z0-9]+$/;
-    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     const regexFecha = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 
     const validateFields = (form) => {
@@ -32,8 +37,8 @@ const useFormRegister = () => {
 
         if (!form.password.trim()) {
             mistakes.password = 'The password field must not be empty, enter your password';
-        } else if (!regexPassword.test(form.password)) {
-            mistakes.password = 'The password has an invalid format';
+        } else if (!regexUserName.test(form.password)) {
+            mistakes.password = 'The password can only contain letters and numbers';
         }
 
         if (!form.confirmPassword.trim()) {
@@ -52,6 +57,16 @@ const useFormRegister = () => {
         return mistakes;
     };
 
+    const handleDateChange = (date) => {
+        setDateDatePicker(date);
+        if (date) {
+            const formatted = `${('0' + date.getDate()).slice(-2)}/${('0' + (date.getMonth() + 1)).slice(-2)}/${date.getFullYear()}`;
+            setDate(formatted);
+        } else {
+            setDate('');
+        }
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -65,12 +80,40 @@ const useFormRegister = () => {
         const mistake = validateFields(formData);
         setMistakes(mistake);
 
-        return formData; // Devuelve los datos del formulario
+        if (Object.keys(mistake).length === 0) {
+            const url = environment.url + 'endpointRegister';
+            setSendData(true);
+            fetch(url, {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    setSendData(false);
+                    if (onSuccess) {
+                        onSuccess();
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    setSendData(false);
+                    alert("No se pudo realizar el registro");
+                });
+        }
     };
 
     return {
         mistakes,
-        handleSubmit
+        handleSubmit,
+        handleDateChange,
+        dateDatePicker,
+        date,
+        setDate,
+        sendData
     };
 };
 

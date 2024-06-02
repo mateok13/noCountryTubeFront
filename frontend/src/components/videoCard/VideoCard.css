@@ -1,0 +1,28 @@
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-width{
+    max-width:320px;
+    width: 90%;
+}
+
+/* .card-border{
+    border: 1px solid #09fca7 !important;
+    box-shadow: 0 0 5px #09fca7;
+} */
+
+.card-border{
+    border: none !important;
+}
+
+.span-duration{
+    font-size: 13.5px;
+    background-color: #000000a9;
+    min-width: 50px;
+    box-shadow: 0 0 5px #09fca7;
+    border: 1px solid #09fca7;
+    text-shadow: 0 0 2px #fff;
+}

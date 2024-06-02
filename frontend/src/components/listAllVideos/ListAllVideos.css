@@ -1,0 +1,32 @@
+.absolute{
+    position: absolute;
+}
+
+.m-240 {
+    margin-left: 238px;
+}
+
+.m-250 {
+    margin-top: 86px;
+}
+
+.ms-6{
+    margin-left: 20px;
+}
+
+.me-12{
+    margin-right: 12.5px;
+}
+
+@media screen and (max-width: 720px) {
+    .absolute{
+        position: inherit;
+    }
+    .m-240{
+        margin-left: 0;
+    }
+
+    .m-250 {
+        margin-top: 202px;
+    }
+}

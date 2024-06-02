@@ -1,0 +1,60 @@
+.resize-none {
+  resize: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.input-border {
+  border: 2px solid #09fca7 !important;
+}
+
+.thumbnail-border {
+  box-shadow: 0 0 5px #09fca7;
+  width: 130px;
+  height: 74px;
+  border: 1px solid #09fca7;
+  object-fit: cover;
+  object-position: top;
+}
+
+.thumbnail-border img {
+  width: 100%;
+}
+
+/* INPUT FILE SUBIR MINIATURA */
+.input-file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+  z-index: -1;
+}
+
+.label-file {
+  width: 130px;
+  height: 74px;
+  font-size: .9rem;
+  color: #06071b;
+  background-color: #09fca7;
+  padding-top: 13px;
+  padding-bottom: 0;
+  position: relative;
+  transition: all 300ms ease;
+}
+
+.label-file:hover {
+  background-color: #00ca83;
+}
+
+.cloud{
+  position: absolute;
+  top: 25px;
+  left: 52px;
+}
+
+.object-fit {
+  object-fit: cover;
+  object-position: top;
+}

@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom';
+import Home from './pages/home/Home'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
 
 function App() {
 
   return (
     <>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
+     <Home/>
     </>
   );
 }

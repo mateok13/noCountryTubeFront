@@ -1,11 +1,17 @@
+import ListVideos from "../../components/listAllVideos/ListAllVideos";
+import NavBar from "../../components/navBar/NavBar";
+import SideBar from "../../components/sideBar/SideBar";
+
 function Home() {
 
     return (
       <>
-        Home
+        <NavBar />
+        <SideBar />
+        <ListVideos />
       </>
     )
   }
   
-  export default Home
+  export default Home;
   
