@@ -19,13 +19,13 @@ const FormVideo = () => {
     <form className="form-control formNoCountry text-white shadow p-4" onSubmit={handleSubmit}>
       <div>
         <h4>Información General</h4>
-        <input className="form-control input-border inputNoCountry" type="text" placeholder="Título" id="title" name="title" onChange={handleChange} value={formData.title} autoFocus />
+        <input className="inputNoCountry" type="text" placeholder="Título" id="title" name="title" onChange={handleChange} value={formData.title} autoFocus />
         {errors ? <p className="text-danger">{errors.title}</p> : null}
-        <textarea className="form-control resize-none mt-2 input-border inputNoCountry" name="description" id="description" placeholder="Descripción" onChange={handleChange} value={formData.description}></textarea>
+        <textarea className="resize-none mt-2 inputNoCountry" name="description" id="description" placeholder="Descripción" onChange={handleChange} value={formData.description}></textarea>
         {errors ? <p className="text-danger">{errors.description}</p> : null}
         <div className="d-flex flex-column my-1">
           <label>Video</label>
-          <input ref={videoInputRef} className="form-control input-border" type="file" accept="video/*" onChange={handleVideoFileChange} title="Subir Video" />
+          <input ref={videoInputRef} className="inputNoCountry" type="file" accept="video/*" onChange={handleVideoFileChange} title="Subir Video" />
           {errors ? <p className="text-danger">{errors.video}</p> : null}
           {formData.video && generateThumbnails()}
         </div>
@@ -34,7 +34,7 @@ const FormVideo = () => {
           {/* INPUT FILE SUBIR MINIATURA */}
           <div className="mb-2">
             <label htmlFor="file" className="label-file text-center px-4 rounded cursor-pointer">Subir Miniatura <i className="bi bi-cloud-arrow-up-fill fs-3 cloud"></i></label>
-            <input type="file" id="file" className="input-file input-border" accept="image/*" onChange={handleImageFileChange} />
+            <input type="file" id="file" className="input-file" accept="image/*" onChange={handleImageFileChange} />
           </div>
 
           {thumbnails.map((item, index) => (
