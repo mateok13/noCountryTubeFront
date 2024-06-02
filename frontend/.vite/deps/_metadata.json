@@ -1,0 +1,64 @@
+{
+  "hash": "ebaedc46",
+  "configHash": "0e857656",
+  "lockfileHash": "aeec0f0d",
+  "browserHash": "db48655e",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "f0f7bd4b",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "9aaa9172",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "5e52a019",
+      "needsInterop": false
+    },
+    "prop-types": {
+      "src": "../../node_modules/prop-types/index.js",
+      "file": "prop-types.js",
+      "fileHash": "866484b4",
+      "needsInterop": true
+    },
+    "react-datepicker": {
+      "src": "../../node_modules/react-datepicker/dist/es/index.js",
+      "file": "react-datepicker.js",
+      "fileHash": "234c462c",
+      "needsInterop": false
+    },
+    "react-input-mask": {
+      "src": "../../node_modules/react-input-mask/index.js",
+      "file": "react-input-mask.js",
+      "fileHash": "ea760f70",
+      "needsInterop": true
+    },
+    "react-video-thumbnail": {
+      "src": "../../node_modules/react-video-thumbnail/dist/bundle.js",
+      "file": "react-video-thumbnail.js",
+      "fileHash": "61f18ecb",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-E3W6Y7W6": {
+      "file": "chunk-E3W6Y7W6.js"
+    },
+    "chunk-5IFATXZH": {
+      "file": "chunk-5IFATXZH.js"
+    },
+    "chunk-URNRBCZE": {
+      "file": "chunk-URNRBCZE.js"
+    },
+    "chunk-LNEMQRCO": {
+      "file": "chunk-LNEMQRCO.js"
+    }
+  }
+}
