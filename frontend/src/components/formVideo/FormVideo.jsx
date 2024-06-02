@@ -16,12 +16,12 @@ const FormVideo = () => {
     generateThumbnails } = useFormVideo()
 
   return (
-    <form className="form-control form-nocountry text-white shadow p-4" onSubmit={handleSubmit}>
+    <form className="form-control formNoCountry text-white shadow p-4" onSubmit={handleSubmit}>
       <div>
         <h4>Información General</h4>
-        <input className="form-control input-border" type="text" placeholder="Título" id="title" name="title" onChange={handleChange} value={formData.title} autoFocus />
+        <input className="form-control input-border inputNoCountry" type="text" placeholder="Título" id="title" name="title" onChange={handleChange} value={formData.title} autoFocus />
         {errors ? <p className="text-danger">{errors.title}</p> : null}
-        <textarea className="form-control resize-none mt-2 input-border" name="description" id="description" placeholder="Descripción" onChange={handleChange} value={formData.description}></textarea>
+        <textarea className="form-control resize-none mt-2 input-border inputNoCountry" name="description" id="description" placeholder="Descripción" onChange={handleChange} value={formData.description}></textarea>
         {errors ? <p className="text-danger">{errors.description}</p> : null}
         <div className="d-flex flex-column my-1">
           <label>Video</label>
@@ -85,8 +85,8 @@ const FormVideo = () => {
       </div>
 
       <div className="d-flex gap-2">
-        <button className="btn-nocountry w-50" type="submit">Subir Video</button>
-        <button className="btn-nocountry w-50" type="reset" onClick={handleCancel}>Cancelar</button>
+        <button className="buttonNoCountry w-50" type="submit">Subir Video</button>
+        <button className="buttonNoCountry w-50" type="reset" onClick={handleCancel}>Cancelar</button>
       </div>
     </form>
   );

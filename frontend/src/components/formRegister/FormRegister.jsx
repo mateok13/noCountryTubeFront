@@ -15,14 +15,14 @@ function FormRegister({ openSuccessModal, closeModalRegister }) {
 
     const ButtonDate = forwardRef(function CustomInput({ onClick }, ref) {
         return (
-            <button className='buttonPicker' type="button" onClick={onClick} ref={ref}>📅</button>
+            <button className='buttonNoCountry buttonPicker' type="button" onClick={onClick} ref={ref}>📅</button>
         );
     });
 
     return (
         <div className='containerRegister'>
             <img className='logoNoCountry' src={images.LogoNoCountryTube} />
-            <form className='formRegister' onSubmit={handleSubmit}>
+            <form className='formNoCountry' onSubmit={handleSubmit}>
                 <div className='inputContentRegister'>
                     <input className='inputNoCountry' type="text" placeholder='First name' id='firstName' name='firstName' />
                     {mistakes.firstName && <span className='alertRegister alertFirstNameRegister'>{mistakes.firstName}</span>}
@@ -39,20 +39,6 @@ function FormRegister({ openSuccessModal, closeModalRegister }) {
                     <input className='inputNoCountry' type="password" placeholder='Password' id='password' name='password' />
                     {mistakes.password && <span className='alertRegister alertPasswordRegister'>{mistakes.password}</span>}
                 </div>
-                {/* <div className='tooltipPasswordContainer'>
-                    <input className='inputNoCountry' type="password" placeholder='Password' id='password' name='password' />
-                    {mistakes.password && <span className='alertRegister alertPasswordRegister'>{mistakes.password}</span>}
-                    <span className="tooltipPassword">
-                        <ul className='requirementsPassword'>
-                            <li>Al menos una letra minúscula.</li>
-                            <li>Al menos una letra mayúscula.</li>
-                            <li>Al menos un dígito.</li>
-                            <li>Al menos un carácter especial (por ejemplo, @, #, $, %, &, etc.).</li>
-                            <li>Una longitud mínima de 8 caracteres.</li>
-                        </ul>
-                    </span>
-                </div> */}
-
                 <div className='inputContentRegister'>
                     <input className='inputNoCountry' type="password" placeholder='Confirm password' id='confirmPassword' name='confirmPassword' />
                     {mistakes.confirmPassword && <span className='alertRegister alertConfirmPasswordRegister'>{mistakes.confirmPassword}</span>}

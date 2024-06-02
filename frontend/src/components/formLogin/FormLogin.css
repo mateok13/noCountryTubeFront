@@ -5,15 +5,6 @@
     align-items: center;
 }
 
-.formLogin {
-    display: flex;
-    flex-direction: column;
-    width: 70vh;
-    gap: 30px;
-    padding: 30px;
-    position: relative;
-}
-
 .inputContentLogin{
     display: flex;
     flex-direction: column;
@@ -39,7 +30,7 @@
     font-size: 12px;
     position: absolute;
     white-space: nowrap;
-    top: 60px;
+    top: 50px;
 }
 
 @media screen and (max-width: 768px) {

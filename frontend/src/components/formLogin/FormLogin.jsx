@@ -18,7 +18,7 @@ function FormLogin({ closeModalLogin, openRegisterModal, openSuccessModal }) {
     return (
         <div className='containerLogin'>
             <img className='logoNoCountry' src={images.LogoNoCountryTube} />
-            <form className='formLogin' onSubmit={handleSubmit}>
+            <form className='formNoCountry' onSubmit={handleSubmit}>
                 <div className='inputContentLogin'>
                     <input className='inputNoCountry' type="text" placeholder='User name' id='userName' name='userName' />
                     {mistakes.userName && <span className='alertLogin alertUserNameLogin'>{mistakes.userName}</span>}

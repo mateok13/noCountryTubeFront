@@ -5,35 +5,10 @@
     align-items: center;
 }
 
-.formRegister {
-    display: flex;
-    flex-direction: column;
-    width: 70vh;
-    gap: 30px;
-    padding: 30px;
-    position: relative;
-}
-
 .inputContentRegister{
     display: flex;
     flex-direction: column;
     position: relative;
-}
-
-.buttonRegister {
-    padding: 10px;
-    border: 2px solid #09fca7;
-    border-radius: 5px;
-    background-color: #06071b;
-    color: #fff;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-.buttonRegister:hover {
-    background-color: #09fca7;
-    color: #000000;
-    font-weight: bold;
 }
 
 .dateInputContainer {
@@ -44,48 +19,6 @@
 
 .buttonPicker {
     margin-left: 10px;
-    font-size: 32px;
-    cursor: pointer;
-    border: 2px solid #09fca7;
-    border-radius: 5px;
-    background-color: #06071b;
-}
-
-.buttonPicker:hover{
-    background-color: #09fca7;
-}
-
-.tooltipPasswordContainer {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.tooltipPassword {
-    visibility: hidden;
-    width: 250px;
-    background-color: #000;
-    color: #fff;
-    text-align: left;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 1;
-    top: 155px;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.requirementsPassword {
-    margin: 0;
-    padding-left: 20px;
-}
-
-.tooltipPasswordContainer .inputRegister:focus+.tooltipPassword {
-    visibility: visible;
-    opacity: 1;
 }
 
 .alertRegister {
@@ -93,33 +26,5 @@
     font-size: 12px;
     position: absolute;
     white-space: nowrap;
-    top: 60px;
-}
-
-@media screen and (max-width: 768px) {
-    .formRegister {
-        width: 40vh;
-    }
-
-    .tooltipPassword {
-        left: 0;
-        top: 100%;
-        transform: translateY(10px);
-    }
-
-    .customDatePickerPopper {
-        margin-left: 20px;
-    }
-
-    .buttonRegister {
-        background-color: #09fca7;
-        color: #000000;
-        font-weight: bold;
-    }
-
-    .buttonPicker {
-        background-color: #09fca7;
-    }
-
-    
+    top: 50px;
 }
