@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { environment } from '../hooks/environment'
+import { environment } from '../hooks/environment';
+import useUser from './useUser';
 
 const useFormLogin = (onSuccess) => {
     const [mistakes, setMistakes] = useState({});
     const [sendData, setSendData] = useState(false);
+    const { setUser } = useUser();
 
     const validateFields = (form) => {
         let mistakes = {};
@@ -49,6 +51,7 @@ const useFormLogin = (onSuccess) => {
                 .then((data) => {
                     console.log(data);
                     setSendData(false);
+                    setUser(data);
                     if (onSuccess) {
                         onSuccess();
                     }
