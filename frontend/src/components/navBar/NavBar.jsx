@@ -61,7 +61,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className="navbarIngresar">
-        <button onClick={openModalLogin} className="ingresarButton">
+        <button onClick={openModalLogin} className="buttonNoCountry ingresarButton">
           Ingresar
         </button>
         <Modal isOpen={isModalLoginOpen} closeModal={closeModalLogin}>

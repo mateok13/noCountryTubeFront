@@ -1,12 +1,14 @@
 import ListVideos from "../../components/listAllVideos/ListAllVideos";
+import SideBar from '../../components/sideBar/SideBar.jsx';
 
 function Home() {
 
-    return (
-      <>
-        <ListVideos />
-      </>
-    )
-  }
-  
-  export default Home;
+  return (
+    <>
+      <SideBar />
+      <ListVideos />
+    </>
+  )
+}
+
+export default Home;
