@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "username": "user-1",
+    "username": "user-example",
     "title": "Proyecto con React: To-Do List App",
     "description": "Aprende a desarrollar una aplicación de lista de tareas usando React.",
     "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",

@@ -37,7 +37,7 @@ const useFormVideo = () => {
         if (!formData.video) {
             newErrors.video = 'Debe seleccionar el archivo de video.';
         }
-        if (!formData.thumbnail.trim()) {
+        if (!formData.thumbnail) {
             newErrors.thumbnail = 'Debe seleccionar una miniatura.';
         }
         setErrors(newErrors);
@@ -49,21 +49,31 @@ const useFormVideo = () => {
         const isValid = validateInputs();
         if (!isValid) return;
 
-        // Crear objeto FormData para enviar archivos
-        // const data = new FormData();
-        // data.append('title', formData.title);
-        // data.append('description', formData.description);
-        // data.append('thumbnail', formData.thumbnail);
-        // data.append('video', formData.video);
-        // data.append('duration', formData.duration);
-        // data.append('comments', formData.comments);
-        // data.append('views', formData.views);
-        // data.append('likes', formData.likes);
-        // data.append('dislikes', formData.dislikes);
-        // data.append('isPublic', formData.isPublic);
+        const data = new FormData();
+        data.append('title', formData.title);
+        data.append('description', formData.description);
+        data.append('video', formData.video);
+        data.append('duration', formData.duration);
+        data.append('comments', formData.comments);
+        data.append('views', formData.views);
+        data.append('likes', formData.likes);
+        data.append('dislikes', formData.dislikes);
+        data.append('isPublic', formData.isPublic);
 
+        // Verifico si la miniatura seleccionada es una miniatura generada por react-video-thumbnail para convertirla a archivo
+        if (thumbnails.includes(selectedThumbnail)) {
+            const mime = 'image/jpeg'; // tipo MIME
+            const blob = base64ToBlob(selectedThumbnail, mime);
+            data.append(`thumbnail`, blob, `thumbnail.jpg`);
+        } else {
+            data.append('thumbnail', formData.thumbnail); // adjunto la miniatura subida manualmente (archivo)
+        }
 
-        console.log(formData);
+        // objeto FormData en la consola
+        for (const pair of data.entries()) {
+            console.log(pair[0], pair[1]);
+        }
+
         setThumbnails([])
         setSelectedThumbnail(null)
         setFormData(formValues);
@@ -74,6 +84,7 @@ const useFormVideo = () => {
 
         alert("Video subido exitosamente");
     };
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -107,14 +118,9 @@ const useFormVideo = () => {
     }
 
     const handleImageFileChange = (e) => {
-        const file = e.target.files[0]
-        const reader = new FileReader(file)
-        reader.onload = () => {
-            const base64File = reader.result
-            setSelectedThumbnail(base64File)
-            setFormData((prevFormData) => ({ ...prevFormData, thumbnail: base64File }))
-        };
-        reader.readAsDataURL(file)
+        const file = e.target.files[0];
+        setSelectedThumbnail(URL.createObjectURL(file));
+        setFormData((prevFormData) => ({ ...prevFormData, thumbnail: file }));
     };
 
     const handleSelectThumbnail = (thumbnail) => {
@@ -130,6 +136,17 @@ const useFormVideo = () => {
                     snapshotAtTime={item} />
             </div>))
     }
+
+    const base64ToBlob = (base64, mime) => {
+        const byteString = atob(base64.split(',')[1]);
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([ab], { type: mime });
+    };
+
 
     const handleCancel = () => {
         navigate("/");

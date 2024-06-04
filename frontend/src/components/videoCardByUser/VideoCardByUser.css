@@ -1,0 +1,53 @@
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-width-user {
+    max-width: 290px;
+    width: 90%;
+}
+
+/* .card-border{
+    border: 1px solid #09fca7 !important;
+    box-shadow: 0 0 5px #09fca7;
+} */
+
+.card-border {
+    border: none !important;
+}
+
+.span-duration {
+    font-size: 13.5px;
+    background-color: #000000a9;
+    min-width: 50px;
+    box-shadow: 0 0 5px #09fca7;
+    border: 1px solid #09fca7;
+    text-shadow: 0 0 2px #fff;
+}
+
+.custom-dropdown-toggle::after {
+    display: none;
+}
+
+.custom-dropdown-toggle {
+    width: 25px;
+    cursor: pointer;
+    border: 1px solid rgb(186, 186, 186);
+    border-radius: 3px;
+}
+
+.option {
+    cursor: pointer;
+    color: #06071B;
+}
+
+.option:hover {
+    background-color: #f4f4f4;
+}
+
+.option:active {
+    background-color: #d7d7d7;
+    color: #06071B;
+}
