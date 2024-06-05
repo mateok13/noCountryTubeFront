@@ -1,5 +1,5 @@
 // import { useParams } from "react-router-dom"
-// import UserVideos from "../../components/userVideos/UserVideos"
+import UserVideos from "../../components/userVideos/UserVideos"
 
 const ListVideosByUser = () => {
     // const { usernameChannel } = useParams()
@@ -7,7 +7,7 @@ const ListVideosByUser = () => {
     return (
         <>
             {/* // <UserVideos username={usernameChannel} /> */}
-            {/* <UserVideos /> */}
+            <UserVideos />
         </>
     )
 }
