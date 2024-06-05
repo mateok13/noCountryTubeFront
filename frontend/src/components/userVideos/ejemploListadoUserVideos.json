@@ -1,0 +1,80 @@
+[
+    {
+      "id": 1,
+      "username": "user-example",
+      "title": "Proyecto con React: To-Do List App",
+      "description": "Aprende a desarrollar una aplicación de lista de tareas usando React.",
+      "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+      "video": "File",
+      "comments": true,
+      "views": 10,
+      "likes": 0,
+      "dislikes": 0,
+      "duration": "10:30"
+    },
+    {
+      "id": 2,
+      "username": "user-example",
+      "title": "Desarrollando un Blog con React y Firebase",
+      "description": "Tutorial paso a paso para crear un blog utilizando React y Firebase.",
+      "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+      "video": "https://www.youtube.com/watch?v=example23",
+      "comments": true,
+      "views": 9,
+      "likes": 0,
+      "dislikes": 0,
+      "duration": "11:30"
+    },
+    {
+      "id": 3,
+      "username": "user-example",
+      "title": "Proyecto Python: Sistema de Gestión de Biblioteca",
+      "description": "Construye un sistema de gestión de biblioteca utilizando Python y SQLite.",
+      "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+      "video": "https://www.youtube.com/watch?v=example24",
+      "comments": true,
+      "views": 22,
+      "likes": 0,
+      "dislikes": 0,
+      "duration": "0:50"
+    },
+    {
+      "id": 4,
+      "username": "user-example",
+      "title": "Desarrollando un Chatbot con Python",
+      "description": "Crea un chatbot interactivo usando Python y la biblioteca ChatterBot.",
+      "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+      "video": "https://www.youtube.com/watch?v=example25",
+      "comments": true,
+      "views": 0,
+      "likes": 0,
+      "dislikes": 0,
+      "duration": "11:30"
+    },
+    {
+      "id": 5,
+      "username": "user-example",
+      "title": "Proyecto Django: Aplicación de Blog",
+      "description": "Aprende a desarrollar una aplicación de blog completa usando Django.",
+      "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+      "video": "https://www.youtube.com/watch?v=example26",
+      "comments": true,
+      "views": 0,
+      "likes": 0,
+      "dislikes": 0,
+      "duration": "11:30"
+    },
+    {
+      "id": 6,
+      "username": "user-example",
+      "title": "Java: Sistema de Gestión de Estudiantes",
+      "description": "Desarrolla un sistema de gestión de estudiantes utilizando Java y MySQL.",
+      "thumbnail": "https://i.ytimg.com/vi/I00UpuZse0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyu39JlZaE0nxThhEJuRv2pqngSg",
+      "video": "https://www.youtube.com/watch?v=example27",
+      "comments": true,
+      "views": 0,
+      "likes": 0,
+      "dislikes": 0,
+      "duration": "11:30"
+    }
+]

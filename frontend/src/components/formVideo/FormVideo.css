@@ -31,8 +31,8 @@
 }
 
 .thumbnail-selected{
-  box-shadow: 0 0 10px #09b7fc,  0 0 15px #09b7fc;
-  border: 2px solid #09b7fc;
+  box-shadow: 0 0 5px #fff,  0 0 10px #fff;
+  border: 2px solid #fff;
 }
 
 /* INPUT FILE SUBIR MINIATURA */
@@ -72,7 +72,7 @@
 }
 
 .ms-15{
-  margin-left: 15px;
+  margin-left: 17.5px;
 }
 
 @media screen and (max-width: 890px) {

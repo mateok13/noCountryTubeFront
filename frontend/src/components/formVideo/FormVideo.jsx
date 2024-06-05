@@ -16,7 +16,7 @@ const FormVideo = () => {
     generateThumbnails } = useFormVideo()
 
   return (
-    <form className="form-control form text-white shadow" onSubmit={handleSubmit}>
+    <form className="form-control form text-white shadow mt-5" onSubmit={handleSubmit}>
       <div>
         <h4>Información General</h4>
         <input className="inputNoCountry mt-1 py-1" type="text" placeholder="Título" id="title" name="title" onChange={handleChange} value={formData.title} autoFocus />
