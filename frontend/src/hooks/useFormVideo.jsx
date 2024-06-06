@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import VideoThumbnail from "react-video-thumbnail";
+import axios from "axios";
+import { environment } from "./environment";
 
 const formValues = {
     username: 'username',
     title: '',
     description: '',
-    thumbnail: '',
+    thumbnail: null,
     video: null, // archivo
     duration: '',
     comments: true,
-    views: 0,
-    likes: 0,
-    dislikes: 0,
+    // views: 0,
+    // likes: 0,
+    // dislikes: 0,
     isPublic: true
 }
 
@@ -25,6 +27,7 @@ const useFormVideo = () => {
     const [selectedThumbnail, setSelectedThumbnail] = useState(null)
     const videoInputRef = useRef(null);
     const navigate = useNavigate()
+    const token = '' // ***********************************************
 
     const validateInputs = () => {
         const newErrors = {};
@@ -55,9 +58,9 @@ const useFormVideo = () => {
         data.append('video', formData.video);
         data.append('duration', formData.duration);
         data.append('comments', formData.comments);
-        data.append('views', formData.views);
-        data.append('likes', formData.likes);
-        data.append('dislikes', formData.dislikes);
+        // data.append('views', formData.views);
+        // data.append('likes', formData.likes);
+        // data.append('dislikes', formData.dislikes);
         data.append('isPublic', formData.isPublic);
 
         // Verifico si la miniatura seleccionada es una miniatura generada por react-video-thumbnail para convertirla a archivo
@@ -74,15 +77,24 @@ const useFormVideo = () => {
             console.log(pair[0], pair[1]);
         }
 
-        setThumbnails([])
-        setSelectedThumbnail(null)
-        setFormData(formValues);
+        axios.post(`${environment.url}/direccion-upload-video`, data, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+            .then(response => {
+                console.log(response.data)
+                setThumbnails([])
+                setSelectedThumbnail(null)
+                setFormData(formValues);
 
-        if (videoInputRef.current) {
-            videoInputRef.current.value = null;
-        }
-
-        alert("Video subido exitosamente");
+                if (videoInputRef.current) {
+                    videoInputRef.current.value = null;
+                }
+                alert("Video subido exitosamente");
+            })
+            .catch(error => console.log(error.message))
     };
 
 
