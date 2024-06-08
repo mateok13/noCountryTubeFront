@@ -13,29 +13,24 @@ const NavBar = () => {
   const [messageSuccess, setMessageSuccess] = useState("");
 
   const openModalLogin = () => {
-    console.log("Opening modal login");
     setIsModalLoginOpen(true);
     setMessageSuccess("Successful login");
   };
 
   const closeModalLogin = () => {
-    console.log("Closing modal login");
     setIsModalLoginOpen(false);
   };
 
   const openModalRegister = () => {
-    console.log("Opening modal register");
     setIsModalRegisterOpen(true);
     setMessageSuccess("Successful register");
   };
 
   const closeModalRegister = () => {
-    console.log("Closing modal register");
     setIsModalRegisterOpen(false);
   };
 
   const openModalSuccess = () => {
-    console.log("Opening modal register");
     setIsModalSuccessOpen(true);
     setTimeout(() => {
       setIsModalSuccessOpen(false);
@@ -43,7 +38,6 @@ const NavBar = () => {
   };
 
   const closeModalSuccess = () => {
-    console.log("Closing modal register");
     setIsModalSuccessOpen(false);
   };
 

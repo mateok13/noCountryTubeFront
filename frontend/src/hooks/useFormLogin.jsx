@@ -5,7 +5,7 @@ import useUser from './useUser';
 const useFormLogin = (onSuccess) => {
     const [mistakes, setMistakes] = useState({});
     const [sendData, setSendData] = useState(false);
-    const { setUser } = useUser();
+    const { setUserId, setAccessToken, setRefreshToken, setAccessTokenExpiry, setRefreshTokenExpiry } = useUser();
 
     const validateFields = (form) => {
         let mistakes = {};
@@ -13,7 +13,8 @@ const useFormLogin = (onSuccess) => {
 
         if (!form.userName.trim()) {
             mistakes.userName = 'The user name field must not be empty, enter your user name';
-        } else if (!regexUserName.test(form.userName)) {
+        }
+        else if (!regexUserName.test(form.userName)) {
             mistakes.userName = 'The user name can only contain letters and numbers';
         }
 
@@ -38,20 +39,30 @@ const useFormLogin = (onSuccess) => {
         setMistakes(mistake);
 
         if (Object.keys(mistake).length === 0) {
-            const url = environment.url;
+            const url = environment.url + 'auth/login';
             setSendData(true);
-            fetch(url + 'endpointLogin', {
+            fetch(url, {
                 method: "POST",
-                body: JSON.stringify(formData),
+                body: JSON.stringify(
+                    {
+                        "userName": formData.userName,
+                        "password": formData.password
+                    }
+                ),
                 headers: {
-                    "Content-Type": "application/json",
-                },
+                    "accept": "*/*",
+                    "Content-Type": "application/json"
+                }
             })
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
                     setSendData(false);
-                    setUser(data);
+                    setUserId(data.id);
+                    setAccessToken(data.accessToken);
+                    setAccessTokenExpiry(data.accessTokenExpiry);
+                    setRefreshToken(data.refreshToken);
+                    setRefreshTokenExpiry(data.refreshTokenExpiry);
                     if (onSuccess) {
                         onSuccess();
                     }

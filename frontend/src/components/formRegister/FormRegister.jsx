@@ -25,23 +25,27 @@ function FormRegister({ openSuccessModal, closeModalRegister }) {
             <form className='formNoCountry' onSubmit={handleSubmit}>
                 <div className='inputContentRegister'>
                     <input className='inputNoCountry' type="text" placeholder='First name' id='firstName' name='firstName' />
-                    {mistakes.firstName && <span className='alertRegister alertFirstNameRegister'>{mistakes.firstName}</span>}
+                    {mistakes.firstName && <span className='alertRegister'>{mistakes.firstName}</span>}
+                </div>
+                <div className='inputContentRegister'>
+                    <input className='inputNoCountry' type="text" placeholder='Last name' id='lastName' name='lastName' />
+                    {mistakes.lastName && <span className='alertRegister'>{mistakes.lastName}</span>}
                 </div>
                 <div className='inputContentRegister'>
                     <input className='inputNoCountry' type="email" placeholder='Email' id='email' name='email' />
-                    {mistakes.email && <span className='alertRegister alertEmailRegister'>{mistakes.email}</span>}
+                    {mistakes.email && <span className='alertRegister'>{mistakes.email}</span>}
                 </div>
                 <div className='inputContentRegister'>
                     <input className='inputNoCountry' type="text" placeholder='User name' id='userName' name='userName' />
-                    {mistakes.userName && <span className='alertRegister alertUsernameRegister'>{mistakes.userName}</span>}
+                    {mistakes.userName && <span className='alertRegister'>{mistakes.userName}</span>}
                 </div>
                 <div className='inputContentRegister'>
                     <input className='inputNoCountry' type="password" placeholder='Password' id='password' name='password' />
-                    {mistakes.password && <span className='alertRegister alertPasswordRegister'>{mistakes.password}</span>}
+                    {mistakes.password && <span className='alertRegister'>{mistakes.password}</span>}
                 </div>
                 <div className='inputContentRegister'>
                     <input className='inputNoCountry' type="password" placeholder='Confirm password' id='confirmPassword' name='confirmPassword' />
-                    {mistakes.confirmPassword && <span className='alertRegister alertConfirmPasswordRegister'>{mistakes.confirmPassword}</span>}
+                    {mistakes.confirmPassword && <span className='alertRegister'>{mistakes.confirmPassword}</span>}
                 </div>
                 <div className='inputContentRegister'>
                     <div className="dateInputContainer">
@@ -61,7 +65,7 @@ function FormRegister({ openSuccessModal, closeModalRegister }) {
                             popperClassName="customDatePickerPopper"
                         />
                     </div>
-                    {mistakes.birthDate && <span className='alertRegister alertBirthDateRegister'>{mistakes.birthDate}</span>}
+                    {mistakes.birthDate && <span className='alertRegister'>{mistakes.birthDate}</span>}
                 </div>
 
                 <button className='buttonNoCountry' type='submit' disabled={sendData}>{sendData ? "Registrandote" : "Regístrate"}</button>

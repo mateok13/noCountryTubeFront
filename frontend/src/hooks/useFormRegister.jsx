@@ -23,6 +23,12 @@ const useFormRegister = (onSuccess) => {
             mistakes.firstName = 'The first name can only contain letters and spaces (a space between each word)';
         }
 
+        if (!form.lastName.trim()) {
+            mistakes.lastName = 'The last name field must not be empty, enter your last name';
+        } else if (!regexTextOnly.test(form.lastName)) {
+            mistakes.lastName = 'The last name can only contain letters and spaces (a space between each word)';
+        }
+
         if (!form.email.trim()) {
             mistakes.email = 'The email field must not be empty, enter your email';
         } else if (!regexEmail.test(form.email)) {
@@ -81,11 +87,23 @@ const useFormRegister = (onSuccess) => {
         setMistakes(mistake);
 
         if (Object.keys(mistake).length === 0) {
-            const url = environment.url + 'endpointRegister';
+            const url = environment.url + 'users';
             setSendData(true);
             fetch(url, {
                 method: "POST",
-                body: JSON.stringify(formData),
+                body: JSON.stringify(
+                    {
+                        "userName": formData.userName,
+                        "email": formData.email,
+                        "password": formData.password,
+                        "lastName": formData.lastName, // este campo no estaba previsto en el diseño
+                        "firstName": formData.firstName,
+                        "birthday": formData.birthDate,
+                        "phone": "12345", // este campo no estaba previsto en el diseño
+                        "isActive": "true", //esto no deberia de enviarlo yo si no controlarlo el back
+                        "photo": "" // este campo no estaba previsto en el diseño
+                    }
+                ),
                 headers: {
                     "Content-Type": "application/json",
                 },
