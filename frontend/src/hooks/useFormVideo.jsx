@@ -5,43 +5,45 @@ import axios from "axios";
 import { environment } from "./environment";
 
 const formValues = {
-    username: 'username',
+    userId: '',
     title: '',
     description: '',
-    thumbnail: null,
+    miniature: null,
     video: null, // archivo
-    duration: '',
-    comments: true,
+    duration: '', //***
+    // comments: true, //***
     // views: 0,
     // likes: 0,
     // dislikes: 0,
-    isPublic: true
+    // isPublic: true //***
 }
 
-const snapshotList = [3, 6, 30] // Toma capturas en el segundo 3, 6, 30
+const snapshotList = [3, 10, 30] // Toma capturas en el segundo 3, 6, 30
 
 const useFormVideo = () => {
     const [formData, setFormData] = useState(formValues)
     const [errors, setErrors] = useState({})
-    const [thumbnails, setThumbnails] = useState([])
-    const [selectedThumbnail, setSelectedThumbnail] = useState(null)
+    const [miniatures, setMiniatures] = useState([])
+    const [selectedMiniature, setSelectedMiniature] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
     const videoInputRef = useRef(null);
     const navigate = useNavigate()
-    const token = '' // ***********************************************
+    const token = localStorage.getItem('accessToken')
+    const userId = localStorage.getItem('userId')
 
     const validateInputs = () => {
         const newErrors = {};
         if (!formData.title.trim()) {
             newErrors.title = 'El título del video es obligatorio.';
         }
-        if (!formData.description.trim()) {
-            newErrors.description = 'La descripción del video es obligatoria.';
-        }
+        // if (!formData.description.trim()) {
+        //     newErrors.description = 'La descripción del video es obligatoria.';
+        // }
         if (!formData.video) {
             newErrors.video = 'Debe seleccionar el archivo de video.';
         }
-        if (!formData.thumbnail) {
-            newErrors.thumbnail = 'Debe seleccionar una miniatura.';
+        if (!formData.miniature) {
+            newErrors.miniature = 'Debe seleccionar una miniatura.';
         }
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -49,35 +51,38 @@ const useFormVideo = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const isValid = validateInputs();
         if (!isValid) return;
 
         const data = new FormData();
+        data.append('userId', userId);
         data.append('title', formData.title);
         data.append('description', formData.description);
         data.append('video', formData.video);
-        data.append('duration', formData.duration);
-        data.append('comments', formData.comments);
+        data.append('duration', formData.duration); //***
+        // data.append('comments', formData.comments); //***
         // data.append('views', formData.views);
         // data.append('likes', formData.likes);
         // data.append('dislikes', formData.dislikes);
-        data.append('isPublic', formData.isPublic);
+        // data.append('isPublic', formData.isPublic); //***
 
         // Verifico si la miniatura seleccionada es una miniatura generada por react-video-thumbnail para convertirla a archivo
-        if (thumbnails.includes(selectedThumbnail)) {
+        if (miniatures.includes(selectedMiniature)) {
             const mime = 'image/jpeg'; // tipo MIME
-            const blob = base64ToBlob(selectedThumbnail, mime);
-            data.append(`thumbnail`, blob, `thumbnail.jpg`);
+            const blob = base64ToBlob(selectedMiniature, mime);
+            data.append(`miniature`, blob, `miniature.jpg`);
         } else {
-            data.append('thumbnail', formData.thumbnail); // adjunto la miniatura subida manualmente (archivo)
+            data.append('miniature', formData.miniature); // adjunto la miniatura subida manualmente (archivo)
         }
 
         // objeto FormData en la consola
         for (const pair of data.entries()) {
-            console.log(pair[0], pair[1]);
+            console.log(pair[0], pair[1], typeof (pair[1]));
         }
 
-        axios.post(`${environment.url}/direccion-upload-video`, data, {
+        setIsLoading(true)
+        axios.post(`${environment.url}videos`, data, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'multipart/form-data'
@@ -85,8 +90,8 @@ const useFormVideo = () => {
         })
             .then(response => {
                 console.log(response.data)
-                setThumbnails([])
-                setSelectedThumbnail(null)
+                setMiniatures([])
+                setSelectedMiniature(null)
                 setFormData(formValues);
 
                 if (videoInputRef.current) {
@@ -94,7 +99,11 @@ const useFormVideo = () => {
                 }
                 alert("Video subido exitosamente");
             })
-            .catch(error => console.log(error.message))
+            .catch(error => {
+                alert('Hubo un error al subir el video.')
+                console.log(error.message)
+            })
+            .finally(() => setIsLoading(false))
     };
 
 
@@ -131,20 +140,20 @@ const useFormVideo = () => {
 
     const handleImageFileChange = (e) => {
         const file = e.target.files[0];
-        setSelectedThumbnail(URL.createObjectURL(file));
-        setFormData((prevFormData) => ({ ...prevFormData, thumbnail: file }));
+        setSelectedMiniature(URL.createObjectURL(file));
+        setFormData((prevFormData) => ({ ...prevFormData, miniature: file }));
     };
 
-    const handleSelectThumbnail = (thumbnail) => {
-        setSelectedThumbnail(thumbnail);
-        setFormData((prevFormData) => ({ ...prevFormData, thumbnail }))
+    const handleSelectThumbnail = (miniature) => {
+        setSelectedMiniature(miniature);
+        setFormData((prevFormData) => ({ ...prevFormData, miniature }))
     };
 
     const generateThumbnails = () => {
         return snapshotList.map((item, index) => (
             <div key={index} className="d-none">
                 <VideoThumbnail videoUrl={URL.createObjectURL(formData.video)}
-                    thumbnailHandler={(thumbnail) => setThumbnails((prevThumbnails) => [...prevThumbnails, thumbnail,])}
+                    thumbnailHandler={(miniature) => setMiniatures((prevThumbnails) => [...prevThumbnails, miniature,])}
                     snapshotAtTime={item} />
             </div>))
     }
@@ -168,15 +177,16 @@ const useFormVideo = () => {
         formData,
         errors,
         videoInputRef,
-        thumbnails,
-        selectedThumbnail,
+        miniatures,
+        selectedMiniature,
         handleSubmit,
         handleChange,
         handleImageFileChange,
         handleVideoFileChange,
         handleSelectThumbnail,
         handleCancel,
-        generateThumbnails
+        generateThumbnails,
+        isLoading
     }
 }
 
