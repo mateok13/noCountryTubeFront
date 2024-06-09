@@ -21,11 +21,11 @@ const VideoCard = ({ item }) => {
             <Dropdown.Toggle as="div" variant="secondary" id="dropdown-custom" className="custom-dropdown-toggle">
               <i className="ps-1 bi bi-three-dots-vertical"></i>
             </Dropdown.Toggle>
-            <Dropdown.Menu className='p-0' style={{ minWidth: '100px' }}>
-              <Dropdown.Item className='ps-4 rounded user-select-none'>Opción 1</Dropdown.Item>
-              <Dropdown.Item className='ps-4 rounded user-select-none'>Opción 2</Dropdown.Item>
-              <Dropdown.Item className='ps-4 rounded user-select-none'>Opción 3</Dropdown.Item>
-              <Dropdown.Item className='ps-4 rounded user-select-none'>Opción 4</Dropdown.Item>
+            <Dropdown.Menu className='p-0 menu-options' style={{ minWidth: '100px' }}>
+              <Dropdown.Item className='option rounded-top user-select-none'><i className="bi bi-floppy2 me-2 text-green"></i> Guardar en playlist</Dropdown.Item>
+              <Dropdown.Item className='option user-select-none'><i className="bi bi-share-fill me-2 text-info"></i> Compartir en redes</Dropdown.Item>
+              {/* <Dropdown.Item className='ps-4 option user-select-none'>Opción 3</Dropdown.Item>
+              <Dropdown.Item className='ps-4 option rounded-bottom user-select-none'>Opción 4</Dropdown.Item> */}
             </Dropdown.Menu>
           </Dropdown>
         </div>

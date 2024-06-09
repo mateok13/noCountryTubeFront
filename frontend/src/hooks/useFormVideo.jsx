@@ -11,7 +11,7 @@ const formValues = {
     miniature: null,
     video: null, // archivo
     duration: '', //***
-    // comments: true, //***
+    // isCommentable: true, //***
     // views: 0,
     // likes: 0,
     // dislikes: 0,
@@ -61,7 +61,7 @@ const useFormVideo = () => {
         data.append('description', formData.description);
         data.append('video', formData.video);
         data.append('duration', formData.duration); //***
-        // data.append('comments', formData.comments); //***
+        // data.append('isCommentable', formData.isCommentable); //***
         // data.append('views', formData.views);
         // data.append('likes', formData.likes);
         // data.append('dislikes', formData.dislikes);
@@ -111,7 +111,7 @@ const useFormVideo = () => {
         const { name, value } = e.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
-            [name]: name === "comments" || name === "isPublic" ? value === "true" : value,
+            [name]: name === "isCommentable" || name === "isPublic" ? value === "true" : value,
         }));
     };
 

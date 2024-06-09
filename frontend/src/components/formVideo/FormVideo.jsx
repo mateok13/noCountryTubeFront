@@ -72,11 +72,11 @@ const FormVideo = () => {
           <div className="d-flex gap-3">
             <p className="my-0">Comentarios</p>
             <div>
-              <input disabled={isLoading} className="me-1 cursor-pointer" id="comments-on" type="radio" name="comments" value="true" onChange={handleChange} checked={formData.comments === true} />
+              <input disabled={isLoading} className="me-1 cursor-pointer" id="comments-on" type="radio" name="isCommentable" value="true" onChange={handleChange} checked={formData.isCommentable === true} />
               <label className="cursor-pointer" htmlFor="comments-on">Permitidos</label>
             </div>
             <div>
-              <input disabled={isLoading} className="me-1 cursor-pointer" id="comments-off" type="radio" name="comments" value="false" onChange={handleChange} checked={formData.comments === false} />
+              <input disabled={isLoading} className="me-1 cursor-pointer" id="comments-off" type="radio" name="isCommentable" value="false" onChange={handleChange} checked={formData.isCommentable === false} />
               <label className="cursor-pointer" htmlFor="comments-off">Bloqueados</label>
             </div>
           </div>

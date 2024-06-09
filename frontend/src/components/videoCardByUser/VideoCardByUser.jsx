@@ -21,11 +21,11 @@ const VideoCardByUser = ({ item }) => {
             <Dropdown.Toggle as="div" variant="secondary" id="dropdown-custom" className="custom-dropdown-toggle">
               <i className="bi bi-three-dots-vertical"></i>
             </Dropdown.Toggle>
-            <Dropdown.Menu className='p-0' style={{ minWidth: '100px' }}>
-              <Dropdown.Item href="/" className='option rounded user-select-none'><i className="bi bi-pencil-square me-2 text-primary"></i> Editar</Dropdown.Item>
-              <Dropdown.Item href="/" className='option rounded user-select-none'><i className="bi bi-trash3-fill me-2 text-danger"></i> Eliminar</Dropdown.Item>
-              <Dropdown.Item href="/" className='option rounded user-select-none'><i className="bi bi-download me-2 text-success"></i> Descargar</Dropdown.Item>
-              <Dropdown.Item href="/" className='option rounded user-select-none'><i className="bi bi-share-fill me-2 text-info"></i> Compartir</Dropdown.Item>
+            <Dropdown.Menu className='p-0 menu-options' style={{ minWidth: '100px' }}>
+              <Dropdown.Item href="/" className='option rounded-top user-select-none'><i className="bi bi-pencil-square me-2 text-primary"></i> Editar</Dropdown.Item>
+              <Dropdown.Item href="/" className='option user-select-none'><i className="bi bi-trash3-fill me-2 text-danger"></i> Eliminar</Dropdown.Item>
+              <Dropdown.Item href="/" className='option user-select-none'><i className="bi bi-download me-2 text-green"></i> Descargar</Dropdown.Item>
+              <Dropdown.Item href="/" className='option rounded-bottom user-select-none'><i className="bi bi-share-fill me-2 text-info"></i> Compartir</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>
