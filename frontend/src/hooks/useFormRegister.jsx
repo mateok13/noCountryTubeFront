@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { environment } from '../hooks/environment'
+import axios from "axios";
 
 const useFormRegister = (onSuccess) => {
     const [mistakes, setMistakes] = useState({});
@@ -11,6 +12,7 @@ const useFormRegister = (onSuccess) => {
     const regexTextOnly = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+(\s[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+)*$/;
     const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
     const regexUserName = /^[A-Za-z0-9]+$/;
+    const regexPhone = /^\d{10,}$/;
     // const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     const regexFecha = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 
@@ -53,6 +55,12 @@ const useFormRegister = (onSuccess) => {
             mistakes.confirmPassword = 'The passwords do not match';
         }
 
+        if (!form.phone.trim()) {
+            mistakes.phone = 'The phone field must not be empty, enter your phone';
+        } else if (!regexPhone.test(form.phone)) {
+            mistakes.phone = 'The phone can only contain numbers (minime 10)';
+        }
+
         if (!form.birthDate.trim()) {
             mistakes.birthDate = 'The birthdate field must not be empty, enter your birthdate';
         } else if (!regexFecha.test(form.birthDate)) {
@@ -89,34 +97,29 @@ const useFormRegister = (onSuccess) => {
         if (Object.keys(mistake).length === 0) {
             const url = environment.url + 'users';
             setSendData(true);
-            fetch(url, {
-                method: "POST",
-                body: JSON.stringify(
-                    {
-                        "userName": formData.userName,
-                        "email": formData.email,
-                        "password": formData.password,
-                        "lastName": formData.lastName, // este campo no estaba previsto en el diseño
-                        "firstName": formData.firstName,
-                        "birthday": formData.birthDate,
-                        "phone": "12345", // este campo no estaba previsto en el diseño
-                        "isActive": "true", //esto no deberia de enviarlo yo si no controlarlo el back
-                        "photo": "" // este campo no estaba previsto en el diseño
-                    }
-                ),
+            axios.post(url, {
+                userName: formData.userName,
+                email: formData.email,
+                password: formData.password,
+                lastName: formData.lastName,
+                firstName: formData.firstName,
+                birthday: formData.birthDate,
+                phone: formData.phone,
+                isActive: "true",
+                photo: ""
+            }, {
                 headers: {
-                    "Content-Type": "application/json",
-                },
+                    "Content-Type": "application/json"
+                }
             })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
+                .then((response) => {
+                    console.log(response.data);
                     setSendData(false);
                     if (onSuccess) {
                         onSuccess();
                     }
                 })
-                .catch(error => {
+                .catch((error) => {
                     console.log(error);
                     setSendData(false);
                     alert("No se pudo realizar el registro");

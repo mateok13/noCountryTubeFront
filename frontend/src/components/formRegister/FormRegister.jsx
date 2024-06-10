@@ -48,6 +48,10 @@ function FormRegister({ openSuccessModal, closeModalRegister }) {
                     {mistakes.confirmPassword && <span className='alertRegister'>{mistakes.confirmPassword}</span>}
                 </div>
                 <div className='inputContentRegister'>
+                    <input className='inputNoCountry' type="number" placeholder='Phone' id='phone' name='phone' />
+                    {mistakes.phone && <span className='alertRegister'>{mistakes.phone}</span>}
+                </div>
+                <div className='inputContentRegister'>
                     <div className="dateInputContainer">
                         <InputMask
                             mask="99/99/9999"

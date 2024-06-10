@@ -1,4 +1,4 @@
-import images from "../../assets/image/image"; // Importación de las imágenes
+import images from "../../assets/image/image";
 import './SideBar.css';
 
 const SideBar = () => {
@@ -21,7 +21,7 @@ const SideBar = () => {
         ))}
       </ul>
       <div className="bottomSection">
-      <img className="logoNoCountry" src={images.LogoNoCountryTube} />
+        <img className="logoNoCountry" src={images.LogoNoCountryTube} />
         <hr className="whiteLine" />
         <p className="copyrightText">Copyright © 2024 No Country</p>
       </div>

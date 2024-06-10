@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { environment } from '../hooks/environment';
+import axios from "axios";
 import useUser from './useUser';
 
 const useFormLogin = (onSuccess) => {
@@ -41,33 +42,29 @@ const useFormLogin = (onSuccess) => {
         if (Object.keys(mistake).length === 0) {
             const url = environment.url + 'auth/login';
             setSendData(true);
-            fetch(url, {
-                method: "POST",
-                body: JSON.stringify(
-                    {
-                        "userName": formData.userName,
-                        "password": formData.password
-                    }
-                ),
+            axios.post(url, {
+                userName: formData.userName,
+                password: formData.password
+            }, {
                 headers: {
-                    "accept": "*/*",
                     "Content-Type": "application/json"
                 }
             })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
-                    setSendData(false);
-                    setUserId(data.id);
-                    setAccessToken(data.accessToken);
-                    setAccessTokenExpiry(data.accessTokenExpiry);
-                    setRefreshToken(data.refreshToken);
-                    setRefreshTokenExpiry(data.refreshTokenExpiry);
-                    if (onSuccess) {
-                        onSuccess();
+                .then((response) => {
+                    console.log(response.data);
+                    if(response.statusText === "Created"){
+                        setSendData(false);
+                        setUserId(response.data.id);
+                        setAccessToken(response.data.accessToken);
+                        setAccessTokenExpiry(parseInt(response.data.accessTokenExpiry));
+                        setRefreshToken(response.data.refreshToken);
+                        setRefreshTokenExpiry(parseInt(response.data.refreshTokenExpiry));
+                        if (onSuccess) {
+                            onSuccess();
+                        }
                     }
                 })
-                .catch(error => {
+                .catch((error) => {
                     console.log(error);
                     setSendData(false);
                     alert("No se pudo iniciar la sesión");

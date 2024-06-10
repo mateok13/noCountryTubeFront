@@ -4,6 +4,7 @@ import { environment } from "./environment";
 
 const isTokenExpired = (expiry) => {
     const now = new Date().getTime();
+    console.log(now>expiry);
     return now > expiry;
 };
 
@@ -46,11 +47,9 @@ const useUser = () => {
                 setUserId(null);
                 setAccessToken(null);
                 setRefreshToken(null);
-                localStorage.removeItem('userId');
-                localStorage.removeItem('accessToken');
-                localStorage.removeItem('refreshToken');
-                localStorage.removeItem('accessTokenExpiry');
-                localStorage.removeItem('refreshTokenExpiry');
+                setAccessTokenExpiry(null);
+                setRefreshTokenExpiry(null);
+                localStorage.clear();
             } else {
                 const url = environment.url;
                 fetch(url + 'auth/refresh', {
@@ -72,7 +71,7 @@ const useUser = () => {
                     });
             }
         }
-    }, [accessToken, refreshToken, accessTokenExpiry, refreshTokenExpiry, setUserId, setAccessToken, setRefreshToken, setAccessTokenExpiry ]);
+    }, [accessToken, refreshToken, accessTokenExpiry, refreshTokenExpiry, setUserId, setAccessToken, setRefreshToken, setAccessTokenExpiry, setRefreshTokenExpiry ]);
 
     return {
         userId, setUserId,
