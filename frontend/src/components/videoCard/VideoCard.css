@@ -4,8 +4,14 @@
     text-overflow: ellipsis;
 }
 
+.card-img{
+    height: 150px;
+    object-fit: cover;
+    object-position: top;
+}
+
 .card-width {
-    max-width: 300px;
+    max-width: 310px;
     width: 90%;
 }
 
@@ -20,7 +26,7 @@
 
 .span-duration {
     font-size: 13.5px;
-    background-color: #000000a9;
+    background-color: #000000bc !important;
     min-width: 50px;
     box-shadow: 0 0 5px #09fca7;
     border: 1px solid #09fca7;

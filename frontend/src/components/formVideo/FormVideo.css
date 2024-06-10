@@ -6,7 +6,7 @@
   cursor: pointer;
 }
 
-.form{
+.form {
   background-color: #06071B;
   max-width: 470px;
   width: 100%;
@@ -14,7 +14,7 @@
   padding: 20.5px;
 }
 
-.form-control{
+.form-control {
   border: 2px solid #09fca7;
 }
 
@@ -30,8 +30,8 @@
   width: 100%;
 }
 
-.thumbnail-selected{
-  box-shadow: 0 0 5px #fff,  0 0 10px #fff;
+.thumbnail-selected {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff;
   border: 2px solid #fff;
 }
 
@@ -60,7 +60,7 @@
   background-color: #00ca83;
 }
 
-.cloud{
+.cloud {
   position: absolute;
   top: 25px;
   left: 52px;
@@ -71,19 +71,25 @@
   object-position: top;
 }
 
-.ms-15{
+.ms-15 {
   margin-left: 17.5px;
 }
 
+.pointer-events-none{
+  pointer-events: none;
+}
+
 @media screen and (max-width: 890px) {
-  .responsive{
+  .responsive {
     margin: 0 auto;
   }
-  .thumbnail-border, .label-file{
+
+  .thumbnail-border,
+  .label-file {
     width: 120px;
   }
 
-  .cloud{
+  .cloud {
     display: none;
   }
 }

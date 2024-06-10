@@ -5,7 +5,7 @@
 }
 
 .card-width-user {
-    max-width: 290px;
+    max-width: 280px;
     width: 90%;
 }
 
@@ -32,22 +32,27 @@
 }
 
 .custom-dropdown-toggle {
-    width: 25px;
+    width: 13px;
     cursor: pointer;
-    border: 1px solid rgb(186, 186, 186);
-    border-radius: 3px;
+    /* border: 1px solid rgb(186, 186, 186); */
+    /* border-radius: 3px; */
+    padding-bottom: 2px;
+}
+
+.menu-options{
+    background-color: #000;
 }
 
 .option {
     cursor: pointer;
-    color: #06071B;
+    color: #fff;
 }
 
 .option:hover {
-    background-color: #f4f4f4;
+    color: #fff;
+    background-color: #1f1f1f;
 }
 
-.option:active {
-    background-color: #d7d7d7;
-    color: #06071B;
+.text-green{
+    color: #09fca7;
 }
