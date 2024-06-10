@@ -51,17 +51,14 @@ const useFormLogin = (onSuccess) => {
                 }
             })
                 .then((response) => {
-                    console.log(response.data);
-                    if(response.statusText === "Created"){
-                        setSendData(false);
-                        setUserId(response.data.id);
-                        setAccessToken(response.data.accessToken);
-                        setAccessTokenExpiry(parseInt(response.data.accessTokenExpiry));
-                        setRefreshToken(response.data.refreshToken);
-                        setRefreshTokenExpiry(parseInt(response.data.refreshTokenExpiry));
-                        if (onSuccess) {
-                            onSuccess();
-                        }
+                    setSendData(false);
+                    setUserId(response.data.id);
+                    setAccessToken(response.data.accessToken);
+                    setAccessTokenExpiry(parseInt(response.data.accessTokenExpiry));
+                    setRefreshToken(response.data.refreshToken);
+                    setRefreshTokenExpiry(parseInt(response.data.refreshTokenExpiry));
+                    if (onSuccess) {
+                        onSuccess();
                     }
                 })
                 .catch((error) => {
