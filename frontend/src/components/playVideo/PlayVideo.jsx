@@ -1,59 +1,30 @@
 import PropTypes from "prop-types";
-import { useState, useRef, useEffect } from "react";
 import usePlayVideo from "../../hooks/usePlayVideo";
-
+import { useNavigate } from "react-router-dom";
 import './PlayVideo.css';
 
 function PlayVideo({ videoId }) {
 
-    const { videoData } = usePlayVideo({ videoId });
+    const {
+        videoData,
+        videoRef,
+        isPlaying,
+        setIsPlaying,
+        isMuted,
+        progress,
+        togglePlay,
+        toggleMute,
+        enterFullScreen,
+        handleProgressBarClick,
+        showDropdown,
+        dropdownRef,
+        toggleDropdown,
+        menu,
+        menuOptions,
+        handleMenuChange
+    } = usePlayVideo({ videoId });
 
-    const videoRef = useRef(null);
-    const [isPlaying, setIsPlaying] = useState(true);
-    const [isMuted, setIsMuted] = useState(false);
-
-    const togglePlay = () => {
-        if (videoRef.current.paused) {
-            videoRef.current.play();
-            setIsPlaying(true);
-        } else {
-            videoRef.current.pause();
-            setIsPlaying(false);
-        }
-    };
-
-    const toggleMute = () => {
-        videoRef.current.muted = !videoRef.current.muted;
-        setIsMuted(videoRef.current.muted);
-    };
-
-    const enterFullScreen = () => {
-        if (videoRef.current.requestFullscreen) {
-            videoRef.current.requestFullscreen();
-        }
-    };
-
-    const [progress, setProgress] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (videoRef.current) {
-                const currentProgress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
-                setProgress(currentProgress);
-            }
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
-
-    const handleProgressBarClick = (e) => {
-        const progressBarContainer = e.target.parentNode;
-        const progressBarWidth = progressBarContainer.clientWidth;
-        const clickPositionX = e.nativeEvent.offsetX;
-        const newTime = (clickPositionX / progressBarWidth) * videoRef.current.duration;
-        videoRef.current.currentTime = newTime;
-        setProgress((newTime / videoRef.current.duration) * 100);
-    };
+    const navigate = useNavigate()
 
     if (!videoData) {
         return <div>Cargando...</div>;
@@ -85,8 +56,25 @@ function PlayVideo({ videoId }) {
                         <i className={`bi ${isMuted ? 'bi-volume-mute-fill' : 'bi-volume-down-fill'}`} onClick={toggleMute}></i>
                     </div>
                     <div className="iconsPlayerNoCountry">
+                        <div className="dropdownPlayVideo" ref={dropdownRef}>
+                            <i className="bi bi-gear-fill" onClick={toggleDropdown}></i>
+                            {showDropdown && (
+                                <div className="dropdownContentMenuPlayVideo">
+                                    {menuOptions[menu].map((option, index) => (
+                                        <button
+                                            className={`buttonMenuPlayVideo ${option === 'Desactivados' || option === 'Normal' || option === 'Automática' ? 'optionDefault' : ''}`}
+                                            key={index}
+                                            onClick={() => handleMenuChange(option)}
+                                        >
+                                            {option === 'Volver' ? <i className="bi bi-chevron-left"></i> : null}
+                                            {option}
+                                            {menu === 'main' ? <i className="bi bi-chevron-right"></i> : null}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                         <i className="bi bi-fullscreen" onClick={enterFullScreen}></i>
-                        <i className="bi bi-gear-fill"></i>
                     </div>
                 </div>
             </div>
@@ -102,7 +90,16 @@ function PlayVideo({ videoId }) {
                     </div>
                 </div>
             </div>
-
+            <div className="infoChannel">
+                <div className="profileUserVideo" onClick={() => navigate(`/list-videos/${videoData.nameUser}`)}>
+                    <i className="bi bi-person-circle"></i>
+                    <div className="infoUser">
+                        <h1 className="nameUser">{videoData.nameUser}</h1>
+                        <h1 className="suscriptoresUser"># suscriptores</h1>
+                    </div>
+                </div>
+                <button className='buttonNoCountry suscribeButton'>Suscribirse</button>
+            </div>
         </div>
     );
 }

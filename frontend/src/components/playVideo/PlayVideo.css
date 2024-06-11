@@ -1,14 +1,14 @@
-.contenidoPlayVideo{
+.contenidoPlayVideo {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 100%;
     height: auto;
     gap: 15px;
 }
 
-.contenidoPlayVideo i{
+.contenidoPlayVideo i {
     cursor: pointer;
 }
 
@@ -30,19 +30,20 @@
     font-size: 60px;
 }
 
-.iconPaused{
+.iconPaused {
     display: none;
 }
 
-.videoNoCountry:hover+.iconPaused{
+.videoNoCountry:hover+.iconPaused {
     display: block;
 }
 
-.iconPlay, .controlesVideoNoCountry{
+.iconPlay,
+.controlesVideoNoCountry {
     color: #09fca7;
 }
 
-.controlesVideoNoCountry{
+.controlesVideoNoCountry {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -52,7 +53,7 @@
     background-color: rgba(26, 24, 24, 0.9);
 }
 
-.iconsPlayerNoCountry{
+.iconsPlayerNoCountry {
     display: flex;
     gap: 20px;
 }
@@ -70,20 +71,62 @@
     cursor: pointer;
 }
 
-.footerVideo{
+.footerVideo {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.tituloPlayVideo{
+.tituloPlayVideo {
     width: 60%;
     color: white;
     font-size: 24px;
 }
 
-.iteractionsVideo{
+.infoChannel {
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profileUserVideo{
+    display: flex;
+    font-size: 40px;
+    align-items: center;
+    gap: 15px;
+    width: 25%;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.profileUserVideo:hover{
+    background-color: rgba(100, 100, 100, 0.1);
+    border-radius: 10px;
+}
+
+.infoUser{
+    display: flex;
+    flex-direction: column;
+}
+
+.nameUser{
+    font-size: 14px;
+}
+
+.suscriptoresUser{
+    font-size: 12px;
+    color: gray;
+}
+
+.suscribeButton {
+    padding: 5px 20px !important;
+    font-size: 14px !important;
+}
+
+.iteractionsVideo {
     width: 40%;
     display: flex;
     justify-content: flex-end;
@@ -92,24 +135,59 @@
     gap: 20px;
 }
 
-.iconsIteractionsVideo{
+.iconsIteractionsVideo {
     display: flex;
     gap: 10px;
 }
 
-.iconIteraction{
+.iconIteraction {
     background-color: #06071B;
     padding: 0px 10px;
     border-radius: 5px;
 }
 
-.buttonSaveVideo{
+.buttonSaveVideo {
     background-color: #09fca7;
     border: none;
     border-radius: 5px;
     padding: 0px 20px;
 }
 
-.buttonSaveVideo:hover{
+.buttonSaveVideo:hover {
     background-color: #09fca78a;
+}
+
+.dropdownContentMenuPlayVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #090B2A;
+    border-radius: 10px;
+    width: 230px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-size: 16px;
+    overflow: hidden;
+    transform: translateX(-10px) translateY(-55px);
+}
+
+.buttonMenuPlayVideo {
+    background: none;
+    border: none;
+    padding: 10px;
+    display: block;
+    color: white;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttonMenuPlayVideo:hover {
+    background-color: rgba(29, 144, 252, 0.29);
+}
+
+.optionDefault {
+    background-color: rgba(29, 144, 252, 0.29);
 }

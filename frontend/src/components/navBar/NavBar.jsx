@@ -125,7 +125,7 @@ const NavBar = ({ navigate }) => {
 };
 
 NavBar.propTypes = {
-  navigate: PropTypes.string
+  navigate: PropTypes.func
 };
 
 export default NavBar;
