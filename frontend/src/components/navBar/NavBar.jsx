@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useState, useRef, useEffect } from "react";
 import images from "../../assets/image/image";
 import LoginForm from "../formLogin/FormLogin";
@@ -7,7 +8,7 @@ import SpinnerSuccess from "../spinner/SpinnerSuccess";
 import useUser from '../../hooks/useUser';
 import "./NavBar.css";
 
-const NavBar = () => {
+const NavBar = ({ navigate }) => {
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false);
   const [isModalRegisterOpen, setIsModalRegisterOpen] = useState(false);
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
@@ -88,7 +89,7 @@ const NavBar = () => {
             </button>
           ) : (
             <div className="iconsNavBar">
-              <i className="bi bi-camera-video iconsNavbar"></i>
+              <i className="bi bi-camera-video iconsNavbar" onClick={() => navigate('/upload-video')}></i>
               <i className="bi bi-bell iconsNavbar"></i>
               <div className="dropdown" ref={dropdownRef}>
                 <i className={`bi bi-person-fill iconsNavbar ${showDropdown ? 'iconActive' : ''}`} onClick={toggleDropdown}></i>
@@ -121,6 +122,10 @@ const NavBar = () => {
       </div>
     </nav>
   );
+};
+
+NavBar.propTypes = {
+  navigate: PropTypes.string
 };
 
 export default NavBar;

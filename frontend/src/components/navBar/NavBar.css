@@ -80,13 +80,7 @@
   font-size: 22px;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
 .dropdown-content {
-  display: none;
   position: absolute;
   right: 0;
   top: 0;
@@ -98,10 +92,6 @@
   z-index: 1;
   font-size: 16px;
   overflow: hidden;
-}
-
-.dropdown .dropdown-content {
-  display: block;
   transform: translateX(-30px);
 }
 
@@ -109,7 +99,6 @@
   background: none;
   border: none;
   padding: 5px;
-  text-decoration: none;
   display: block;
   color: white;
   width: 100%;
