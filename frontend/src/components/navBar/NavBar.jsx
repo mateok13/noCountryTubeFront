@@ -71,13 +71,11 @@ const NavBar = ({ navigate }) => {
   return (
     <nav className="navBar">
       <div className="navbarLogo">
-        <img className="logoNoCountry" src={images.LogoNoCountryTube} />
+        <img className="logoNoCountry cursor-pointer" src={images.LogoNoCountryTube} onClick={() => navigate('/')} />
       </div>
       <div className="navbarBuscar">
         <div className="buscarInputWrapper">
-          <div className="lupaWrapper">
-            <img className="lupa" src={images.lupa} />
-          </div>
+          <i className="bi bi-search"></i>
           <input type="text" placeholder="Buscar..." />
         </div>
       </div>
@@ -89,10 +87,10 @@ const NavBar = ({ navigate }) => {
             </button>
           ) : (
             <div className="iconsNavBar">
-              <i className="bi bi-camera-video iconsNavbar" onClick={() => navigate('/upload-video')}></i>
-              <i className="bi bi-bell iconsNavbar"></i>
+              <i className="cursor-pointer bi bi-camera-video iconsNavbar" onClick={() => navigate('/upload-video')}></i>
+              <i className="cursor-pointer bi bi-bell iconsNavbar"></i>
               <div className="dropdown" ref={dropdownRef}>
-                <i className={`bi bi-person-fill iconsNavbar ${showDropdown ? 'iconActive' : ''}`} onClick={toggleDropdown}></i>
+                <i className={`cursor-pointer bi bi-person-fill iconsNavbar ${showDropdown ? 'iconActive' : ''}`} onClick={toggleDropdown}></i>
                 {showDropdown && (
                   <div className="dropdown-content">
                     <button className="buttonProfile" href="#ver-perfil"><i className="bi bi-person-square"></i>Profile</button>

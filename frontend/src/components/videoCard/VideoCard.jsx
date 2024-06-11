@@ -14,7 +14,7 @@ const VideoCard = ({ item }) => {
         <img src={miniature} className="card-img-top card-img rounded" alt={`Imagen ${item.title}`} />
         <span className="position-absolute end-0 bottom-0 z-3 text-white text-center rounded-1 px-1 m-2 span-duration">{duration}</span>
       </div>
-      <div className="pb-0 pt-2 ps-1">
+      <div className="pb-0 pt-2 ps-0">
         <div className="d-flex align-items-center justify-content-between">
           <h6 className="m-0 pe-1 text-start text-ellipsis" title={title}>{title}</h6>
           <Dropdown> {/* as="div" para poder personalizar */}
