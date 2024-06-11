@@ -6,7 +6,7 @@ const WatchVideo = () => {
     const { videoId } = useParams()
     return (
         <div className="contenidoWatchVideo">
-            <PlayVideo videoId={parseInt(videoId)}/>
+            <PlayVideo videoId={videoId}/>
         </div>
     )
 }
