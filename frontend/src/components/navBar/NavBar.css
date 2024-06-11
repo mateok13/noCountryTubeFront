@@ -37,6 +37,11 @@
   align-items: center;
 }
 
+.buscarInputWrapper i{
+  padding-left: 9.5px;
+  transform: scale(.9);
+}
+
 .navbarBuscar input[type="text"] {
   flex: 1;
   padding: 8px;

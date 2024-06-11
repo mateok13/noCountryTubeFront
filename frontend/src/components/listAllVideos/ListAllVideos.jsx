@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Link } from "react-router-dom";
 import VideoCard from "../videoCard/VideoCard";
 import './ListAllVideos.css';
 import { useEffect, useState } from "react";
@@ -14,7 +13,7 @@ const ListAllVideos = () => {
   const totalVideos = 24; // FALTA EL TOTAL DE VIDEOS
   const [isLoading, setIsLoading] = useState(true);
   const spinnerVideo = (
-    <div className="d-flex justify-content-center align-items-center gap-2 px-10">
+    <div className="d-flex justify-content-center align-items-center gap-2 px-10 pb-4">
       <Spinner className="color-spinner"></Spinner>
     </div>
   )
@@ -57,9 +56,9 @@ const ListAllVideos = () => {
   }, [isLoading, offset, limit, totalVideos]);
 
   return (
-    <div className="m-240 m-250 pb-4"> {/* se quito absolute*/}
-      <Link to='/upload-video' className="container mt-5 d-flex justify-content-center align-items-start flex-wrap text-white">Link Formulario de video</Link>
-      <div className="container mt-5 d-flex justify-content-center align-items-start flex-wrap gap-4 min-vh-100">
+    <div className="m-240"> {/* se quito absolute*/}
+      {/* <Link to='/upload-video' className="container mt-5 d-flex justify-content-center align-items-start flex-wrap text-white">Link Formulario de video</Link> */}
+      <div className="container mt-110 d-flex justify-content-center align-items-start flex-wrap gap-4 min-vh-100">
         {
           // isLoading && listVideos.length == 0 ? <Spinner className="color-spinner"></Spinner> :
           listVideos.map((item) => (

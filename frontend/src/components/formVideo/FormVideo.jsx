@@ -24,7 +24,7 @@ const FormVideo = () => {
   )
 
   return (
-    <form className="form-control form text-white shadow mt-5" onSubmit={handleSubmit}>
+    <form className="form-control form text-white shadow pt-3" onSubmit={handleSubmit}>
       <div>
         <h4>Información General</h4>
         <input disabled={isLoading} className="inputNoCountry mt-1 py-1" type="text" placeholder="Título" id="title" name="title" onChange={handleChange} value={formData.title} autoFocus />
@@ -40,7 +40,7 @@ const FormVideo = () => {
             {miniatures.length > 0 && <p className="mt-0 mb-1">Seleccione una miniatura</p>}
             <div className="d-flex justify-content-between flex-wrap">
               {miniatures.map((item, index) => (
-                <div key={index} className="cursor-pointer rounded thumbnail-border mb-3 responsive">
+                <div key={index} className="cursor-pointer rounded thumbnail-border mb-3">
                   <img className={`rounded thumbnail-border ${isLoading ? 'pointer-events-none' : ''}`} src={item} alt={`Thumbnail ${index + 1}`} onClick={() => handleSelectThumbnail(item)} />
                 </div>
               ))}

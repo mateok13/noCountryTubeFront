@@ -11,7 +11,7 @@
   max-width: 470px;
   width: 100%;
   margin: 0 auto;
-  padding: 20.5px;
+  padding: 20px;
 }
 
 .form-control {
@@ -34,6 +34,10 @@
   box-shadow: 0 0 5px #fff, 0 0 10px #fff;
   border: 2px solid #fff;
 }
+
+/* .mt-8{
+  margin-bottom: 70px;
+} */
 
 /* INPUT FILE SUBIR MINIATURA */
 .input-file {
@@ -80,16 +84,16 @@
 }
 
 @media screen and (max-width: 890px) {
-  .responsive {
+  /* .responsive {
     margin: 0 auto;
-  }
+  } */
 
-  .thumbnail-border,
+  /* .thumbnail-border,
   .label-file {
     width: 120px;
-  }
+  } */
 
-  .cloud {
+  /* .cloud {
     display: none;
-  }
+  } */
 }
