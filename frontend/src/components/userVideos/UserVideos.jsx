@@ -1,11 +1,13 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import UserVideosExample from './ejemploListadoUserVideos.json'
 import VideoCardByUser from '../videoCardByUser/VideoCardByUser'
 import Modal from '../modal/Modal.jsx'
+import images from '../../assets/image/image'
 import Avatar from '../../assets/image/avatar.png'
 import './userVideos.css'
 
-const UserVideos = () => { //{usernameChannel} SI usernameChannel == username (localStorage) ? MOSTRAR DROPDOWN : NO MOSTRARLO
+const UserVideos = ({ usernameChannel }) => { //{usernameChannel} SI usernameChannel == username (localStorage) ? MOSTRAR DROPDOWN : NO MOSTRARLO
     const [allVideos, setAllVideos] = useState(UserVideosExample)
     const [listadoVideos, setListadoVideos] = useState(UserVideosExample)
     const [word, setWord] = useState('')
@@ -61,8 +63,8 @@ const UserVideos = () => { //{usernameChannel} SI usernameChannel == username (l
             <div className='width-info mx-auto d-flex justify-content-center gap-3'>
                 <img className='img-avatar user-select-none' src={Avatar} alt="" />
                 <div className='text-start'>
-                    <h1 className='shadow-white'>User Example</h1>
-                    <p>@userExample | 3 suscriptores | 6 videos</p>
+                    <h1 className='shadow-white'>{usernameChannel}</h1>
+                    <p>@{usernameChannel} | 3 suscriptores | 6 videos</p>
                     <p>Bienvenidos a mi canal oficial. Aquí encontrarás entrevistas, experiencias y los mejores proyectos de NoCountry; así como también las últimas noticias relacionadas a cada simulación laboral.</p>
                     <span className='buttonNoCountry rounded-5 px-3 py-1 fs-9 text-capitalize' onClick={() => setIsSubscribed(!isSubscribe)}>{isSubscribe ? 'Suscribirse' : 'Cancelar Suscripción'}</span>
                 </div>
@@ -95,8 +97,12 @@ const UserVideos = () => { //{usernameChannel} SI usernameChannel == username (l
             </div>
 
             <Modal isOpen={isModalMessageOpen} closeModal={closeModalMessage} className='bg-white'>
-                <div className='px-4 py-25'>
-                    <p className=''>¿Estás seguro de que quieres eliminar este video?</p>
+                <div className='px-4 py-11'>
+                    <div className='d-flex justify-content-start'>
+                        <img width={100} src={images.LogoNoCountryTube} alt="" />
+                    </div>
+                    <hr className='my-2' />
+                    <p>¿Estás seguro de que quieres eliminar este video?</p>
                     <div className='d-flex justify-content-end gap-2'>
                         <button className='buttonNoCountry py-1 text-lowercase text-capitalize' onClick={confirmDeleteVideo}>Aceptar</button>
                         <button className='buttonNoCountry py-1 text-lowercase text-capitalize' onClick={closeModalMessage}>Cancelar</button>
@@ -107,8 +113,8 @@ const UserVideos = () => { //{usernameChannel} SI usernameChannel == username (l
     )
 }
 
-// UserVideos.propTypes = {
-//     username: PropTypes.string.isRequired,
-// }
+UserVideos.propTypes = {
+    usernameChannel: PropTypes.string.isRequired,
+}
 
 export default UserVideos
