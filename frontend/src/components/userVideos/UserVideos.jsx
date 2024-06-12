@@ -39,10 +39,14 @@ const UserVideos = ({ usernameChannel }) => { //{usernameChannel} SI usernameCha
     }
 
     const confirmDeleteVideo = () => {
-        const updatedVideos = allVideos.filter(item => item.id !== videoId)
-        setAllVideos(updatedVideos)
-        searchUserVideos(word)
-        closeModalMessage()
+        // Eliminar el video de la lista de todos los videos
+        const updatedAllVideos = allVideos.filter(item => item.id !== videoId);
+        setAllVideos(updatedAllVideos);
+
+        // Actualizar la lista de videos mostrados
+        setListadoVideos(updatedAllVideos);
+
+        closeModalMessage();
     }
 
     const deleteVideo = (videoId) => {
