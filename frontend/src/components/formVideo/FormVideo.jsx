@@ -3,7 +3,8 @@ import Spinner from 'react-bootstrap/Spinner';
 import "./FormVideo.css";
 
 const FormVideo = () => {
-  const { formData,
+  const {
+    formData,
     errors,
     videoInputRef,
     miniatures,
@@ -15,13 +16,19 @@ const FormVideo = () => {
     handleSelectThumbnail,
     handleCancel,
     isLoading,
-    generateThumbnails } = useFormVideo()
+    generateThumbnails
+  } = useFormVideo();
 
   const spinnerVideo = (
     <div className="d-flex justify-content-center align-items-center gap-2">
       <Spinner animation="border" role="status" size="sm"></Spinner><span>Subiendo...</span>
     </div>
   )
+
+  const handleNewVideoSelected = (e) => {
+    handleVideoFileChange(e); // Actualiza el estado con el nuevo archivo de video
+    generateThumbnails(e.target.files[0]); // Genera las miniaturas pasando el nuevo archivo de video
+  };
 
   return (
     <form className="form-control form text-white shadow pt-3" onSubmit={handleSubmit}>
@@ -33,9 +40,8 @@ const FormVideo = () => {
         {errors ? <p className="text-danger">{errors.description}</p> : null}
         <div className="d-flex flex-column mb-0">
           <p className="mt-0 mb-1">Video</p>
-          <input disabled={isLoading} ref={videoInputRef} className="form-control" type="file" accept="video/*" onChange={handleVideoFileChange} title="Subir Video" />
+          <input disabled={isLoading} ref={videoInputRef} className="form-control" type="file" accept="video/*" onChange={handleNewVideoSelected} title="Subir Video" />
           {errors ? <p className="text-danger">{errors.video}</p> : null}
-          {formData.video && generateThumbnails()}
           <div>
             {miniatures.length > 0 && <p className="mt-0 mb-1">Seleccione una miniatura</p>}
             <div className="d-flex justify-content-between flex-wrap">
