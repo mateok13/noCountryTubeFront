@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import "./VideoCard.css";
 import { Dropdown } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
+// import axios from "axios";
+// import { environment } from "../../hooks/environment";
 
 const VideoCard = ({ item }) => {
   const { id, title, nameUser, miniature, duration } = item;
@@ -23,7 +25,7 @@ const VideoCard = ({ item }) => {
             </Dropdown.Toggle>
             <Dropdown.Menu className='p-0 menu-options' style={{ minWidth: '100px' }}>
               <Dropdown.Item className='option rounded-top user-select-none'><i className="bi bi-floppy2 me-2 text-green"></i> Guardar en playlist</Dropdown.Item>
-              <Dropdown.Item className='option user-select-none'><i className="bi bi-share-fill me-2 text-info"></i> Compartir en redes</Dropdown.Item>
+              <Dropdown.Item className='option user-select-none'><i className="bi bi-share-fill me-2 text-green"></i> Compartir en redes</Dropdown.Item>
               {/* <Dropdown.Item className='ps-4 option user-select-none'>Opción 3</Dropdown.Item>
               <Dropdown.Item className='ps-4 option rounded-bottom user-select-none'>Opción 4</Dropdown.Item> */}
             </Dropdown.Menu>
@@ -31,7 +33,7 @@ const VideoCard = ({ item }) => {
         </div>
         <div className="d-flex justify-content-between flex-column">
           <p className="text-gray width-p my-0 text-ellipsis cursor-pointer" onClick={() => navigate(`/list-videos/${nameUser}`)}>{nameUser}</p>
-          <p className="text-gray"><i className="text-green bi bi-eye"></i> Vistas <span className="fw-bold">·</span> hace 2 horas</p>
+          <p className="text-gray"><i className="text-green bi bi-eye"></i> 15 Vistas <span className="fw-bold">·</span> hace 2 horas</p>
         </div>
       </div>
     </div>

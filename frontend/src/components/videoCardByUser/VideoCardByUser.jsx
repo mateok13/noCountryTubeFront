@@ -3,7 +3,7 @@ import "./VideoCardByUser.css";
 import { Dropdown } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
-const VideoCardByUser = ({ item }) => {
+const VideoCardByUser = ({ item, deleteVideo }) => {
   const { id, title, thumbnail, views, duration } = item;
   const navigate = useNavigate()
 
@@ -23,7 +23,7 @@ const VideoCardByUser = ({ item }) => {
             </Dropdown.Toggle>
             <Dropdown.Menu className='p-0 menu-options' style={{ minWidth: '100px' }}>
               <Dropdown.Item className='option rounded-top user-select-none'><i className="bi bi-pencil-square me-2 text-primary"></i> Editar</Dropdown.Item>
-              <Dropdown.Item className='option user-select-none'><i className="bi bi-trash3-fill me-2 text-danger"></i> Eliminar</Dropdown.Item>
+              <Dropdown.Item className='option user-select-none' onClick={() => deleteVideo(id)}><i className="bi bi-trash3-fill me-2 text-danger"></i> Eliminar</Dropdown.Item>
               <Dropdown.Item className='option user-select-none'><i className="bi bi-download me-2 text-green"></i> Descargar</Dropdown.Item>
               <Dropdown.Item className='option rounded-bottom user-select-none'><i className="bi bi-share-fill me-2 text-info"></i> Compartir</Dropdown.Item>
             </Dropdown.Menu>
@@ -51,6 +51,7 @@ VideoCardByUser.propTypes = {
     // dislikes: PropTypes.number.isRequired,
     duration: PropTypes.string.isRequired,
   }).isRequired,
+  deleteVideo: PropTypes.func.isRequired
 };
 
 export default VideoCardByUser;

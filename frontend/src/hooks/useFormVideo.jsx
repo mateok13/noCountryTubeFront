@@ -15,7 +15,7 @@ const formValues = {
     // views: 0,
     // likes: 0,
     // dislikes: 0,
-    // isPublic: true //***
+    // isPublic: true //*** 
 }
 
 const snapshotList = [3, 10, 30] // Toma capturas en el segundo 3, 6, 30
