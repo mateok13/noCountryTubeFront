@@ -10,6 +10,7 @@ const isTokenExpired = (expiry) => {
 
 const useUser = () => {
     const {
+        userName, setUserName,
         userId, setUserId,
         accessToken, setAccessToken,
         refreshToken, setRefreshToken,
@@ -18,12 +19,16 @@ const useUser = () => {
     } = useContext(UserContext);
 
     useEffect(() => {
+        const storedUserName = localStorage.getItem('userName');
         const storedUserId = localStorage.getItem('userId');
         const storedAccessToken = localStorage.getItem('accessToken');
         const storedRefreshToken = localStorage.getItem('refreshToken');
         const storedAccessTokenExpiry = localStorage.getItem('accessTokenExpiry');
         const storedRefreshTokenExpiry = localStorage.getItem('refreshTokenExpiry');
 
+        if (storedUserName) {
+            setUserName(storedUserName);
+        }
         if (storedUserId) {
             setUserId(storedUserId);
         }
@@ -39,11 +44,12 @@ const useUser = () => {
         if (storedRefreshTokenExpiry) {
             setRefreshTokenExpiry(parseInt(storedRefreshTokenExpiry));
         }
-    }, [setUserId, setAccessToken, setRefreshToken, setAccessTokenExpiry, setRefreshTokenExpiry]);
+    }, [setUserName, setUserId, setAccessToken, setRefreshToken, setAccessTokenExpiry, setRefreshTokenExpiry]);
 
     useEffect(() => {
         if (accessToken && isTokenExpired(accessTokenExpiry)) {
             if (isTokenExpired(refreshTokenExpiry)) {
+                setUserName(null);
                 setUserId(null);
                 setAccessToken(null);
                 setRefreshToken(null);
@@ -71,9 +77,10 @@ const useUser = () => {
                     });
             }
         }
-    }, [accessToken, refreshToken, accessTokenExpiry, refreshTokenExpiry, setUserId, setAccessToken, setRefreshToken, setAccessTokenExpiry, setRefreshTokenExpiry ]);
+    }, [accessToken, refreshToken, accessTokenExpiry, refreshTokenExpiry, setUserName, setUserId, setAccessToken, setRefreshToken, setAccessTokenExpiry, setRefreshTokenExpiry ]);
 
     return {
+        userName, setUserName,
         userId, setUserId,
         accessToken, setAccessToken,
         refreshToken, setRefreshToken,

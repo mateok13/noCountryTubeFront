@@ -5,6 +5,7 @@ import VideoCardByUser from '../videoCardByUser/VideoCardByUser'
 import Modal from '../modal/Modal.jsx'
 import images from '../../assets/image/image'
 import Avatar from '../../assets/image/avatar.png'
+import useUser from '../../hooks/useUser.jsx'
 import './userVideos.css'
 
 const UserVideos = ({ usernameChannel }) => { //{usernameChannel} SI usernameChannel == username (localStorage) ? MOSTRAR DROPDOWN : NO MOSTRARLO
@@ -16,6 +17,9 @@ const UserVideos = ({ usernameChannel }) => { //{usernameChannel} SI usernameCha
     const [selectedTitle, setSelectedTitle] = useState(0)
     const [videoId, setVideoId] = useState(null)
     const [isModalMessageOpen, setIsModalMessageOpen] = useState(false);
+    const { userName } = useUser();
+
+    console.log("username logueado", userName);
 
     const openModalMessage = () => {
         setIsModalMessageOpen(true);

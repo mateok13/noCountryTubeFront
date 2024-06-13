@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 function InfoProfile() {
   const [userInfo, setUserInfo] = useState(null);
-  const { accessToken } = useUser();
+  const { accessToken, setUserName } = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,13 +20,14 @@ function InfoProfile() {
           }
         });
         setUserInfo(response.data.data);
+        setUserName(response.data.data.userName);
       } catch (error) {
         console.error('Error al obtener los datos del usuario:', error);
       }
     };
 
     fetchData();
-  }, [accessToken]);
+  }, [accessToken, setUserName]);
 
   if (!userInfo) {
     return navigate('/');
