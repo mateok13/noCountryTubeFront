@@ -1,22 +1,40 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { environment } from "../../hooks/environment";
 import PropTypes from 'prop-types'
-import UserVideosExample from './ejemploListadoUserVideos.json'
+// import UserVideosExample from './ejemploListadoUserVideos.json'
 import VideoCardByUser from '../videoCardByUser/VideoCardByUser'
 import Modal from '../modal/Modal.jsx'
+import Spinner from 'react-bootstrap/Spinner';
 import images from '../../assets/image/image'
 import Avatar from '../../assets/image/avatar.png'
+import axios from 'axios'
 import useUser from '../../hooks/useUser.jsx'
 import './userVideos.css'
 
-const UserVideos = ({ usernameChannel }) => { //{usernameChannel} SI usernameChannel == username (localStorage) ? MOSTRAR DROPDOWN : NO MOSTRARLO
-    const [allVideos, setAllVideos] = useState(UserVideosExample)
-    const [listadoVideos, setListadoVideos] = useState(UserVideosExample)
+const UserVideos = ({ usernameChannel }) => {
+    const [allVideos, setAllVideos] = useState([])
+    const [listadoVideos, setListadoVideos] = useState([])
     const [word, setWord] = useState('')
     const [isSubscribe, setIsSubscribed] = useState(true)
     const listTitles = ['Mis Videos', 'Shorts', 'Playlists', 'Suscripciones']
     const [selectedTitle, setSelectedTitle] = useState(0)
     const [videoId, setVideoId] = useState(null)
     const [isModalMessageOpen, setIsModalMessageOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false)
+    const token = localStorage.accessToken
+    //{usernameChannel} SI usernameChannel == username (localStorage) ? MOSTRAR DROPDOWN : NO MOSTRARLO
+
+    useEffect(() => {
+        setIsLoading(true)
+        axios.get(`${environment.url}users/get-user-profile/${usernameChannel}`)
+            .then(response => {
+                const videos = response.data.data.videos
+                setAllVideos(videos)
+                setListadoVideos(videos)
+            })
+            .catch(error => console.log(error.message))
+            .finally(() => setIsLoading(false))
+    }, [usernameChannel])
     const { userName } = useUser();
 
     console.log("username logueado", userName);
@@ -43,25 +61,23 @@ const UserVideos = ({ usernameChannel }) => { //{usernameChannel} SI usernameCha
     }
 
     const confirmDeleteVideo = () => {
-        // Eliminar el video de la lista de todos los videos
-        const updatedAllVideos = allVideos.filter(item => item.id !== videoId);
-        setAllVideos(updatedAllVideos);
-
-        // Actualizar la lista de videos mostrados
-        setListadoVideos(updatedAllVideos);
-
-        closeModalMessage();
+        axios.delete(`${environment.url}videos/${videoId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                console.log(response.data)
+                const updatedVideos = allVideos.filter(item => item.id !== videoId);
+                setAllVideos(updatedVideos);
+                setListadoVideos(updatedVideos);
+                closeModalMessage();
+            })
+            .catch(error => console.log(error.message))
     }
 
     const deleteVideo = (videoId) => {
         setVideoId(videoId)
-        // axios.delete(`${environment.url}videos?id=${videoId}`)
-        //   .then(response => {
-        //     console.log(response.data)
-        //     alert('eliminado')
-        //   })
-        //   .catch(error => console.log(error.message))
-        // let confirmDelete = confirm('Esta seguro de que quiere eliminar este video?')
         openModalMessage()
     }
 
@@ -73,7 +89,7 @@ const UserVideos = ({ usernameChannel }) => { //{usernameChannel} SI usernameCha
                 <div className='text-start'>
 
                     <h1 className='shadow-white'>{usernameChannel}</h1>
-                    <p>@{usernameChannel} | 3 suscriptores | 6 videos</p>
+                    <p>@{usernameChannel} | 3 suscriptores | {listadoVideos?.length > 0 ? `${listadoVideos.length} Videos` : '0 Videos'}</p>
                     <p>Bienvenidos a mi canal oficial. Aquí encontrarás entrevistas, experiencias y los mejores proyectos de NoCountry; así como también las últimas noticias relacionadas a cada simulación laboral.</p>
                     <span className='buttonNoCountry rounded-5 px-3 py-1 fs-9 text-capitalize' onClick={() => setIsSubscribed(!isSubscribe)}>{isSubscribe ? 'Suscribirse' : 'Cancelar Suscripción'}</span>
                 </div>
@@ -94,14 +110,17 @@ const UserVideos = ({ usernameChannel }) => { //{usernameChannel} SI usernameCha
                     </div>
                 </div>
                 <hr className='mb-4 bar-divider' />
-                <div className=" gap-3 container px-0 d-flex align-items-start flex-wrap pb-4 responsive">
+                <div className="gap-3 container px-0 d-flex align-items-start flex-wrap pb-4 responsive">
                     {
-                        listadoVideos.length == 0 ?
-                            <p className='text-center mx-auto'>No se encontraron resultados</p>
+                        isLoading ?
+                            <Spinner className="color-spinner text-center mx-auto"></Spinner>
                             :
-                            listadoVideos.map((item) => (
-                                <VideoCardByUser key={item.id} item={item} deleteVideo={deleteVideo} />
-                            ))}
+                            !listadoVideos || listadoVideos.length == 0 ?
+                                <p className='text-center mx-auto'>No se encontraron resultados</p>
+                                :
+                                listadoVideos?.map((item) => (
+                                    <VideoCardByUser key={item.id} item={item} deleteVideo={deleteVideo} usernameChannel={usernameChannel} />
+                                ))}
                 </div>
             </div>
 

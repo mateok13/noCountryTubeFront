@@ -33,7 +33,7 @@ const VideoCard = ({ item }) => {
         </div>
         <div className="d-flex justify-content-between flex-column">
           <p className="text-gray width-p my-0 text-ellipsis cursor-pointer" onClick={() => navigate(`/list-videos/${nameUser}`)}>{nameUser}</p>
-          <p className="text-gray"><i className="text-green bi bi-eye"></i> 15 Vistas <span className="fw-bold">·</span> hace 2 horas</p>
+          <p className="text-gray"><i className="text-green bi bi-eye"></i> 10 Vistas <span className="fw-bold">·</span> hace 2 horas</p>
         </div>
       </div>
     </div>
