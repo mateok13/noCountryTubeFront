@@ -34,7 +34,7 @@ function InfoProfile() {
 
   return (
     <div>
-      <UserVideos username={userInfo.userName}/>
+      <UserVideos usernameChannel={userInfo.userName}/>
     </div>
   );
 }

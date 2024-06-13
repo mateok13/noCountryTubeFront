@@ -10,7 +10,7 @@ const ListAllVideos = () => {
   const [listVideos, setListVideos] = useState([]);
   const [limit] = useState(9);
   const [offset, setOffset] = useState(0);
-  const totalVideos = 24; // FALTA EL TOTAL DE VIDEOS
+  const totalVideos = 30; // FALTA EL TOTAL DE VIDEOS
   const [isLoading, setIsLoading] = useState(true);
   const spinnerVideo = (
     <div className="d-flex justify-content-center align-items-center gap-2 px-10 pb-4">
@@ -29,7 +29,7 @@ const ListAllVideos = () => {
           }
         });
         setListVideos([...listVideos, ...response.data.data]);
-        console.log(response.data.data);
+        // console.log(response.data.data);
       } catch (error) {
         alert('Error al cargar los videos.');
         console.log(error.message)

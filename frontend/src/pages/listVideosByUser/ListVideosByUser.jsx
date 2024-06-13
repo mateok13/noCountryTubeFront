@@ -6,7 +6,8 @@ const ListVideosByUser = () => {
 
     return (
         <>
-            <UserVideos username={usernameChannel} />
+            <UserVideos usernameChannel={usernameChannel} />
+
             {/* <UserVideos /> */}
         </>
     )

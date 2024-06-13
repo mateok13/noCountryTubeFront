@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import VideoThumbnail from "react-video-thumbnail";
+// import VideoThumbnail from "react-video-thumbnail";
 import axios from "axios";
 import { environment } from "./environment";
 
@@ -11,11 +11,11 @@ const formValues = {
     miniature: null,
     video: null, // archivo
     duration: '', //***
-    // isCommentable: true, //***
+    isCommentable: true, //***
     // views: 0,
     // likes: 0,
     // dislikes: 0,
-    // isPublic: true //***
+    isPublic: true //*** 
 }
 
 const snapshotList = [3, 10, 30] // Toma capturas en el segundo 3, 6, 30
@@ -77,9 +77,9 @@ const useFormVideo = () => {
         }
 
         // objeto FormData en la consola
-        for (const pair of data.entries()) {
-            console.log(pair[0], pair[1], typeof (pair[1]));
-        }
+        // for (const pair of data.entries()) {
+        //     console.log(pair[0], pair[1], typeof (pair[1]));
+        // }
 
         setIsLoading(true)
         axios.post(`${environment.url}videos`, data, {
@@ -116,8 +116,9 @@ const useFormVideo = () => {
     };
 
     const handleVideoFileChange = (e) => {
-        const file = e.target.files[0]
-        setFormData((prevFormData) => ({ ...prevFormData, video: file }))
+        const file = e.target.files[0];
+        setFormData((prevFormData) => ({ ...prevFormData, video: file }));
+        generateThumbnails(file); // Llama a generateThumbnails cuando se selecciona un nuevo video
     };
 
     useEffect(() => {
@@ -149,14 +150,29 @@ const useFormVideo = () => {
         setFormData((prevFormData) => ({ ...prevFormData, miniature }))
     };
 
-    const generateThumbnails = () => {
-        return snapshotList.map((item, index) => (
-            <div key={index} className="d-none">
-                <VideoThumbnail videoUrl={URL.createObjectURL(formData.video)}
-                    thumbnailHandler={(miniature) => setMiniatures((prevThumbnails) => [...prevThumbnails, miniature,])}
-                    snapshotAtTime={item} />
-            </div>))
-    }
+    const generateThumbnails = (videoFile) => {
+        const videoUrl = URL.createObjectURL(videoFile);
+        const newMiniatures = [];
+        snapshotList.forEach((time) => {
+            // Crea un elemento de video para cada snapshot
+            const videoElement = document.createElement('video');
+            videoElement.src = videoUrl;
+            videoElement.currentTime = time;
+            videoElement.addEventListener('seeked', () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = videoElement.videoWidth;
+                canvas.height = videoElement.videoHeight;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+                const dataURL = canvas.toDataURL();
+                newMiniatures.push(dataURL);
+                if (newMiniatures.length === snapshotList.length) {
+                    setMiniatures(newMiniatures);
+                    URL.revokeObjectURL(videoUrl); // Limpia la URL del objeto para evitar fugas de memoria
+                }
+            });
+        });
+    };
 
     const base64ToBlob = (base64, mime) => {
         const byteString = atob(base64.split(',')[1]);
