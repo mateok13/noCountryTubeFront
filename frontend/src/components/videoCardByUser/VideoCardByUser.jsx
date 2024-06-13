@@ -2,11 +2,14 @@ import PropTypes from "prop-types";
 import "./VideoCardByUser.css";
 import { Dropdown } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
+import useUser from "../../hooks/useUser";
 
 const VideoCardByUser = ({ item, deleteVideo, usernameChannel }) => {
   const { id, title, miniatureUrl, duration } = item;
   const navigate = useNavigate()
-  const usernameStorage = 'nicolas' //localStorage.getItem('userName')
+  const { userName } = useUser();
+
+  console.log("username logueado", userName);
 
   return (
     <div className="card-width-user card-border">
@@ -23,7 +26,7 @@ const VideoCardByUser = ({ item, deleteVideo, usernameChannel }) => {
               <i className="bi bi-three-dots-vertical"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu className='p-0 menu-options' style={{ minWidth: '100px' }}>
-              {usernameChannel == usernameStorage ?
+              {usernameChannel == userName ?
                 <>
                   <Dropdown.Item className='option rounded-top user-select-none'><i className="bi bi-pencil-square me-2 text-primary"></i> Editar</Dropdown.Item>
                   <Dropdown.Item className='option user-select-none' onClick={() => deleteVideo(id)}><i className="bi bi-trash3-fill me-2 text-danger"></i> Eliminar</Dropdown.Item>

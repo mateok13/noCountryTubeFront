@@ -8,7 +8,6 @@ import Spinner from 'react-bootstrap/Spinner';
 import images from '../../assets/image/image'
 import Avatar from '../../assets/image/avatar.png'
 import axios from 'axios'
-import useUser from '../../hooks/useUser.jsx'
 import './userVideos.css'
 
 const UserVideos = ({ usernameChannel }) => {
@@ -35,9 +34,6 @@ const UserVideos = ({ usernameChannel }) => {
             .catch(error => console.log(error.message))
             .finally(() => setIsLoading(false))
     }, [usernameChannel])
-    const { userName } = useUser();
-
-    console.log("username logueado", userName);
 
     const openModalMessage = () => {
         setIsModalMessageOpen(true);
