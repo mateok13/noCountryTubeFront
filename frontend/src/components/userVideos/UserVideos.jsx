@@ -1,10 +1,10 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useState } from 'react'
 import UserVideosExample from './ejemploListadoUserVideos.json'
 import './userVideos.css'
 import VideoCardByUser from '../videoCardByUser/VideoCardByUser'
 
-const UserVideos = () => { //{usernameChannel} SI usernameChannel == username (localStorage) ? MOSTRAR DROPDOWN : NO MOSTRARLO
+const UserVideos = ({username}) => { //{usernameChannel} SI usernameChannel == username (localStorage) ? MOSTRAR DROPDOWN : NO MOSTRARLO
     const listadoVideos = UserVideosExample
     const [isSubscribe, setIsSubscribed] = useState(true)
     const listTitles = ['Mis Videos', 'Shorts', 'Playlists', 'Suscripciones']
@@ -17,7 +17,7 @@ const UserVideos = () => { //{usernameChannel} SI usernameChannel == username (l
             <div className='width-info mx-auto d-flex justify-content-center gap-3'>
                 <img className='img-avatar user-select-none' src="https://megaport.hu/media/king-include/uploads/2023/10/906363-female-avatar-profile-picture-013.jpg" alt="" />
                 <div className='text-start'>
-                    <h1 className='shadow-white'>User Example</h1>
+                    <h1 className='shadow-white'>{username}</h1>
                     <p>@userExample | 3 suscriptores | 6 videos</p>
                     <p>Bienvenidos a mi canal oficial. Aquí encontrarás entrevistas, experiencias y los mejores proyectos de NoCountry; así como también las últimas noticias relacionadas a cada simulación laboral.</p>
                     <span className='buttonNoCountry rounded-5 px-3 py-1 fs-9 text-capitalize' onClick={() => setIsSubscribed(!isSubscribe)}>{isSubscribe ? 'Suscribirse' : 'Cancelar Suscripción'}</span>
@@ -49,8 +49,8 @@ const UserVideos = () => { //{usernameChannel} SI usernameChannel == username (l
     )
 }
 
-// UserVideos.propTypes = {
-//     username: PropTypes.string.isRequired,
-// }
+UserVideos.propTypes = {
+    username: PropTypes.string.isRequired,
+}
 
 export default UserVideos

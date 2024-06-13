@@ -79,10 +79,10 @@ const usePlayVideo = ({ videoId }) => {
                 setProgress(currentProgress);
             }
         }, 1000);
-
+    
         return () => clearInterval(interval);
-    }, []);
-
+    }, [videoData]);
+    
     const handleProgressBarClick = (e) => {
         const progressBarContainer = e.target.parentNode;
         const progressBarWidth = progressBarContainer.clientWidth;
