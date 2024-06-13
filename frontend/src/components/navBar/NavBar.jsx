@@ -65,6 +65,7 @@ const NavBar = ({ navigate }) => {
 
   const logOut = () => {
     localStorage.clear();
+    navigate('/');
     window.location.reload();
   };
 
