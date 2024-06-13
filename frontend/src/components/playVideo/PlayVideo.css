@@ -4,7 +4,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: auto;
     gap: 15px;
 }
 
@@ -190,4 +189,16 @@
 
 .optionDefault {
     background-color: rgba(29, 144, 252, 0.29);
+}
+
+.contenidoComentarios{
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    overflow-y: auto;
+    scrollbar-width: none;
 }

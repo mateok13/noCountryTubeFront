@@ -65,6 +65,7 @@ const NavBar = ({ navigate }) => {
 
   const logOut = () => {
     localStorage.clear();
+    navigate('/');
     window.location.reload();
   };
 
@@ -93,7 +94,7 @@ const NavBar = ({ navigate }) => {
                 <i className={`cursor-pointer bi bi-person-fill iconsNavbar ${showDropdown ? 'iconActive' : ''}`} onClick={toggleDropdown}></i>
                 {showDropdown && (
                   <div className="dropdown-content">
-                    <button className="buttonProfile" href="#ver-perfil"><i className="bi bi-person-square"></i>Profile</button>
+                    <button className="buttonProfile" onClick={() => navigate('/profile')}><i className="bi bi-person-square"></i>Profile</button>
                     <button className="buttonProfile" onClick={logOut}><i className="bi bi-box-arrow-right"></i>Log out</button>
                   </div>
                 )}

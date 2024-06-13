@@ -6,7 +6,7 @@ import useUser from './useUser';
 const useFormLogin = (onSuccess) => {
     const [mistakes, setMistakes] = useState({});
     const [sendData, setSendData] = useState(false);
-    const { setUserId, setAccessToken, setRefreshToken, setAccessTokenExpiry, setRefreshTokenExpiry } = useUser();
+    const { setUserName, setUserId, setAccessToken, setRefreshToken, setAccessTokenExpiry, setRefreshTokenExpiry } = useUser();
 
     const validateFields = (form) => {
         let mistakes = {};
@@ -52,6 +52,7 @@ const useFormLogin = (onSuccess) => {
             })
                 .then((response) => {
                     setSendData(false);
+                    setUserName(formData.userName);
                     setUserId(response.data.id);
                     setAccessToken(response.data.accessToken);
                     setAccessTokenExpiry(parseInt(response.data.accessTokenExpiry));

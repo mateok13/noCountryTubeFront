@@ -8,6 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import images from '../../assets/image/image'
 import Avatar from '../../assets/image/avatar.png'
 import axios from 'axios'
+import useUser from '../../hooks/useUser.jsx'
 import './userVideos.css'
 
 const UserVideos = ({ usernameChannel }) => {
@@ -23,7 +24,6 @@ const UserVideos = ({ usernameChannel }) => {
     const token = localStorage.accessToken
     //{usernameChannel} SI usernameChannel == username (localStorage) ? MOSTRAR DROPDOWN : NO MOSTRARLO
 
-    console.log(listadoVideos.length)
     useEffect(() => {
         setIsLoading(true)
         axios.get(`${environment.url}users/get-user-profile/${usernameChannel}`)
@@ -35,6 +35,9 @@ const UserVideos = ({ usernameChannel }) => {
             .catch(error => console.log(error.message))
             .finally(() => setIsLoading(false))
     }, [usernameChannel])
+    const { userName } = useUser();
+
+    console.log("username logueado", userName);
 
     const openModalMessage = () => {
         setIsModalMessageOpen(true);
@@ -84,8 +87,9 @@ const UserVideos = ({ usernameChannel }) => {
             <div className='width-info mx-auto d-flex justify-content-center gap-3'>
                 <img className='img-avatar user-select-none' src={Avatar} alt="" />
                 <div className='text-start'>
+
                     <h1 className='shadow-white'>{usernameChannel}</h1>
-                    <p>@{usernameChannel} | 3 suscriptores | {`${listadoVideos.length} videos`}</p>
+                    <p>@{usernameChannel} | 3 suscriptores | {listadoVideos?.length > 0 ? `${listadoVideos.length} Videos` : '0 Videos'}</p>
                     <p>Bienvenidos a mi canal oficial. Aquí encontrarás entrevistas, experiencias y los mejores proyectos de NoCountry; así como también las últimas noticias relacionadas a cada simulación laboral.</p>
                     <span className='buttonNoCountry rounded-5 px-3 py-1 fs-9 text-capitalize' onClick={() => setIsSubscribed(!isSubscribe)}>{isSubscribe ? 'Suscribirse' : 'Cancelar Suscripción'}</span>
                 </div>
@@ -138,7 +142,9 @@ const UserVideos = ({ usernameChannel }) => {
 }
 
 UserVideos.propTypes = {
+
     usernameChannel: PropTypes.string.isRequired,
+
 }
 
 export default UserVideos
