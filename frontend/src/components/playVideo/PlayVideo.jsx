@@ -24,7 +24,9 @@ function PlayVideo({ videoId }) {
         handleMenuChange
     } = usePlayVideo({ videoId });
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    console.log("datos video", videoData)
 
     if (!videoData) {
         return <div>Cargando...</div>;
@@ -101,16 +103,7 @@ function PlayVideo({ videoId }) {
                 <button className='buttonNoCountry suscribeButton'>Suscribirse</button>
             </div>
             <div className="contenidoComentarios">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus sed perspiciatis exercitationem velit doloremque consequuntur reprehenderit iste, voluptatibus magnam repudiandae rem possimus nihil ratione suscipit autem qui atque dolorem eligendi.
-                Odit architecto id ipsam assumenda quos sint vero eligendi deserunt, enim velit sit ea alias, ex expedita hic. Eveniet ipsam, dicta natus illo hic provident inventore aliquid magnam tempore laborum.
-                Error deleniti officia obcaecati mollitia expedita ratione dolorem debitis soluta tenetur. Vel commodi repudiandae dolorum id reprehenderit similique, at eius atque in est, minima magnam ut, beatae molestias quis provident.
-                Accusantium suscipit soluta nihil eligendi neque amet veritatis hic dolorem aliquid cum mollitia possimus recusandae tenetur exercitationem necessitatibus corrupti, autem magnam ullam quod. Reprehenderit, itaque tenetur maxime cum nobis vel?
-                Accusamus iste consequatur obcaecati, quod quae labore corporis dolorum aliquid nesciunt a autem sapiente, similique id quam maxime fugit omnis excepturi mollitia expedita cum sint eligendi doloribus. Necessitatibus, iste natus?
-                Tempore fugiat ad sed nisi quas dignissimos harum necessitatibus voluptate velit illum earum inventore voluptas impedit architecto, nesciunt error aliquid itaque eaque illo cumque enim ut. Ipsam minus mollitia at.
-                Aspernatur, illo exercitationem ipsam fugiat tempore ab delectus ipsum! Vitae iure quo possimus atque harum, labore numquam consectetur laborum magnam illo cupiditate minus. Recusandae consectetur tempora, atque aliquam quibusdam sunt.
-                Maxime placeat assumenda nam unde enim blanditiis adipisci reiciendis. Nihil possimus labore hic voluptatibus at molestias delectus consectetur, odit fuga aut maxime exercitationem, iure aliquid. Voluptatibus ratione voluptates sunt dolorem!
-                Recusandae atque harum iusto impedit sed voluptatem molestiae delectus doloribus! Praesentium omnis quas ullam sunt, perspiciatis distinctio, enim tenetur voluptatum sit nostrum ex nemo ab earum rerum impedit, quibusdam at?
-                Doloribus, dolores ea! Alias numquam pariatur quos quaerat! Cum impedit dicta voluptas neque adipisci quos tempora quidem facilis, omnis beatae officia inventore iure repudiandae voluptates deserunt rerum ducimus, delectus distinctio.
+                
             </div>
         </div>
     );

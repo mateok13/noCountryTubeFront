@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import PlayVideo from "../../components/playVideo/PlayVideo"
-import ListsVideosPlayer from "../../components/playVideo/listsVideosPlayer"
+import ListVideosPlayer from "../../components/listVideosPlayer/ListVideosPlayer"
 import './WatchVideo.css'
 
 const WatchVideo = () => {
@@ -12,7 +12,7 @@ const WatchVideo = () => {
                 <PlayVideo videoId={videoId} />
             </div>
             <div className="listAllVideosPlayer">
-                <ListsVideosPlayer videoId={videoId}/>
+                <ListVideosPlayer videoId={videoId}/>
             </div>
         </div>
     )
