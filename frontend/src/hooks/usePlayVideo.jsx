@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { environment } from './environment';
 import useUser from './useUser';
 
-const usePlayVideo = ({ videoId }) => {
+const usePlayVideo = ({ videoId, refresh }) => {
     const [videoData, setVideoData] = useState(null);
     const [progress, setProgress] = useState(0);
     const [showDropdown, setShowDropdown] = useState(false);
@@ -56,6 +56,12 @@ const usePlayVideo = ({ videoId }) => {
         setIsPlaying(true);
         fetchData();
     }, [videoId, accessToken]);
+
+    useEffect(() => {
+        setVideoData(refresh.data);
+        setLikeActive(refresh.data?.isLike);
+        setDislikeActive(refresh.data?.isDisLike);
+    }, [refresh]);
 
     useEffect(() => {
         const interval = setInterval(() => {

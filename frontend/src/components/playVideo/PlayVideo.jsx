@@ -2,10 +2,11 @@ import PropTypes from "prop-types";
 import usePlayVideo from "../../hooks/usePlayVideo";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import moment from "moment"
 import './PlayVideo.css';
 
-function PlayVideo({ videoId }) {
+function PlayVideo({ videoId, refresh }) {
 
     const {
         videoData,
@@ -30,11 +31,11 @@ function PlayVideo({ videoId }) {
         accessToken,
         comentario,
         setComentario,
-        likeActive, 
+        likeActive,
         setLikeActive,
-        dislikeActive, 
+        dislikeActive,
         setDislikeActive
-    } = usePlayVideo({ videoId });
+    } = usePlayVideo({ videoId, refresh });
 
     const navigate = useNavigate();
 
@@ -135,8 +136,8 @@ function PlayVideo({ videoId }) {
                 <h1 className="tituloPlayVideo">{videoData.title}</h1>
                 <div className="iteractionsVideo">
                     <div className="iconsIteractionsVideo">
-                        <i className={`bi bi-hand-thumbs-up iconIteraction ${likeActive ? 'likeTrue' : ''} ${!accessToken || accessToken === "null" ? 'noUserLogged noLike' : ''}`} onClick={handleSaveLike}></i>
-                        <i className={`bi bi-hand-thumbs-down iconIteraction ${dislikeActive ? 'likeTrue' : ''} ${!accessToken || accessToken === "null" ? 'noUserLogged noLike' : ''}`} onClick={handleSaveDislike}></i>
+                        <i className={`bi bi-hand-thumbs-up iconIteraction ${likeActive ? 'likeTrue' : ''} ${!accessToken || accessToken === "null" ? 'noUserLogged noLike' : ''}`} onClick={handleSaveLike}>{videoData.likeCount}</i>
+                        <i className={`bi bi-hand-thumbs-down iconIteraction ${dislikeActive ? 'likeTrue' : ''} ${!accessToken || accessToken === "null" ? 'noUserLogged noLike' : ''}`} onClick={handleSaveDislike}>{videoData.disLikeCount}</i>
                     </div>
                     <div>
                         <button className={"buttonSaveVideo"} onClick={handleButtonSaveClick} disabled={!accessToken || accessToken === "null"}>
@@ -193,6 +194,7 @@ function PlayVideo({ videoId }) {
 
 PlayVideo.propTypes = {
     videoId: PropTypes.string.isRequired,
+    refresh: PropTypes.node
 };
 
 export default PlayVideo;
