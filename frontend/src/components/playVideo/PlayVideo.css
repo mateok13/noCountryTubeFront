@@ -93,7 +93,7 @@
     gap: 20px;
 }
 
-.profileUserVideo{
+.profileUserVideo {
     display: flex;
     font-size: 40px;
     align-items: center;
@@ -103,21 +103,21 @@
     padding: 5px;
 }
 
-.profileUserVideo:hover{
+.profileUserVideo:hover {
     background-color: rgba(100, 100, 100, 0.1);
     border-radius: 10px;
 }
 
-.infoUser{
+.infoUser {
     display: flex;
     flex-direction: column;
 }
 
-.nameUser{
+.nameUser {
     font-size: 14px;
 }
 
-.suscriptoresUser{
+.suscriptoresUser {
     font-size: 12px;
     color: gray;
 }
@@ -141,9 +141,18 @@
     gap: 10px;
 }
 
-.iconIteraction:hover{
-    background-color: #09fca7;
+.iconIteraction:hover, .likeTrue {
+    background-color: #09fca7 !important;
     color: black;
+}
+
+.noUserLogged{
+    color: grey !important;
+}
+
+.noLike:hover{
+    color: grey !important;
+    background-color: #06071B !important;
 }
 
 .iconIteraction {
@@ -198,30 +207,79 @@
     background-color: rgba(29, 144, 252, 0.29);
 }
 
-.contenidoComentarios{
+.contenidoComentarios {
     width: 100%;
     max-height: 70vh;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.3);
     padding: 20px;
     overflow-y: auto;
-    scrollbar-width: none;
     color: white;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.comentariosVideo{
+.contenidoComentarios::-webkit-scrollbar{
+    border-radius: 10px;
+  }
+
+.comentariosVideo {
     display: flex;
     flex-direction: column;
 }
 
-.textComments{
+.textComments {
     font-size: 14px;
 }
 
-.titleComments{
+.titleComments {
     display: flex;
     gap: 20px;
+}
+
+.agregarComentario {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 30px;
+}
+
+.avatarUserName {
+    font-size: 40px;
+    color: white;
+}
+
+.inputIconContainer {
+    position: relative;
+    width: 100%;
+}
+
+.inputComentario {
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    background: none;
+    border-bottom: 2px solid gray;
+    padding: 0;
+    height: 35px;
+}
+
+.inputComentario:focus {
+    outline: none;
+    color: #09fca7;
+    border-bottom: 2px solid #09fca7;
+}
+
+.sendIcon {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    height: 35px;
+    color: white;
+}
+
+.sendIcon:hover {
+    color: #09fca7;
 }

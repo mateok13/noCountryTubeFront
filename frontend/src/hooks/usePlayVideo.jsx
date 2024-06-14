@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 import { environment } from './environment';
+import useUser from './useUser';
 
 const usePlayVideo = ({ videoId }) => {
     const [videoData, setVideoData] = useState(null);
     const [progress, setProgress] = useState(0);
     const [showDropdown, setShowDropdown] = useState(false);
+    const { accessToken } = useUser();
     const dropdownRef = useRef(null);
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -14,9 +16,10 @@ const usePlayVideo = ({ videoId }) => {
     const [menuOptions] = useState({
         main: ['Subtítulos', 'Calidad de Video', 'Velocidad de Reproducción'],
         subtitles: ['Volver', 'Desactivados', 'Español'],
-        quality: ['Volver', '0.5', '0.75', 'Normal', '1.25', '1.75'],
-        speed: ['Volver', 'Automática', '360', '480']
+        speed: ['Volver', '0.5', '0.75', 'Normal', '1.25', '1.75'],
+        quality: ['Volver', 'Automática', '360', '480']
     });
+    const [comentario, setComentario] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -47,12 +50,97 @@ const usePlayVideo = ({ videoId }) => {
         return () => clearInterval(interval);
     }, []);
 
+    const saveLike = async () => {
+        if (!accessToken) return;
+        const url = `${environment.url}iteration-video/save-like`;
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                    videoId: videoId,
+                    like: true
+                })
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                console.log('Like guardado con éxito');
+            } else {
+                console.log('Error al guardar el like');
+            }
+        } catch (error) {
+            console.error('Error al enviar el like:', error);
+        }
+    };
+
+    const saveDislike = async () => {
+        if (!accessToken) return;
+        const url = `${environment.url}iteration-video/save-dislike`;
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                    videoId: videoId,
+                    disLike: true
+                })
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                console.log('Dislike guardado con éxito');
+            } else {
+                console.log('Error al guardar el dislike');
+            }
+        } catch (error) {
+            console.error('Error al enviar el dislike:', error);
+        }
+    };
+
+    const saveComment = async (commentText) => {
+        if (!accessToken) return;
+        const url = `${environment.url}iteration-video/save-comment`;
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                    videoId: videoId,
+                    commentText: commentText
+                })
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                console.log('Comentario guardado con éxito');
+                setComentario("")
+            } else {
+                console.log('Error al guardar el comentario');
+            }
+        } catch (error) {
+            console.error('Error al enviar el comentario:', error);
+        }
+    };
+
     const handleMenuChange = (option) => {
         if (option === 'Volver') {
             setMenu('main');
+        } else if(option === 'Subtítulos'){
+            setMenu('subtitles');
+        } else if(option === 'Calidad de Video'){
+            setMenu('quality');
         } else {
-            const newMenu = option.toLowerCase().replace(' de ', ' ').replace(' ', '');
-            setMenu(newMenu);
+            setMenu('speed');
         }
     };
 
@@ -104,7 +192,13 @@ const usePlayVideo = ({ videoId }) => {
         toggleDropdown,
         menu,
         menuOptions,
-        handleMenuChange
+        handleMenuChange,
+        saveLike,
+        saveDislike,
+        saveComment,
+        accessToken,
+        comentario, 
+        setComentario
     };
 };
 

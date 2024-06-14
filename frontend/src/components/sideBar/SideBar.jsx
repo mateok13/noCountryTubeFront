@@ -23,6 +23,9 @@ const SideBar = () => {
       <div className="bottomSection">
         <img className="logoNoCountry" src={images.LogoNoCountryTube} />
         <hr className="whiteLine" />
+        <a className="hiperLink" href="https://github.com/No-Country/c18-17-n-node-react" target="_blank">
+          <i className="bi bi-github iconGitHub"></i>
+        </a>
         <p className="copyrightText">Copyright © 2024 No Country</p>
       </div>
     </div>
