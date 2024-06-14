@@ -19,12 +19,31 @@
   display: flex; 
   flex-direction: column; 
   gap: 10px;
+  height: 55vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.estiloSideBar ul::-webkit-scrollbar {
+  display: none;
+}
+
+.estiloSideBar ul:hover::-webkit-scrollbar {
+  display: block;
+  border-radius: 10px;
 }
 
 .estiloSideBar li {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.estiloSideBar li h1{
+  font-size: 14px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .estiloSideBar li::before {
