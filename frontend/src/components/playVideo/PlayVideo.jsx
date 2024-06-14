@@ -168,7 +168,7 @@ function PlayVideo({ videoId }) {
                     <div key={item.id} className="comentariosVideo">
                         <div className="titleComments">
                             <h1 className="textComments">{item.userName}</h1>
-                            <h1 className="textComments">{moment(item.createdAt).startOf('hour').fromNow()}</h1>
+                            <h1 className="textComments">{moment(item.createdAt).fromNow()}</h1>
                         </div>
                         <h1 className="textComments">{item.comment}</h1>
                         <div className="iconsIteractionsVideo">

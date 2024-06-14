@@ -18,7 +18,7 @@ function VideoCardPlayer({ item }) {
                 <h1 className="titleVideo" onClick={() => navigate(`/watch-video/${id}`)}>{title}</h1>
                 <div>
                     <h1 className="userNameVideo" onClick={() => navigate(`/list-videos/${nameUser}`)}>{nameUser}</h1>
-                    <h1 className="timeVideo">{moment(createdAt).startOf('hour').fromNow()}</h1>
+                    <h1 className="timeVideo">{moment(createdAt).fromNow()}</h1>
                 </div>
             </div>
         </div>

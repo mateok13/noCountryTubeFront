@@ -35,7 +35,7 @@ const usePlayVideo = ({ videoId }) => {
                 console.error('Error en la solicitud:', error);
             }
         };
-
+        setIsPlaying(true);
         fetchData();
     }, [videoId]);
 
