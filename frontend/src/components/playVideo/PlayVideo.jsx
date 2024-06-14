@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import usePlayVideo from "../../hooks/usePlayVideo";
 import { useNavigate } from "react-router-dom";
+import moment from "moment"
 import './PlayVideo.css';
 
 function PlayVideo({ videoId }) {
@@ -103,7 +104,19 @@ function PlayVideo({ videoId }) {
                 <button className='buttonNoCountry suscribeButton'>Suscribirse</button>
             </div>
             <div className="contenidoComentarios">
-                
+                {videoData.comments.map((item) => (
+                    <div key={item.id} className="comentariosVideo">
+                        <div className="titleComments">
+                            <h1 className="textComments">{item.userName}</h1>
+                            <h1 className="textComments">{moment(item.createdAt).startOf('hour').fromNow()}</h1>
+                        </div>
+                        <h1 className="textComments">{item.comment}</h1>
+                        <div className="iconsIteractionsVideo">
+                            <i className="bi bi-hand-thumbs-up iconIteraction"></i>
+                            <i className="bi bi-hand-thumbs-down iconIteraction"></i>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );

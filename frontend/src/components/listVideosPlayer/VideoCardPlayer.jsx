@@ -1,9 +1,11 @@
 import PropTypes from "prop-types"
 import { useNavigate } from "react-router-dom"
 import './VideoCardPlayer.css'
+import moment from "moment"
 
 function VideoCardPlayer({ item }) {
-    const { id, title, nameUser, miniature, duration } = item;
+    const { id, title, nameUser, miniature, duration, createdAt } = item;
+    
     const navigate = useNavigate()
 
     return (
@@ -16,7 +18,7 @@ function VideoCardPlayer({ item }) {
                 <h1 className="titleVideo" onClick={() => navigate(`/watch-video/${id}`)}>{title}</h1>
                 <div>
                     <h1 className="userNameVideo" onClick={() => navigate(`/list-videos/${nameUser}`)}>{nameUser}</h1>
-                    <h1 className="viewsVideo"> Aqui las views papu</h1>
+                    <h1 className="timeVideo">{moment(createdAt).startOf('hour').fromNow()}</h1>
                 </div>
             </div>
         </div>
@@ -30,6 +32,7 @@ VideoCardPlayer.propTypes = {
         title: PropTypes.string.isRequired,
         miniature: PropTypes.string.isRequired,
         duration: PropTypes.string.isRequired,
+        createdAt: PropTypes.string.isRequired
     }).isRequired,
 };
 

@@ -19,6 +19,8 @@
 .videoNoCountry {
     width: 100%;
     display: block;
+    height: 70.7vh;
+    background-color: black;
 }
 
 .iconPlay {
@@ -130,13 +132,18 @@
     display: flex;
     justify-content: flex-end;
     font-size: 18px;
-    color: #09fca7;
     gap: 20px;
 }
 
 .iconsIteractionsVideo {
     display: flex;
+    color: #09fca7;
     gap: 10px;
+}
+
+.iconIteraction:hover{
+    background-color: #09fca7;
+    color: black;
 }
 
 .iconIteraction {
@@ -196,9 +203,25 @@
     max-height: 70vh;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    padding: 10px;
-    font-size: 14px;
+    padding: 20px;
     overflow-y: auto;
     scrollbar-width: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comentariosVideo{
+    display: flex;
+    flex-direction: column;
+}
+
+.textComments{
+    font-size: 14px;
+}
+
+.titleComments{
+    display: flex;
+    gap: 20px;
 }

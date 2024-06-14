@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useRef, useEffect } from "react";
-import { environment } from './environment'
+import { environment } from './environment';
 
 const usePlayVideo = ({ videoId }) => {
     const [videoData, setVideoData] = useState(null);
@@ -8,7 +8,7 @@ const usePlayVideo = ({ videoId }) => {
     const [showDropdown, setShowDropdown] = useState(false);
     const dropdownRef = useRef(null);
     const videoRef = useRef(null);
-    const [isPlaying, setIsPlaying] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
     const [menu, setMenu] = useState('main');
     const [menuOptions] = useState({
@@ -19,33 +19,40 @@ const usePlayVideo = ({ videoId }) => {
     });
 
     useEffect(() => {
-        const url = environment.url + `videos/${videoId}`;
-        axios.get(url)
-            .then(response => {
-                console.log(response.data)
-                const { data } = response;
-                if (data.ok) {
-                    setVideoData(data.data);
+        const fetchData = async () => {
+            try {
+                const url = `${environment.url}videos/${videoId}`;
+                const response = await axios.get(url);
+                if (response.data.ok) {
+                    setVideoData(response.data.data);
                 } else {
-                    console.error('Error al obtener el video:', data.message);
+                    console.error('Error al obtener el video:', response.data.message);
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Error en la solicitud:', error);
-            });
+            }
+        };
+
+        fetchData();
     }, [videoId]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (videoRef.current) {
+                const currentProgress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
+                setProgress(currentProgress);
+            }
+        }, 1000);
+    
+        return () => clearInterval(interval);
+    }, []);
 
     const handleMenuChange = (option) => {
         if (option === 'Volver') {
             setMenu('main');
         } else {
-            if (option === 'Subtítulos') {
-                setMenu('subtitles');
-            } else if (option === 'Calidad de Video') {
-                setMenu('quality');
-            } else {
-                setMenu('speed');
-            }
+            const newMenu = option.toLowerCase().replace(' de ', ' ').replace(' ', '');
+            setMenu(newMenu);
         }
     };
 
@@ -72,17 +79,6 @@ const usePlayVideo = ({ videoId }) => {
         }
     };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (videoRef.current) {
-                const currentProgress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
-                setProgress(currentProgress);
-            }
-        }, 1000);
-    
-        return () => clearInterval(interval);
-    }, [videoData]);
-    
     const handleProgressBarClick = (e) => {
         const progressBarContainer = e.target.parentNode;
         const progressBarWidth = progressBarContainer.clientWidth;
@@ -109,7 +105,7 @@ const usePlayVideo = ({ videoId }) => {
         menu,
         menuOptions,
         handleMenuChange
-    }
-}
+    };
+};
 
-export default usePlayVideo
+export default usePlayVideo;
