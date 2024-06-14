@@ -283,3 +283,9 @@
 .sendIcon:hover {
     color: #09fca7;
 }
+
+@media screen and (max-width: 768px) {
+    .videoNoCountry{
+        height: 23.5vh;
+    }
+}
