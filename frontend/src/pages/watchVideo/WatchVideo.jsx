@@ -1,10 +1,14 @@
 import { useParams } from "react-router-dom"
 import PlayVideo from "../../components/playVideo/PlayVideo"
 import ListVideosPlayer from "../../components/listVideosPlayer/ListVideosPlayer"
+import { useEffect } from "react"
 import './WatchVideo.css'
 
 const WatchVideo = () => {
     const { videoId } = useParams()
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [videoId]);
 
     return (
         <div className="contenidoWatchVideo">
@@ -12,7 +16,7 @@ const WatchVideo = () => {
                 <PlayVideo videoId={videoId} />
             </div>
             <div className="listAllVideosPlayer">
-                <ListVideosPlayer videoId={videoId}/>
+                <ListVideosPlayer videoId={videoId} />
             </div>
         </div>
     )

@@ -20,6 +20,8 @@ const usePlayVideo = ({ videoId }) => {
         quality: ['Volver', 'Automática', '360', '480']
     });
     const [comentario, setComentario] = useState('');
+    const [likeActive, setLikeActive] = useState(false);
+    const [dislikeActive, setDislikeActive] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,6 +30,21 @@ const usePlayVideo = ({ videoId }) => {
                 const response = await axios.get(url);
                 if (response.data.ok) {
                     setVideoData(response.data.data);
+                    setLikeActive(response.data.data.isLike);
+                    setDislikeActive(response.data.data.isDisLike);
+                    if (accessToken && accessToken !== "null") {
+                        const viewUrl = `${environment.url}iteration-video/save-view`;
+                        const viewResponse = await axios.post(viewUrl, { videoId }, {
+                            headers: {
+                                'Authorization': `Bearer ${accessToken}`
+                            }
+                        });
+                        if (viewResponse.data.success) {
+                            console.log('Vista del video guardada con éxito.');
+                        } else {
+                            console.error('Error al guardar la vista del video:', viewResponse.data.message);
+                        }
+                    }
                 } else {
                     console.error('Error al obtener el video:', response.data.message);
                 }
@@ -35,9 +52,10 @@ const usePlayVideo = ({ videoId }) => {
                 console.error('Error en la solicitud:', error);
             }
         };
+
         setIsPlaying(true);
         fetchData();
-    }, [videoId]);
+    }, [videoId, accessToken]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -46,7 +64,7 @@ const usePlayVideo = ({ videoId }) => {
                 setProgress(currentProgress);
             }
         }, 1000);
-    
+
         return () => clearInterval(interval);
     }, []);
 
@@ -54,20 +72,16 @@ const usePlayVideo = ({ videoId }) => {
         if (!accessToken) return;
         const url = `${environment.url}iteration-video/save-like`;
         try {
-            const response = await fetch(url, {
-                method: 'POST',
+            const response = await axios.post(url, {
+                videoId: videoId,
+                like: true
+            }, {
                 headers: {
-                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`
-                },
-                body: JSON.stringify({
-                    videoId: videoId,
-                    like: true
-                })
+                }
             });
 
-            const data = await response.json();
-            if (data.success) {
+            if (response.data.success) {
                 console.log('Like guardado con éxito');
             } else {
                 console.log('Error al guardar el like');
@@ -81,20 +95,16 @@ const usePlayVideo = ({ videoId }) => {
         if (!accessToken) return;
         const url = `${environment.url}iteration-video/save-dislike`;
         try {
-            const response = await fetch(url, {
-                method: 'POST',
+            const response = await axios.post(url, {
+                videoId: videoId,
+                disLike: true
+            }, {
                 headers: {
-                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`
-                },
-                body: JSON.stringify({
-                    videoId: videoId,
-                    disLike: true
-                })
+                }
             });
 
-            const data = await response.json();
-            if (data.success) {
+            if (response.data.success) {
                 console.log('Dislike guardado con éxito');
             } else {
                 console.log('Error al guardar el dislike');
@@ -108,22 +118,18 @@ const usePlayVideo = ({ videoId }) => {
         if (!accessToken) return;
         const url = `${environment.url}iteration-video/save-comment`;
         try {
-            const response = await fetch(url, {
-                method: 'POST',
+            const response = await axios.post(url, {
+                videoId: videoId,
+                commentText: commentText
+            }, {
                 headers: {
-                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`
-                },
-                body: JSON.stringify({
-                    videoId: videoId,
-                    commentText: commentText
-                })
+                }
             });
 
-            const data = await response.json();
-            if (data.success) {
+            if (response.data.success) {
                 console.log('Comentario guardado con éxito');
-                setComentario("")
+                setComentario("");
             } else {
                 console.log('Error al guardar el comentario');
             }
@@ -132,12 +138,13 @@ const usePlayVideo = ({ videoId }) => {
         }
     };
 
+
     const handleMenuChange = (option) => {
         if (option === 'Volver') {
             setMenu('main');
-        } else if(option === 'Subtítulos'){
+        } else if (option === 'Subtítulos') {
             setMenu('subtitles');
-        } else if(option === 'Calidad de Video'){
+        } else if (option === 'Calidad de Video') {
             setMenu('quality');
         } else {
             setMenu('speed');
@@ -177,16 +184,16 @@ const usePlayVideo = ({ videoId }) => {
     };
 
     return {
-        videoData, 
-        videoRef, 
-        isPlaying, 
+        videoData,
+        videoRef,
+        isPlaying,
         setIsPlaying,
-        isMuted, 
-        progress, 
-        togglePlay, 
+        isMuted,
+        progress,
+        togglePlay,
         toggleMute,
         enterFullScreen,
-        handleProgressBarClick, 
+        handleProgressBarClick,
         showDropdown,
         dropdownRef,
         toggleDropdown,
@@ -197,8 +204,12 @@ const usePlayVideo = ({ videoId }) => {
         saveDislike,
         saveComment,
         accessToken,
-        comentario, 
-        setComentario
+        comentario,
+        setComentario,
+        likeActive,
+        setLikeActive,
+        dislikeActive,
+        setDislikeActive
     };
 };
 

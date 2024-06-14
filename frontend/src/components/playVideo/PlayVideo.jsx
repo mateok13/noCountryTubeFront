@@ -29,7 +29,11 @@ function PlayVideo({ videoId }) {
         saveComment,
         accessToken,
         comentario,
-        setComentario
+        setComentario,
+        likeActive, 
+        setLikeActive,
+        dislikeActive, 
+        setDislikeActive
     } = usePlayVideo({ videoId });
 
     const navigate = useNavigate();
@@ -37,9 +41,6 @@ function PlayVideo({ videoId }) {
     const handleInputChange = (event) => {
         setComentario(event.target.value);
     };
-
-    const [likeActive, setLikeActive] = useState(false);
-    const [dislikeActive, setDislikeActive] = useState(false);
 
     const handleSaveLike = () => {
         if (accessToken && accessToken !== "null") {
