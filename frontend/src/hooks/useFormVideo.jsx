@@ -12,13 +12,10 @@ const formValues = {
     video: null, // archivo
     duration: '', //***
     isCommentable: true, //***
-    // views: 0,
-    // likes: 0,
-    // dislikes: 0,
     isPublic: true //*** 
 }
 
-const snapshotList = [3, 10, 30] // Toma capturas en el segundo 3, 6, 30
+const snapshotList = [3, 10, 40] // Toma capturas en el segundo 3, 6, 30
 
 const useFormVideo = () => {
     const [formData, setFormData] = useState(formValues)
@@ -30,15 +27,21 @@ const useFormVideo = () => {
     const navigate = useNavigate()
     const token = localStorage.getItem('accessToken')
     const userId = localStorage.getItem('userId')
+    const [isModalMessageOpen, setIsModalMessageOpen] = useState(false);
+
+    const openModalMessage = () => {
+        setIsModalMessageOpen(true);
+    };
+
+    const closeModalMessage = () => {
+        setIsModalMessageOpen(false);
+    };
 
     const validateInputs = () => {
         const newErrors = {};
         if (!formData.title.trim()) {
             newErrors.title = 'El título del video es obligatorio.';
         }
-        // if (!formData.description.trim()) {
-        //     newErrors.description = 'La descripción del video es obligatoria.';
-        // }
         if (!formData.video) {
             newErrors.video = 'Debe seleccionar el archivo de video.';
         }
@@ -76,11 +79,6 @@ const useFormVideo = () => {
             data.append('miniature', formData.miniature); // adjunto la miniatura subida manualmente (archivo)
         }
 
-        // objeto FormData en la consola
-        // for (const pair of data.entries()) {
-        //     console.log(pair[0], pair[1], typeof (pair[1]));
-        // }
-
         setIsLoading(true)
         axios.post(`${environment.url}videos`, data, {
             headers: {
@@ -97,7 +95,7 @@ const useFormVideo = () => {
                 if (videoInputRef.current) {
                     videoInputRef.current.value = null;
                 }
-                alert("Video subido exitosamente");
+                openModalMessage()
             })
             .catch(error => {
                 alert('Hubo un error al subir el video.')
@@ -202,7 +200,9 @@ const useFormVideo = () => {
         handleSelectThumbnail,
         handleCancel,
         generateThumbnails,
-        isLoading
+        isLoading,
+        isModalMessageOpen,
+        closeModalMessage
     }
 }
 

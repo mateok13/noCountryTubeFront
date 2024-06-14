@@ -1,5 +1,7 @@
 import useFormVideo from "../../hooks/useFormVideo";
 import Spinner from 'react-bootstrap/Spinner';
+import Modal from '../modal/Modal.jsx'
+import images from '../../assets/image/image'
 import "./FormVideo.css";
 
 const FormVideo = () => {
@@ -16,7 +18,9 @@ const FormVideo = () => {
     handleSelectThumbnail,
     handleCancel,
     isLoading,
-    generateThumbnails
+    generateThumbnails,
+    isModalMessageOpen,
+    closeModalMessage
   } = useFormVideo();
 
   const spinnerVideo = (
@@ -105,6 +109,19 @@ const FormVideo = () => {
         <button disabled={isLoading} className='buttonNoCountry w-50' type="submit">{isLoading ? spinnerVideo : 'Subir Video'}</button>
         <button className="buttonNoCountry w-50" type="reset" onClick={handleCancel}>Cancelar</button>
       </div>
+
+      <Modal isOpen={isModalMessageOpen} closeModal={closeModalMessage} className='bg-white'>
+        <div className='px-4 py-11'>
+          <div className='d-flex justify-content-start'>
+            <img width={100} src={images.LogoNoCountryTube} alt="" />
+          </div>
+          <hr className='my-2' />
+          <p>Muy bien! Tu video se ha subido exitosamente.</p>
+          <div className='d-flex justify-content-end gap-2'>
+            <button className='buttonNoCountry py-1 text-lowercase text-capitalize' onClick={closeModalMessage}>Aceptar</button>
+          </div>
+        </div>
+      </Modal>
     </form>
   );
 };
