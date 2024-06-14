@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import './Modal.css';
 
 const Modal = ({ children, isOpen, closeModal }) => {
-  console.log('Modal render', { isOpen });
   if (!isOpen) return null;
 
   return (

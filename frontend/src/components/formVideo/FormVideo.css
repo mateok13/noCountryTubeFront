@@ -6,12 +6,19 @@
   cursor: pointer;
 }
 
-.input-border {
-  border: 2px solid #09fca7 !important;
+.form {
+  background-color: #06071B;
+  max-width: 470px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-control {
+  border: 2px solid #09fca7;
 }
 
 .thumbnail-border {
-  box-shadow: 0 0 5px #09fca7;
   width: 130px;
   height: 74px;
   border: 1px solid #09fca7;
@@ -22,6 +29,15 @@
 .thumbnail-border img {
   width: 100%;
 }
+
+.thumbnail-selected {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff;
+  border: 2px solid #fff;
+}
+
+/* .mt-8{
+  margin-bottom: 70px;
+} */
 
 /* INPUT FILE SUBIR MINIATURA */
 .input-file {
@@ -48,7 +64,7 @@
   background-color: #00ca83;
 }
 
-.cloud{
+.cloud {
   position: absolute;
   top: 25px;
   left: 52px;
@@ -57,4 +73,27 @@
 .object-fit {
   object-fit: cover;
   object-position: top;
+}
+
+.ms-15 {
+  margin-left: 17.5px;
+}
+
+.pointer-events-none{
+  pointer-events: none;
+}
+
+@media screen and (max-width: 890px) {
+  /* .responsive {
+    margin: 0 auto;
+  } */
+
+  /* .thumbnail-border,
+  .label-file {
+    width: 120px;
+  } */
+
+  /* .cloud {
+    display: none;
+  } */
 }

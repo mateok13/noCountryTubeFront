@@ -3,11 +3,7 @@
 }
 
 .m-240 {
-    margin-left: 238px;
-}
-
-.m-250 {
-    margin-top: 86px;
+    margin-left: 180px;
 }
 
 .ms-6{
@@ -18,15 +14,23 @@
     margin-right: 12.5px;
 }
 
+.mt-110{
+    margin-top: 110px !important;
+}
+
+.px-10{
+    padding: 0 200px;
+}
+
+.color-spinner{
+    color: #09fca7;
+}
+
 @media screen and (max-width: 720px) {
     .absolute{
         position: inherit;
     }
     .m-240{
         margin-left: 0;
-    }
-
-    .m-250 {
-        margin-top: 202px;
     }
 }

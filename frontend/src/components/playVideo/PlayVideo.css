@@ -1,0 +1,227 @@
+.contenidoPlayVideo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.contenidoPlayVideo i {
+    cursor: pointer;
+}
+
+.playerNoCountry {
+    position: relative;
+    width: 100%;
+}
+
+.videoNoCountry {
+    width: 100%;
+    display: block;
+    height: 70.7vh;
+    background-color: black;
+}
+
+.iconPlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+}
+
+.iconPaused {
+    display: none;
+}
+
+.videoNoCountry:hover+.iconPaused {
+    display: block;
+}
+
+.iconPlay,
+.controlesVideoNoCountry {
+    color: #09fca7;
+}
+
+.controlesVideoNoCountry {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    padding: 5px 15px;
+    background-color: rgba(26, 24, 24, 0.9);
+}
+
+.iconsPlayerNoCountry {
+    display: flex;
+    gap: 20px;
+}
+
+.progressBarContainer {
+    width: 100%;
+    cursor: pointer;
+    background-color: rgba(100, 100, 100, 0.9);
+    border-radius: 10px;
+}
+
+.progressBar {
+    border-radius: 10px;
+    transition: width 1s ease;
+    cursor: pointer;
+}
+
+.footerVideo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tituloPlayVideo {
+    width: 60%;
+    color: white;
+    font-size: 24px;
+}
+
+.infoChannel {
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profileUserVideo{
+    display: flex;
+    font-size: 40px;
+    align-items: center;
+    gap: 15px;
+    width: 25%;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.profileUserVideo:hover{
+    background-color: rgba(100, 100, 100, 0.1);
+    border-radius: 10px;
+}
+
+.infoUser{
+    display: flex;
+    flex-direction: column;
+}
+
+.nameUser{
+    font-size: 14px;
+}
+
+.suscriptoresUser{
+    font-size: 12px;
+    color: gray;
+}
+
+.suscribeButton {
+    padding: 5px 20px !important;
+    font-size: 14px !important;
+}
+
+.iteractionsVideo {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 18px;
+    gap: 20px;
+}
+
+.iconsIteractionsVideo {
+    display: flex;
+    color: #09fca7;
+    gap: 10px;
+}
+
+.iconIteraction:hover{
+    background-color: #09fca7;
+    color: black;
+}
+
+.iconIteraction {
+    background-color: #06071B;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+
+.buttonSaveVideo {
+    background-color: #09fca7;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 20px;
+}
+
+.buttonSaveVideo:hover {
+    background-color: #09fca78a;
+}
+
+.dropdownContentMenuPlayVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #090B2A;
+    border-radius: 10px;
+    width: 230px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-size: 16px;
+    overflow: hidden;
+    transform: translateX(-10px) translateY(-55px);
+}
+
+.buttonMenuPlayVideo {
+    background: none;
+    border: none;
+    padding: 10px;
+    display: block;
+    color: white;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttonMenuPlayVideo:hover {
+    background-color: rgba(29, 144, 252, 0.29);
+}
+
+.optionDefault {
+    background-color: rgba(29, 144, 252, 0.29);
+}
+
+.contenidoComentarios{
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comentariosVideo{
+    display: flex;
+    flex-direction: column;
+}
+
+.textComments{
+    font-size: 14px;
+}
+
+.titleComments{
+    display: flex;
+    gap: 20px;
+}

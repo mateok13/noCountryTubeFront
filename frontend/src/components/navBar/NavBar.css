@@ -1,23 +1,27 @@
-.navbar {
+.navBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 0 30px;
   background-color: #06071b;
-  position: fixed !important;
+  position: fixed;
   width: 100%;
   z-index: 10;
   top: 0;
 }
 
+.navbarLogo {
+  width: 20%;
+}
+
 .navbarLogo img {
-  margin-left: 35px;
-  height: 50px;
+  margin: 0 !important;
+  height: 40px;
 }
 
 .navbarBuscar {
   position: relative;
-  width: 600px;
+  width: 60%;
   padding: 10px;
   border-radius: 10px;
   font-size: 16px;
@@ -30,42 +34,90 @@
   border: 2px solid white;
   border-radius: 10px;
   display: flex;
+  align-items: center;
+}
 
+.buscarInputWrapper i{
+  padding-left: 9.5px;
+  transform: scale(.9);
 }
 
 .navbarBuscar input[type="text"] {
   flex: 1;
-  padding: 10px;
-  border: none;
+  padding: 8px;
   background: transparent;
   color: white;
-  outline: none; 
-} 
+  outline: none;
+  border: none;
+}
+
+.buscarInputWrapper:hover {
+  border: 2px solid #09fca7;
+  border-radius: 10px;
+}
+
+.navbarIngresar {
+  display: flex;
+  justify-content: flex-end;
+  width: 20%;
+}
 
 .lupaWrapper {
   display: flex;
   align-items: center;
 }
+
 .lupa {
-  width: 20px;
+  width: 15px;
   height: auto;
   margin-right: 1px;
   margin-left: 15px;
 }
 
 .ingresarButton {
-  padding: 10px;
-  border: 2px solid #09fca7;
-  border-radius: 5px;
-  background-color: #06071b;
-  color: #fff;
-  width: 95px;
-  cursor: pointer;
-  margin-right: 45px;
+  padding: 8px !important;
 }
 
-.ingresarButton:hover {
-  background-color: #09fca7;
-  color: #000000;
-  font-weight: bold;
+.iconsNavBar {
+  display: flex;
+  gap: 40px;
+  color: white;
+  font-size: 22px;
+}
+
+.dropdown-content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #090B2A;
+  border-radius: 10px;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-size: 16px;
+  overflow: hidden;
+  transform: translateX(-30px);
+}
+
+.buttonProfile {
+  background: none;
+  border: none;
+  padding: 5px;
+  display: block;
+  color: white;
+  width: 100%;
+}
+
+.buttonProfile:hover{
+  background-color: rgba(29, 144, 252, 0.29);
+}
+
+.buttonProfile i{
+  color: #09fca7;
+  padding-right: 10px;
+}
+
+.iconsNavbar:hover,
+.iconActive {
+  color: #09fca7;
 }

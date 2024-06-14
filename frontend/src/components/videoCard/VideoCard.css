@@ -4,8 +4,14 @@
     text-overflow: ellipsis;
 }
 
-.card-width{
-    max-width:320px;
+.card-img{
+    height: 165px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.card-width {
+    max-width: 310px;
     width: 90%;
 }
 
@@ -14,15 +20,29 @@
     box-shadow: 0 0 5px #09fca7;
 } */
 
-.card-border{
+.card-border {
     border: none !important;
 }
 
-.span-duration{
+.span-duration {
     font-size: 13.5px;
-    background-color: #000000a9;
+    background-color: #000000bc !important;
     min-width: 50px;
     box-shadow: 0 0 5px #09fca7;
     border: 1px solid #09fca7;
     text-shadow: 0 0 2px #fff;
+}
+
+.text-green {
+    color: #09fca7 !important;
+    text-shadow: 0 1px 1px #09fca7;
+}
+
+.text-gray {
+    color: #d9d9d9;
+}
+
+.width-p{
+    display: inline-flex;
+    align-self: flex-start;
 }

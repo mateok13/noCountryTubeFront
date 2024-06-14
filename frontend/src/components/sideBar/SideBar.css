@@ -1,40 +1,30 @@
 .estiloSideBar {
   background-color: #06071b;
-  top: 41px;
-  width: 238px;
-  min-height: calc(100vh - 86px); 
+  top: 63.2px;
+  width: 180px;
+  min-height: calc(100vh - 64px); 
   left: 0;
-  padding: 20px; 
+  padding: 20px 30px; 
   color: white;
-  font-size: 18px;
-  margin-bottom: 25px;
-  overflow-y: auto; 
+  font-size: 14px;
   position: fixed;
-  margin-top: 2.5em;
 }
 
 .estiloSideBar h2{
-  margin-bottom: 35px;
-  font-size: 22px;
-  text-align: center;
+  font-size: 18px;
 }
 
 .estiloSideBar ul {
   padding: 0;
   display: flex; 
   flex-direction: column; 
+  gap: 10px;
 }
 
 .estiloSideBar li {
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 25px;
-}
-
-.estiloSideBar li span {
-  /* flex-grow: 1; 
-  margin: 0 10px;  */
-  margin-right: auto;
 }
 
 .estiloSideBar li::before {
@@ -44,35 +34,37 @@
 }
 
 .estiloSideBar .imgChannels {
-  width: 40px;
-  height: 40px;
+  height: 35px;
   border-radius: 50%;
   margin-left: 10px; 
   order: 2;  
 }
 
 .bottomSection {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: calc(100% - 40px); 
-  text-align: center;
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .bottomSection img{
- width: 150px;
+  margin: 0 !important;
+  height: 40px;
 }
 
 .whiteLine {
   border: none;
   border-top: 1px solid white;
-  width: 100%;
+  width: 80%;
 }
 
 .copyrightText {
   color: white;
-  font-size: 14px;
-  margin-top: 10px;
+  font-size: 12px;
 }
 
 @media screen and (max-width:720px) {

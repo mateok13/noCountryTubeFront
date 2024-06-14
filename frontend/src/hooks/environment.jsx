@@ -1,1 +1,1 @@
-export const environment = {url:"url del servidor"}
+export const environment = {url:"http://45.79.213.117:5000/api/v1/"}
