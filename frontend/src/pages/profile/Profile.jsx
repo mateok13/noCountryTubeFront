@@ -1,8 +1,10 @@
+import InfoProfile from '../../components/infoProfile/InfoProfile'
+
 function Profile() {
 
     return (
       <>
-        Profile
+        <InfoProfile/>
       </>
     )
   }

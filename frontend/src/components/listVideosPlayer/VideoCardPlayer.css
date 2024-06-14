@@ -1,0 +1,74 @@
+.contenidoVideoCardPlayer {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 25vh;
+    padding: 20px;
+    display: flex;
+    border-radius: 10px;
+    gap: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.contenidoMiniature {
+    display: flex;
+    width: calc(60% - 5px);
+    gap: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.contenidoMiniature:hover>.durationVideo{
+    color: #09fca7;
+}
+
+.miniatureVideo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.durationVideo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 1px 4px;
+    font-size: 12px;
+    margin-bottom: 4px;
+    margin-right: 12px;
+    color: white;
+}
+
+.infoVideo {
+    width: calc(40% - 5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.titleVideo {
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.userNameVideo {
+    width: 100%;
+    font-size: 12px;
+    color: grey;
+    cursor: pointer;
+}
+
+.userNameVideo:hover, .titleVideo:hover{
+    color: #09fca7;
+}
+
+.timeVideo {
+    width: 100%;
+    font-size: 10px;
+    color: grey;
+}

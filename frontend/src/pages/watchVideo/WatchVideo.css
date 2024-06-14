@@ -1,0 +1,13 @@
+.contenidoWatchVideo{
+    margin: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.playVideo{
+    width: 65%;
+}
+
+.listAllVideosPlayer{
+    width: 25%;
+}

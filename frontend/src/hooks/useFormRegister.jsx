@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { environment } from '../hooks/environment'
+import axios from "axios";
 
 const useFormRegister = (onSuccess) => {
     const [mistakes, setMistakes] = useState({});
@@ -11,6 +12,7 @@ const useFormRegister = (onSuccess) => {
     const regexTextOnly = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+(\s[A-Za-záéíóúÁÉÍÓÚüÜñÑ]+)*$/;
     const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
     const regexUserName = /^[A-Za-z0-9]+$/;
+    const regexPhone = /^\d{10,}$/;
     // const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     const regexFecha = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 
@@ -21,6 +23,12 @@ const useFormRegister = (onSuccess) => {
             mistakes.firstName = 'The first name field must not be empty, enter your first name';
         } else if (!regexTextOnly.test(form.firstName)) {
             mistakes.firstName = 'The first name can only contain letters and spaces (a space between each word)';
+        }
+
+        if (!form.lastName.trim()) {
+            mistakes.lastName = 'The last name field must not be empty, enter your last name';
+        } else if (!regexTextOnly.test(form.lastName)) {
+            mistakes.lastName = 'The last name can only contain letters and spaces (a space between each word)';
         }
 
         if (!form.email.trim()) {
@@ -45,6 +53,12 @@ const useFormRegister = (onSuccess) => {
             mistakes.confirmPassword = 'The confirm password field must not be empty, confirm your password';
         } else if (form.password !== form.confirmPassword) {
             mistakes.confirmPassword = 'The passwords do not match';
+        }
+
+        if (!form.phone.trim()) {
+            mistakes.phone = 'The phone field must not be empty, enter your phone';
+        } else if (!regexPhone.test(form.phone)) {
+            mistakes.phone = 'The phone can only contain numbers (minime 10)';
         }
 
         if (!form.birthDate.trim()) {
@@ -81,24 +95,31 @@ const useFormRegister = (onSuccess) => {
         setMistakes(mistake);
 
         if (Object.keys(mistake).length === 0) {
-            const url = environment.url + 'endpointRegister';
+            const url = environment.url + 'users';
             setSendData(true);
-            fetch(url, {
-                method: "POST",
-                body: JSON.stringify(formData),
+            axios.post(url, {
+                userName: formData.userName,
+                email: formData.email,
+                password: formData.password,
+                lastName: formData.lastName,
+                firstName: formData.firstName,
+                birthday: formData.birthDate,
+                phone: formData.phone,
+                isActive: "true",
+                photo: ""
+            }, {
                 headers: {
-                    "Content-Type": "application/json",
-                },
+                    "Content-Type": "application/json"
+                }
             })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
+                .then((response) => {
+                    console.log(response.data);
                     setSendData(false);
                     if (onSuccess) {
                         onSuccess();
                     }
                 })
-                .catch(error => {
+                .catch((error) => {
                     console.log(error);
                     setSendData(false);
                     alert("No se pudo realizar el registro");

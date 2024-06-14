@@ -1,17 +1,14 @@
 import ListVideos from "../../components/listAllVideos/ListAllVideos";
-import NavBar from "../../components/navBar/NavBar";
-import SideBar from "../../components/sideBar/SideBar";
+import SideBar from '../../components/sideBar/SideBar.jsx';
 
 function Home() {
 
-    return (
-      <>
-        <NavBar />
-        <SideBar />
-        <ListVideos />
-      </>
-    )
-  }
-  
-  export default Home;
-  
+  return (
+    <>
+      <SideBar />
+      <ListVideos />
+    </>
+  )
+}
+
+export default Home;
