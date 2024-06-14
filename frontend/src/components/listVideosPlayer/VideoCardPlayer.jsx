@@ -4,7 +4,7 @@ import './VideoCardPlayer.css'
 import moment from "moment"
 
 function VideoCardPlayer({ item }) {
-    const { id, title, nameUser, miniature, duration, createdAt } = item;
+    const { id, title, nameUser, miniature, duration, createdAt, viewCount } = item;
     
     const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ function VideoCardPlayer({ item }) {
                 <h1 className="titleVideo" onClick={() => navigate(`/watch-video/${id}`)}>{title}</h1>
                 <div>
                     <h1 className="userNameVideo" onClick={() => navigate(`/list-videos/${nameUser}`)}>{nameUser}</h1>
-                    <h1 className="timeVideo">{moment(createdAt).fromNow()}</h1>
+                    <h1 className="timeVideo">{viewCount} views • {moment(createdAt).fromNow()}</h1>
                 </div>
             </div>
         </div>
@@ -32,7 +32,8 @@ VideoCardPlayer.propTypes = {
         title: PropTypes.string.isRequired,
         miniature: PropTypes.string.isRequired,
         duration: PropTypes.string.isRequired,
-        createdAt: PropTypes.string.isRequired
+        createdAt: PropTypes.string.isRequired,
+        viewCount: PropTypes.number.isRequired
     }).isRequired,
 };
 
