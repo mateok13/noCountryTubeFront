@@ -7,7 +7,7 @@ import moment from "moment"
 moment.locale('es');
 
 const VideoCard = ({ item }) => {
-  const { id, title, nameUser, miniature, createdAt, duration } = item;
+  const { id, title, nameUser, miniature, createdAt, duration, viewCount } = item;
   const navigate = useNavigate()
 
   return (
@@ -33,7 +33,7 @@ const VideoCard = ({ item }) => {
         </div>
         <div className="d-flex justify-content-between flex-column">
           <p className="text-gray width-p my-0 text-ellipsis cursor-pointer" onClick={() => navigate(`/list-videos/${nameUser}`)}>{nameUser}</p>
-          <p className="text-gray"><i className="text-green bi bi-eye"></i> 10 Vistas <span className="fw-bold">·</span> {moment(createdAt).fromNow()}</p>
+          <p className="text-gray"><i className="text-green bi bi-eye"></i>{viewCount} view <span className="fw-bold">·</span> {moment(createdAt).fromNow()}</p>
         </div>
       </div>
     </div>
@@ -55,6 +55,7 @@ VideoCard.propTypes = {
     // dislikes: PropTypes.number.isRequired,
     duration: PropTypes.string.isRequired,
     createdAt: PropTypes.string,
+    viewCount: PropTypes.number.isRequired
   }).isRequired,
 };
 
