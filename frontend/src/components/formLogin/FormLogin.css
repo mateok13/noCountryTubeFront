@@ -35,16 +35,6 @@
 }
 
 @media screen and (max-width: 768px) {
-    .formLogin{
-        width: 40vh;
-    }
-
-    .buttonLogin {
-        background-color: #09fca7;
-        color: #000000;
-        font-weight: bold;
-    }
-
     .hyperLink{
         color: #09fca7;
     }

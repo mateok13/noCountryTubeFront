@@ -2,17 +2,17 @@ import PropTypes from "prop-types";
 import "./VideoCard.css";
 import { Dropdown } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-// import axios from "axios";
-// import { environment } from "../../hooks/environment";
+import moment from "moment"
+
+moment.locale('es');
 
 const VideoCard = ({ item }) => {
-  const { id, title, nameUser, miniature, duration } = item;
+  const { id, title, nameUser, miniature, createdAt, duration } = item;
   const navigate = useNavigate()
 
   return (
     <div className="text-white card-width card-border">
       <div className="position-relative cursor-pointer" onClick={() => navigate(`/watch-video/${id}`)}>
-        {/* <video src=""></video> */}
         <img src={miniature} className="card-img-top card-img rounded" alt={`Imagen ${item.title}`} />
         <span className="position-absolute end-0 bottom-0 z-3 text-white text-center rounded-1 px-1 m-2 span-duration">{duration}</span>
       </div>
@@ -33,7 +33,7 @@ const VideoCard = ({ item }) => {
         </div>
         <div className="d-flex justify-content-between flex-column">
           <p className="text-gray width-p my-0 text-ellipsis cursor-pointer" onClick={() => navigate(`/list-videos/${nameUser}`)}>{nameUser}</p>
-          <p className="text-gray"><i className="text-green bi bi-eye"></i> 10 Vistas <span className="fw-bold">·</span> hace 2 horas</p>
+          <p className="text-gray"><i className="text-green bi bi-eye"></i> 10 Vistas <span className="fw-bold">·</span> {moment(createdAt).fromNow()}</p>
         </div>
       </div>
     </div>
@@ -54,6 +54,7 @@ VideoCard.propTypes = {
     // likes: PropTypes.number.isRequired,
     // dislikes: PropTypes.number.isRequired,
     duration: PropTypes.string.isRequired,
+    createdAt: PropTypes.string,
   }).isRequired,
 };
 

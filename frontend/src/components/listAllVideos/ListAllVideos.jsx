@@ -56,7 +56,7 @@ const ListAllVideos = () => {
   }, [isLoading, offset, limit, totalVideos]);
 
   return (
-    <div className="m-240"> {/* se quito absolute*/}
+    <div className="m-240">
       {/* <Link to='/upload-video' className="container mt-5 d-flex justify-content-center align-items-start flex-wrap text-white">Link Formulario de video</Link> */}
       <div className="container mt-110 d-flex justify-content-center align-items-start flex-wrap gap-4 min-vh-100">
         {

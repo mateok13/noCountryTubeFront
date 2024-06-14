@@ -2,14 +2,34 @@ import PropTypes from "prop-types";
 import "./VideoCardByUser.css";
 import { Dropdown } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import useUser from "../../hooks/useUser";
+import moment from "moment"
+
+moment.updateLocale('es', {
+  relativeTime: {
+    future: 'en %s',
+    past: 'hace %s',
+    s: 'unos segundos',
+    ss: '%d segundos',
+    m: 'un minuto',
+    mm: '%d minutos',
+    h: 'una hora',
+    hh: '%d horas',
+    d: 'un día',
+    dd: '%d días',
+    M: 'un mes',
+    MM: '%d meses',
+    y: 'un año',
+    yy: '%d años'
+  }
+});
+moment.locale('es');
 
 const VideoCardByUser = ({ item, deleteVideo, usernameChannel }) => {
-  const { id, title, miniatureUrl, duration } = item;
+  const { id, title, miniatureUrl, createdAt, duration } = item;
   const navigate = useNavigate()
-  const { userName } = useUser();
+  const usernameStorage = localStorage.getItem('userName')
 
-  console.log("username logueado", userName);
+  console.log(moment.locale())
 
   return (
     <div className="card-width-user card-border">
@@ -26,7 +46,7 @@ const VideoCardByUser = ({ item, deleteVideo, usernameChannel }) => {
               <i className="bi bi-three-dots-vertical"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu className='p-0 menu-options' style={{ minWidth: '100px' }}>
-              {usernameChannel == userName ?
+              {usernameChannel == usernameStorage ?
                 <>
                   <Dropdown.Item className='option rounded-top user-select-none'><i className="bi bi-pencil-square me-2 text-primary"></i> Editar</Dropdown.Item>
                   <Dropdown.Item className='option user-select-none' onClick={() => deleteVideo(id)}><i className="bi bi-trash3-fill me-2 text-danger"></i> Eliminar</Dropdown.Item>
@@ -43,7 +63,7 @@ const VideoCardByUser = ({ item, deleteVideo, usernameChannel }) => {
           </Dropdown>
         </div>
         <div className="d-flex justify-content-between">
-          <p className="text-gray"><i className="text-green bi bi-eye"></i> 10 Vistas <span className="fw-bold">·</span> hace 2 horas</p>
+          <p className="text-gray"><i className="text-green bi bi-eye"></i> 10 Vistas <span className="fw-bold">·</span> {moment(createdAt).fromNow()}</p>
         </div>
       </div>
     </div>
@@ -63,6 +83,7 @@ VideoCardByUser.propTypes = {
     // likes: PropTypes.number.isRequired,
     // dislikes: PropTypes.number.isRequired,
     duration: PropTypes.string.isRequired,
+    createdAt: PropTypes.string,
   }).isRequired,
   deleteVideo: PropTypes.func.isRequired,
   usernameChannel: PropTypes.string
