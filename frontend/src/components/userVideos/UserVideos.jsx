@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { environment } from "../../hooks/environment";
 import PropTypes from 'prop-types'
-// import UserVideosExample from './ejemploListadoUserVideos.json'
 import VideoCardByUser from '../videoCardByUser/VideoCardByUser'
 import Modal from '../modal/Modal.jsx'
 import Spinner from 'react-bootstrap/Spinner';
@@ -21,7 +20,6 @@ const UserVideos = ({ usernameChannel }) => {
     const [isModalMessageOpen, setIsModalMessageOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false)
     const token = localStorage.accessToken
-    //{usernameChannel} SI usernameChannel == username (localStorage) ? MOSTRAR DROPDOWN : NO MOSTRARLO
 
     useEffect(() => {
         setIsLoading(true)
@@ -81,7 +79,7 @@ const UserVideos = ({ usernameChannel }) => {
         <div className='container mt-10 text-center text-white'>
             {/* Aqui listar los videos de {username} */}
             <div className='width-info mx-auto d-flex justify-content-center gap-3'>
-                <img className='img-avatar user-select-none' src={Avatar} alt="" />
+                <img className='img-avatar user-select-none' src={usernameChannel == 'Vane' || usernameChannel == 'Vanessa' ? images.avatar2 : Avatar} alt="" />
                 <div className='text-start'>
 
                     <h1 className='shadow-white'>{usernameChannel}</h1>
