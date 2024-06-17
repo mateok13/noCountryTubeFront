@@ -60,6 +60,17 @@ NoCountryTube es una plataforma innovadora para visualizar y subir videos sobre 
   <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/beb38de4-a638-4274-8e38-891f517829a2" width="600" alt="comentario2">
 </p>
 
+## Canales de comunicación 
+
+### Organización del Proyecto 
+
+| Herramienta | Descripción |
+|-------------|-------------|
+| [![Slack](https://img.icons8.com/color/64/000000/slack-new.png)](https://slack.com/) | Slack es una plataforma de comunicación en equipo que permite la colaboración instantánea a través de mensajes, archivos compartidos, canales y llamadas de voz y video. |
+| [![Google Meet](https://img.icons8.com/color/64/000000/google-meet.png)](https://meet.google.com/) | Google Meet es una aplicación de videoconferencia que permite realizar llamadas y reuniones en línea con hasta 250 participantes. Forma parte de Google Workspace e integra otras herramientas de Google como Calendar y Drive. |
+| [![WhatsApp](https://img.icons8.com/color/64/000000/whatsapp.png)](https://www.whatsapp.com/) | Los grupos de WhatsApp son una forma popular de comunicación instantánea entre equipos y grupos de trabajo. Permiten el intercambio rápido y fácil de mensajes de texto, archivos multimedia y enlaces a través de dispositivos móviles. |
+| [![Discord](https://img.icons8.com/color/64/000000/discord-logo.png)](https://discord.com/) | Discord es una plataforma de comunicación de voz, video y texto diseñada para comunidades. Ofrece funciones como canales de chat, canales de voz e integraciones con otras aplicaciones para una colaboración fluida entre equipos. |
+
 ## Tecnologías Utilizadas
 ## Etapa de Diseño
 ### Tecnología UI/UX
@@ -72,6 +83,7 @@ NoCountryTube es una plataforma innovadora para visualizar y subir videos sobre 
 |:---------------------------:|
 | [![Prototipo](https://skillicons.dev/icons?i=figma)](https://www.figma.com/design/eplXNHkWSq6Qm5zkx3b7Y4/Untitled?node-id=0-1&t=Cuv9rLkS9crpG1Dt-0) | Figma es una herramienta de diseño de interfaz de usuario basada en web que permite a los equipos de diseño colaborar en tiempo real. Es ampliamente utilizada para diseñar y prototipar aplicaciones y sitios web. |
 
+## Etapa de Codificación
 ### Control de Versiones (Git y GitHub)
 
 | Tecnología | Descripción |
@@ -103,6 +115,8 @@ NoCountryTube es una plataforma innovadora para visualizar y subir videos sobre 
 |------------|-------------|
 | [Azure DevOps](https://azure.microsoft.com/services/devops/) | Azure DevOps es un conjunto de herramientas de desarrollo colaborativo que incluye repositorios Git, pipelines de CI/CD, gestión ágil de proyectos y pruebas automatizadas. Es utilizado para planificar, desarrollar, probar y desplegar aplicaciones con facilidad y eficiencia en la nube de Microsoft Azure. |
 
+
+## Etapa de Deploy
 ## Despliegue:
 
 ### Frontend:
@@ -125,12 +139,26 @@ Para asegurar la calidad del proyecto, hemos implementado pruebas de testeo util
 
 Nuestro modelo de negocio se basa en anuncios (ADS), permitiendo a los usuarios acceder a todo el contenido de manera gratuita mientras generamos ingresos a través de publicidad.
 
-## Instalación y Configuración
+## Acceso al sitio web 
 
-Sigue estos pasos para configurar el proyecto localmente:
+https://www.nocountrytube.site/ 
 
-### Frontend
+<h2 align="left">Equipo de Trabajo</h2>
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/nocountrytube-frontend.git
+| Integrante | Cargo | LinkedIn | GitHub | Rol |
+|:----------:|:-----:|:--------:|:------:|:---:|
+| ![Natividad Romero](https://github.com/No-Country/c18-17-n-node-react/assets/125521341/30a55896-3dcf-412c-86fa-71ac659b4ade) | Diseñadora UX/UI | [![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/natyromero/) | [![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/natyrom89) | UX/UI |
+| ![Mateo Rosero](https://github.com/No-Country/c18-17-n-node-react/assets/125521341/c262b19d-5825-41ee-bc22-0b4547343039) | Desarrollador Frontend | [![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/mateok13) | [![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/mateok13) | Frontend |
+| ![Nicolas Huanca](https://github.com/No-Country/c18-17-n-node-react/assets/125521341/4f504c8f-7207-408a-8781-b097e2414fab) | Desarrollador Frontend | [![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/nicolas-huanca/) | [![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/nicolas2289h) | Frontend |
+| ![Vanessa Sánchez](https://github.com/No-Country/c18-17-n-node-react/assets/125521341/8e290eea-5f6f-4e26-a710-f50a518b497f) | Desarrolladora Frontend | [![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/dev-vanessan/) | [![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/vanessann-dev) | Frontend |
+| ![Joel Bolívar](https://github.com/No-Country/c18-17-n-node-react/assets/125521341/277f18b1-a1f2-43ef-b229-13693bdd47de) | Desarrollador Backend | [![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/joel-jos%C3%A9-bol%C3%ADvar-guti%C3%A9rrez-395806127) | [![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/joeljosebg) | Backend |
+| ![Duban Andres Velez Machado](https://github.com/No-Country/c18-17-n-node-react/assets/125521341/201418d8-fb6b-45e3-87b0-534048cd4c99) | Desarrollador Backend | [![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/dub%C3%A1n-andr%C3%A9s-v%C3%A9lez-machado-671a921ab/) | [![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/dubancho09) | Backend |
+| ![Derwyn Andres Herrera Garcia](https://github.com/No-Country/c18-17-n-node-react/assets/125521341/877b9f53-76a9-4d0d-a682-657fae6ff9f0) | Desarrollador Fullstack | [![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/hderwyn/) | [![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/HDerwyn) | Fullstack |
+| ![Valeria Burgos](https://github.com/No-Country/c18-17-n-node-react/assets/125521341/792cd01d-cd60-431b-af31-3cf65c0a859c) | QA | [![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/valeriaburgos) | [![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/valitab) | QA |
+
+## Agradecimiento 
+<p>Agradecemos a NoCountry por esta oportunidad</p>
+<p align="center">
+  <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/010a0cae-22cd-4124-a92c-7ace6630278c">
+</p>
+
