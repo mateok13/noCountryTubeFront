@@ -144,35 +144,47 @@ Nuestro modelo de negocio se basa en anuncios (ADS), permitiendo a los usuarios 
 
 ### Diseño UX / UI
 
-| Integrante | Cargo                | LinkedIn                                               | GitHub                                        | Rol   |
-|:----------:|----------------------|--------------------------------------------------------|-----------------------------------------------|-------|
-| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/30a55896-3dcf-412c-86fa-71ac659b4ade" width="200px" alt="Natividad Romero"/> <br/> **<center>Natividad Romero</center>** | Diseñadora UX/UI      | <a href="https://www.linkedin.com/in/natyromero/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/natyrom89"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> | UX/UI |
+<div align="center">
+
+| Integrante | Rol                  | LinkedIn                                               | GitHub                                        |
+|:----------:|----------------------|:------------------------------------------------------:|:---------------------------------------------:|
+| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/30a55896-3dcf-412c-86fa-71ac659b4ade" width="200px" alt="Natividad Romero"/> <br/> **<center>Natividad Romero</center>** | Diseñadora UX/UI      | <a href="https://www.linkedin.com/in/natyromero/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/natyrom89"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> |
+
+</div>
 
 ### Front End
 
-| Integrante | Cargo                       | LinkedIn                                               | GitHub                                   | Rol       |
-|:----------:|-----------------------------|--------------------------------------------------------|------------------------------------------|-----------|
-| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/c262b19d-5825-41ee-bc22-0b4547343039" width="200px" alt="Mateo Rosero"/> <br/> **<center>Mateo Rosero</center>** | Desarrollador Frontend      | <a href="https://www.linkedin.com/in/mateok13/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/mateok13"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> | Frontend |
-| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/4f504c8f-7207-408a-8781-b097e2414fab" width="200px" alt="Nicolas Huanca"/> <br/> **<center>Nicolas Huanca</center>** | Desarrollador Frontend      | <a href="https://www.linkedin.com/in/nicolas-huanca/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/nicolas2289h"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> | Frontend |
-| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/8e290eea-5f6f-4e26-a710-f50a518b497f" width="200px" alt="Vanessa Sánchez"/> <br/> **<center>Vanessa Sánchez</center>** | Desarrolladora Frontend     | <a href="https://www.linkedin.com/in/dev-vanessan/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/vanessann-dev"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> | Frontend |
+<div align="center">
+
+| Integrante | Rol                       | LinkedIn                                               | GitHub                                   |
+|:----------:|---------------------------|:------------------------------------------------------:|:----------------------------------------:|
+| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/c262b19d-5825-41ee-bc22-0b4547343039" width="200px" alt="Mateo Rosero"/> <br/> **<center>Mateo Rosero</center>** | Desarrollador Frontend      | <a href="https://www.linkedin.com/in/mateok13/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/mateok13"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> |
+| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/4f504c8f-7207-408a-8781-b097e2414fab" width="200px" alt="Nicolas Huanca"/> <br/> **<center>Nicolas Huanca</center>** | Desarrollador Frontend      | <a href="https://www.linkedin.com/in/nicolas-huanca/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/nicolas2289h"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> |
+| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/8e290eea-5f6f-4e26-a710-f50a518b497f" width="200px" alt="Vanessa Sánchez"/> <br/> **<center>Vanessa Sánchez</center>** | Desarrolladora Frontend     | <a href="https://www.linkedin.com/in/dev-vanessan/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/vanessann-dev"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> |
+
+</div>
 
 ### Back End
 
-| Integrante | Cargo                       | LinkedIn                                               | GitHub                                    | Rol      |
-|:----------:|-----------------------------|--------------------------------------------------------|-------------------------------------------|----------|
-| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/277f18b1-a1f2-43ef-b229-13693bdd47de" width="200px" alt="Joel Bolívar"/> <br/> **<center>Joel Bolívar</center>** | Desarrollador Backend       | <a href="https://www.linkedin.com/in/joel-jos%C3%A9-bol%C3%ADvar-guti%C3%A9rrez-395806127/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/joeljosebg"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> | Backend |
-| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/201418d8-fb6b-45e3-87b0-534048cd4c99" width="200px" alt="Duban Velez"/> <br/> **<center>Duban Velez</center>** | Desarrollador Backend       | <a href="https://www.linkedin.com/in/dub%C3%A1n-andr%C3%A9s-v%C3%A9lez-machado-671a921ab/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/dubancho09"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> | Backend |
-| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/877b9f53-76a9-4d0d-a682-657fae6ff9f0" width="200px" alt="Derwyn Herrera"/> <br/> **<center>Derwyn Herrera</center>** | Desarrollador Fullstack     | <a href="https://www.linkedin.com/in/hderwyn/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/HDerwyn"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> | Fullstack |
+<div align="center">
+
+| Integrante | Rol                       | LinkedIn                                               | GitHub                                    |
+|:----------:|---------------------------|:------------------------------------------------------:|:-----------------------------------------:|
+| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/277f18b1-a1f2-43ef-b229-13693bdd47de" width="200px" alt="Joel Bolívar"/> <br/> **<center>Joel Bolívar</center>** | Desarrollador Backend       | <a href="https://www.linkedin.com/in/joel-jos%C3%A9-bol%C3%ADvar-guti%C3%A9rrez-395806127/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/joeljosebg"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> |
+| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/201418d8-fb6b-45e3-87b0-534048cd4c99" width="200px" alt="Duban Velez"/> <br/> **<center>Duban Velez</center>** | Desarrollador Backend       | <a href="https://www.linkedin.com/in/dub%C3%A1n-andr%C3%A9s-v%C3%A9lez-machado-671a921ab/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/dubancho09"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> |
+| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/877b9f53-76a9-4d0d-a682-657fae6ff9f0" width="200px" alt="Derwyn Herrera"/> <br/> **<center>Derwyn Herrera</center>** | Desarrollador Fullstack     | <a href="https://www.linkedin.com/in/hderwyn/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/HDerwyn"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> |
+
+</div>
 
 ### QA y Testing
 
-| Integrante | Cargo   | LinkedIn                                               | GitHub                                   | Rol |
-|:----------:|---------|--------------------------------------------------------|------------------------------------------|-----|
-| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/792cd01d-cd60-431b-af31-3cf65c0a859c" width="200px" alt="Valeria Burgos"/> <br/> **<center>Valeria Burgos</center>** | QA      | <a href="https://www.linkedin.com/in/valeriaburgos/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/valitab"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> | QA  |
+<div align="center">
 
+| Integrante | Rol     | LinkedIn                                               | GitHub                                   |
+|:----------:|---------|:------------------------------------------------------:|:----------------------------------------:|
+| <img src="https://github.com/No-Country/c18-17-n-node-react/assets/125521341/792cd01d-cd60-431b-af31-3cf65c0a859c" width="200px" alt="Valeria Burgos"/> <br/> **<center>Valeria Burgos</center>** | QA      | <a href="https://www.linkedin.com/in/valeriaburgos/"><img src="https://skillicons.dev/icons?i=linkedin" width="25px"/></a> | <a href="https://github.com/valitab"><img src="https://skillicons.dev/icons?i=github" width="25px"/></a> |
 
-
-
+</div>
 
 ## Acceso al sitio web NoCountryTube
 
